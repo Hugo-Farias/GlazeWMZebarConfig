@@ -137,9 +137,9 @@ workspaces:
     bind_to_monitor: 0
   - name: '12'
     bind_to_monitor: 0
-  - name: '99'
-    display_name: 'Terminal'
-    bind_to_monitor: 1
+#  - name: '99'
+#    display_name: 'Terminal'
+#    bind_to_monitor: 1
 
 window_rules:
   - commands: [ 'set-floating' ]
@@ -343,8 +343,8 @@ keybindings:
     bindings: [ 'f21+-' ]
   - commands: [ 'focus --workspace 12' ]
     bindings: [ 'f21+=' ]
-#  - commands: [ 'focus --workspace 99' ]
-#    bindings: [ 'f21+t' ]
+  #  - commands: [ 'focus --workspace 99' ]
+  #    bindings: [ 'f21+t' ]
   #  - commands: [ 'focus --workspace 99', 'shell-exec wt' ]
   #    bindings: [ 'Lwin+`' ]
 
@@ -384,8 +384,8 @@ keybindings:
     bindings: [ 'f21+f22+-' ]
   - commands: [ 'move --workspace 12', 'focus --workspace 12' ]
     bindings: [ 'f21+f22+=' ]
-#  - commands: [ 'move --workspace 99', 'focus --workspace 99' ]
-#    bindings: [ 'f21+f22+t' ]
+  #  - commands: [ 'move --workspace 99', 'focus --workspace 99' ]
+  #    bindings: [ 'f21+f22+t' ]
 
   # Open Microsoft Edge.
   - commands: [ 'shell-exec C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe' ]
