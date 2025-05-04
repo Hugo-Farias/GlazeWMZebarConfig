@@ -150,12 +150,12 @@
 
         <div className="center">
           {output.date?.formatted}
-          {(output.media && output.date) ? <div className="separator"></div> : ''}
-          {output.media && (
+          {((output.media && output.media.currentSession) && output.date) ? <div className="separator"></div> : ''}
+          {(output.media && output.media.currentSession) ? (
             <div className="media">
               {`${output.media?.currentSession?.artist} - ${output.media?.currentSession?.title}`}
             </div>
-          )}
+          ) : ''}
         </div>
 
         <div className="right">
