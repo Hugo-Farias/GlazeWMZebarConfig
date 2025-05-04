@@ -289,7 +289,7 @@ keybindings:
 
   # Kill GlazeWM process safely.
   - commands: [ 'wm-exit' ]
-    bindings: [ 'f21+f22+back' ]
+    bindings: [ 'f21+f22+delete' ]
 
   # Re-evaluate configuration file.
   - commands: [ 'wm-reload-config' ]
