@@ -150,6 +150,7 @@ window_rules:
       - window_title: { equals: 'Unsaved Changes' }
       - window_title: { equals: 'Qt5152QWindowIcon' }
       - window_class: { equals: 'WinUIDesktopWin32WindowClass' }
+      - window_process: { equals: 'Everything64' }
 
   - commands: ["move --workspace 1"]
     match:
