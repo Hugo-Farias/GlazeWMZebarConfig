@@ -37,6 +37,12 @@ body,
   padding: 4px 1.5vw;
 }
 
+.separator {
+  width: 1px;
+  height: 50vh;
+  background: rgb(255 255 255 / 100%);
+}
+
 .left,
 .center,
 .right {
@@ -45,6 +51,7 @@ body,
 }
 
 .center {
+  gap: 15px;
   position: absolute;
   left: 50%;
   translate: -50% 0;
@@ -53,7 +60,6 @@ body,
 }
 
 .right {
-  display: flex;
   /*align-items: center;*/
   justify-content: space-between;
   gap: 20px;
@@ -130,4 +136,12 @@ body,
   font-size: 7px;
   left: -8px;
   top: 3px;
+}
+
+.media {
+  display: inline-block;
+  /*padding: 4px 8px;*/
+  /*border-radius: 4px;*/
+  /*background: rgb(84, 66, 220);*/
+  /*margin-right: 4px;*/
 }
