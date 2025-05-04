@@ -52,19 +52,26 @@ body,
   /*justify-self: center;*/
 }
 
+.right {
+  display: flex;
+  /*align-items: center;*/
+  justify-content: space-between;
+  gap: 20px;
+}
+
 /*.right {*/
 /*  justify-self: end;*/
 /*}*/
 
-.logo,
-.binding-mode,
-.tiling-direction,
-.network,
-.memory,
-.cpu,
-.battery {
-  /*margin-right: 20px;*/
-}
+/*.logo,*/
+/*.binding-mode,*/
+/*.tiling-direction,*/
+/*.network,*/
+/*.memory,*/
+/*.cpu,*/
+/*.battery {*/
+/*margin-right: 20px;*/
+/*}*/
 
 .workspaces {
   display: flex;
