@@ -2,14 +2,14 @@ general:
   # Commands to run when the WM has started. This is useful for running a
   # script or launching another application.
   # Example: The below command launches Zebar.
-  startup_commands: ['shell-exec zebar']
+  startup_commands: [ 'shell-exec zebar' ]
 
   # Commands to run just before the WM is shutdown.
   # Example: The below command kills Zebar.
-  shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F']
+  shutdown_commands: [ 'shell-exec taskkill /IM zebar.exe /F' ]
 
   # Commands to run after the WM config is reloaded.
-  config_reload_commands: ['shell-exec C:\Program Files\glzr.io\Zebar\zebar.exe --reload']
+  config_reload_commands: [ 'shell-exec C:\Program Files\glzr.io\Zebar\zebar.exe --reload' ]
 
   # Whether to automatically focus windows underneath the cursor.
   focus_follows_cursor: false
@@ -44,12 +44,12 @@ gaps:
   scale_with_dpi: false
 
   # Gap between adjacent windows.
-#  inner_gap: '-60px'
+  #  inner_gap: '-60px'
   inner_gap: '2px'
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: '34px'
+    top: '1px'
     right: '2px'
     bottom: '2px'
     left: '2px'
@@ -113,7 +113,7 @@ window_behavior:
 workspaces:
   - name: '1'
     bind_to_monitor: 1
-#    keep_alive: true
+  #    keep_alive: true
   - name: '2'
     bind_to_monitor: 1
   - name: '3'
@@ -132,7 +132,7 @@ workspaces:
     bind_to_monitor: 1
   - name: '10'
     bind_to_monitor: 0
-#    keep_alive: true
+  #    keep_alive: true
   - name: '11'
     bind_to_monitor: 0
   - name: '12'
@@ -152,24 +152,24 @@ window_rules:
       - window_class: { equals: 'WinUIDesktopWin32WindowClass' }
       - window_process: { equals: 'Everything64' }
 
-  - commands: ["move --workspace 1"]
+  - commands: [ "move --workspace 1" ]
     match:
       - window_process: { equals: "msedge" }
 
-  - commands: ["move --workspace 2"]
+  - commands: [ "move --workspace 2" ]
     match:
       - window_process: { equals: "webstorm64" }
 
-  - commands: ["move --workspace 10"]
+  - commands: [ "move --workspace 10" ]
     match:
       - window_process: { equals: "vivaldi" }
         window_title: { equals: 'https://www.youtube.com/tv - YouTube on TV' }
 
-  - commands: ["move --workspace 11"]
+  - commands: [ "move --workspace 11" ]
     match:
       - window_process: { equals: "Spotify" }
 
-  - commands: ['ignore']
+  - commands: [ 'ignore' ]
     match:
       # Ignores any Zebar windows.
       - window_process: { equals: 'zebar' }
@@ -180,16 +180,16 @@ window_rules:
 
       # Ignore rules for various 3rd-party apps.
       # Windows Terminal in quake mode.
-      - window_class: { equals: 'CASCADIA_HOSTING_WINDOW_CLASS'}
+      - window_class: { equals: 'CASCADIA_HOSTING_WINDOW_CLASS' }
         window_title: { equals: 'PowerShell 7.4.7 [ADMIN]' }
 
-#      - window_class: {regex: '.*Dialog.*'}
-#      - window_title: { equals: 'Window Spy for AHKv2' }
-#      - window_title: { equals: 'Album Art Downloader' }
-#      - window_title: { equals: 'Unsaved Changes' }
-#      - window_title: { equals: 'Qt5152QWindowIcon' }
-#      - window_class: { equals: 'WinUIDesktopWin32WindowClass' }
-      
+      #      - window_class: {regex: '.*Dialog.*'}
+      #      - window_title: { equals: 'Window Spy for AHKv2' }
+      #      - window_title: { equals: 'Album Art Downloader' }
+      #      - window_title: { equals: 'Unsaved Changes' }
+      #      - window_title: { equals: 'Qt5152QWindowIcon' }
+      #      - window_class: { equals: 'WinUIDesktopWin32WindowClass' }
+
       - window_process: { equals: 'PowerToys' }
         window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
       - window_process: { equals: 'motionRightPowerToys' }
@@ -201,192 +201,195 @@ binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
   - name: 'resize'
     keybindings:
-      - commands: ['resize --width -2%']
-        bindings: ['h', 'left']
-      - commands: ['resize --width +2%']
-        bindings: ['l', 'right']
-      - commands: ['resize --height +2%']
-        bindings: ['k', 'up']
-      - commands: ['resize --height -2%']
-        bindings: ['j', 'down']
+      - commands: [ 'resize --width -2%' ]
+        bindings: [ 'h', 'left' ]
+      - commands: [ 'resize --width +2%' ]
+        bindings: [ 'l', 'right' ]
+      - commands: [ 'resize --height +2%' ]
+        bindings: [ 'k', 'up' ]
+      - commands: [ 'resize --height -2%' ]
+        bindings: [ 'j', 'down' ]
       # Press enter/escape to return to default keybindings.
 #      - commands: ['wm-disable-binding-mode --name resize']
 #        bindings: ['escape', 'enter', 'f21+r']
 
 keybindings:
   # Shift focus in a given direction.
-  - commands: ['focus --direction left']
-    bindings: ['f21+h', 'f21+left']
-  - commands: ['focus --direction right']
-    bindings: ['f21+l', 'f21+right']
-  - commands: ['focus --direction up']
-    bindings: ['f21+k', 'f21+up']
-  - commands: ['focus --direction down']
-    bindings: ['f21+j', 'f21+down']
+  - commands: [ 'focus --direction left' ]
+    bindings: [ 'f21+h', 'f21+left' ]
+  - commands: [ 'focus --direction right' ]
+    bindings: [ 'f21+l', 'f21+right' ]
+  - commands: [ 'focus --direction up' ]
+    bindings: [ 'f21+k', 'f21+up' ]
+  - commands: [ 'focus --direction down' ]
+    bindings: [ 'f21+j', 'f21+down' ]
 
   # Move focused window in a given direction.
-  - commands: ['move --direction left']
-    bindings: ['f21+f22+h', 'f21+f22+left']
-  - commands: ['move --direction right']
-    bindings: ['f21+f22+l', 'f21+f22+right']
-  - commands: ['move --direction up']
-    bindings: ['f21+f22+k', 'f21+f22+up']
-  - commands: ['move --direction down']
-    bindings: ['f21+f22+j', 'f21+f22+down']
+  - commands: [ 'move --direction left' ]
+    bindings: [ 'f21+f22+h', 'f21+f22+left' ]
+  - commands: [ 'move --direction right' ]
+    bindings: [ 'f21+f22+l', 'f21+f22+right' ]
+  - commands: [ 'move --direction up' ]
+    bindings: [ 'f21+f22+k', 'f21+f22+up' ]
+  - commands: [ 'move --direction down' ]
+    bindings: [ 'f21+f22+j', 'f21+f22+down' ]
 
   # Resize focused window by a percentage or pixel amount.
-  - commands: ['resize --width -2%']
-    bindings: ['f21+y']
-  - commands: ['resize --width +2%']
-    bindings: ['f21+o']
-  - commands: ['resize --height +2%']
-    bindings: ['f21+u']
-  - commands: ['resize --height -2%']
-    bindings: ['f21+i']
+  - commands: [ 'resize --width -2%' ]
+    bindings: [ 'f21+y' ]
+  - commands: [ 'resize --width +2%' ]
+    bindings: [ 'f21+o' ]
+  - commands: [ 'resize --height +2%' ]
+    bindings: [ 'f21+u' ]
+  - commands: [ 'resize --height -2%' ]
+    bindings: [ 'f21+i' ]
 
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
   # the name 'resize'.
-#  - commands: ['wm-enable-binding-mode --name resize']
-#    bindings: ['f21+r']
+  #  - commands: ['wm-enable-binding-mode --name resize']
+  #    bindings: ['f21+r']
 
   # Disables window management and all other keybindings until alt+f22+p
   # is pressed again.
-  - commands: ['wm-toggle-pause']
-    bindings: ['f21+f22+p']
+  - commands: [ 'wm-toggle-pause' ]
+    bindings: [ 'f21+f22+p' ]
 
   # Change tiling direction. This determines where new tiling windows will
   # be inserted.
-  - commands: ['toggle-tiling-direction']
-    bindings: ['f21+v']
+  - commands: [ 'toggle-tiling-direction' ]
+    bindings: [ 'f21+v' ]
 
   # Change focus from tiling windows -> floating -> fullscreen.
-  - commands: ['wm-cycle-focus']
-    bindings: ['f21+e']
+  - commands: [ 'wm-cycle-focus' ]
+    bindings: [ 'f21+e' ]
 
   # Change the focused window to be floating.
-  - commands: ['toggle-floating --centered']
-    bindings: ['f21+f22+space']
+  - commands: [ 'toggle-floating' ]
+    bindings: [ 'f21+f22+space' ]
+
+  - commands: [ 'toggle-tiling' ]
+    bindings: [ 'f21+f22+t' ]
 
   # Change the focused window to be tiling.
-#  - commands: ['shell-exexc wt.exe']
-#    bindings: ['f21+t']
+  #  - commands: ['shell-exexc wt.exe']
+  #    bindings: ['f21+t']
 
   # Change the focused window to be fullscreen.
-  - commands: ['toggle-fullscreen']
-    bindings: ['f21+f']
+  - commands: [ 'toggle-fullscreen' ]
+    bindings: [ 'f21+f' ]
 
   # Minimize focused window.
-  - commands: ['toggle-minimized']
-    bindings: ['f21+m']
+  - commands: [ 'toggle-minimized' ]
+    bindings: [ 'f21+m' ]
 
   # Close focused window.
-  - commands: ['close']
-    bindings: ['f21+f22+q']
+  - commands: [ 'close' ]
+    bindings: [ 'f21+f22+q' ]
 
   # Kill GlazeWM process safely.
-  - commands: ['wm-exit']
-    bindings: ['f21+f22+back']
+  - commands: [ 'wm-exit' ]
+    bindings: [ 'f21+f22+back' ]
 
   # Re-evaluate configuration file.
-  - commands: ['wm-reload-config']
-    bindings: ['f21+f22+r']
+  - commands: [ 'wm-reload-config' ]
+    bindings: [ 'f21+f22+r' ]
 
-  - commands: ['wm-reload-config', 'shell-exec --hide-window powershell -command "taskkill /IM zebar.exe /F; zebar"']
-    bindings: ['f21+f22+z']
+  - commands: [ 'wm-reload-config', 'shell-exec --hide-window powershell -command "taskkill /IM zebar.exe /F; zebar"' ]
+    bindings: [ 'f21+f22+z' ]
 
   # Redraw all windows.
-  - commands: ['wm-redraw']
-    bindings: ['f21+f22+w']
+  - commands: [ 'wm-redraw' ]
+    bindings: [ 'f21+f22+w' ]
 
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  - commands: ['shell-exec pwsh']
-    bindings: ['f21+enter']
+  - commands: [ 'shell-exec pwsh' ]
+    bindings: [ 'f21+enter' ]
 
   # Focus the next/previous active workspace defined in `workspaces` config.
-  - commands: ['focus --next-active-workspace']
-    bindings: ['f21+s']
-  - commands: ['focus --prev-active-workspace']
-    bindings: ['f21+a']
+  - commands: [ 'focus --next-active-workspace' ]
+    bindings: [ 'f21+s' ]
+  - commands: [ 'focus --prev-active-workspace' ]
+    bindings: [ 'f21+a' ]
 
   # Focus the workspace that last had focus.
-  - commands: ['focus --recent-workspace']
-    bindings: ['f21+d']
+  - commands: [ 'focus --recent-workspace' ]
+    bindings: [ 'f21+d' ]
 
   # Change focus to a workspace defined in `workspaces` config.
-  - commands: ['focus --workspace 1']
-    bindings: ['f21+1']
-  - commands: ['focus --workspace 2']
-    bindings: ['f21+2']
-  - commands: ['focus --workspace 3']
-    bindings: ['f21+3']
-  - commands: ['focus --workspace 4']
-    bindings: ['f21+4']
-  - commands: ['focus --workspace 5']
-    bindings: ['f21+5']
-  - commands: ['focus --workspace 6']
-    bindings: ['f21+6']
-  - commands: ['focus --workspace 7']
-    bindings: ['f21+7']
-  - commands: ['focus --workspace 8']
-    bindings: ['f21+8']
-  - commands: ['focus --workspace 9']
-    bindings: ['f21+9']
-  - commands: ['focus --workspace 10']
-    bindings: ['f21+0']
-  - commands: ['focus --workspace 11']
-    bindings: ['f21+-']
-  - commands: ['focus --workspace 12']
-    bindings: ['f21+=']
-  - commands: [ 'focus --workspace 99' ]
-    bindings: [ 'f21+t' ]
-#  - commands: [ 'focus --workspace 99', 'shell-exec wt' ]
-#    bindings: [ 'Lwin+`' ]
+  - commands: [ 'focus --workspace 1' ]
+    bindings: [ 'f21+1' ]
+  - commands: [ 'focus --workspace 2' ]
+    bindings: [ 'f21+2' ]
+  - commands: [ 'focus --workspace 3' ]
+    bindings: [ 'f21+3' ]
+  - commands: [ 'focus --workspace 4' ]
+    bindings: [ 'f21+4' ]
+  - commands: [ 'focus --workspace 5' ]
+    bindings: [ 'f21+5' ]
+  - commands: [ 'focus --workspace 6' ]
+    bindings: [ 'f21+6' ]
+  - commands: [ 'focus --workspace 7' ]
+    bindings: [ 'f21+7' ]
+  - commands: [ 'focus --workspace 8' ]
+    bindings: [ 'f21+8' ]
+  - commands: [ 'focus --workspace 9' ]
+    bindings: [ 'f21+9' ]
+  - commands: [ 'focus --workspace 10' ]
+    bindings: [ 'f21+0' ]
+  - commands: [ 'focus --workspace 11' ]
+    bindings: [ 'f21+-' ]
+  - commands: [ 'focus --workspace 12' ]
+    bindings: [ 'f21+=' ]
+#  - commands: [ 'focus --workspace 99' ]
+#    bindings: [ 'f21+t' ]
+  #  - commands: [ 'focus --workspace 99', 'shell-exec wt' ]
+  #    bindings: [ 'Lwin+`' ]
 
   # Move the focused window's parent workspace to a monitor in a given
   # direction.
-  - commands: ['move-workspace --direction left']
-    bindings: ['f21+f22+a']
-  - commands: ['move-workspace --direction right']
-    bindings: ['f21+f22+f']
-  - commands: ['move-workspace --direction up']
-    bindings: ['f21+f22+d']
-  - commands: ['move-workspace --direction down']
-    bindings: ['f21+f22+s']
+  - commands: [ 'move-workspace --direction left' ]
+    bindings: [ 'f21+f22+a' ]
+  - commands: [ 'move-workspace --direction right' ]
+    bindings: [ 'f21+f22+f' ]
+  - commands: [ 'move-workspace --direction up' ]
+    bindings: [ 'f21+f22+d' ]
+  - commands: [ 'move-workspace --direction down' ]
+    bindings: [ 'f21+f22+s' ]
 
   # Move focused window to a workspace defined in `workspaces` config.
-  - commands: ['move --workspace 1', 'focus --workspace 1']
-    bindings: ['f21+f22+1']
-  - commands: ['move --workspace 2', 'focus --workspace 2']
-    bindings: ['f21+f22+2']
-  - commands: ['move --workspace 3', 'focus --workspace 3']
-    bindings: ['f21+f22+3']
-  - commands: ['move --workspace 4', 'focus --workspace 4']
-    bindings: ['f21+f22+4']
-  - commands: ['move --workspace 5', 'focus --workspace 5']
-    bindings: ['f21+f22+5']
-  - commands: ['move --workspace 6', 'focus --workspace 6']
-    bindings: ['f21+f22+6']
-  - commands: ['move --workspace 7', 'focus --workspace 7']
-    bindings: ['f21+f22+7']
-  - commands: ['move --workspace 8', 'focus --workspace 8']
-    bindings: ['f21+f22+8']
-  - commands: ['move --workspace 9', 'focus --workspace 9']
-    bindings: ['f21+f22+9']
-  - commands: ['move --workspace 10', 'focus --workspace 10']
-    bindings: ['f21+f22+0']
-  - commands: ['move --workspace 11', 'focus --workspace 11']
-    bindings: ['f21+f22+-']
-  - commands: ['move --workspace 12', 'focus --workspace 12']
-    bindings: ['f21+f22+=']
-  - commands: ['move --workspace 99', 'focus --workspace 99']
-    bindings: ['f21+f22+t']
+  - commands: [ 'move --workspace 1', 'focus --workspace 1' ]
+    bindings: [ 'f21+f22+1' ]
+  - commands: [ 'move --workspace 2', 'focus --workspace 2' ]
+    bindings: [ 'f21+f22+2' ]
+  - commands: [ 'move --workspace 3', 'focus --workspace 3' ]
+    bindings: [ 'f21+f22+3' ]
+  - commands: [ 'move --workspace 4', 'focus --workspace 4' ]
+    bindings: [ 'f21+f22+4' ]
+  - commands: [ 'move --workspace 5', 'focus --workspace 5' ]
+    bindings: [ 'f21+f22+5' ]
+  - commands: [ 'move --workspace 6', 'focus --workspace 6' ]
+    bindings: [ 'f21+f22+6' ]
+  - commands: [ 'move --workspace 7', 'focus --workspace 7' ]
+    bindings: [ 'f21+f22+7' ]
+  - commands: [ 'move --workspace 8', 'focus --workspace 8' ]
+    bindings: [ 'f21+f22+8' ]
+  - commands: [ 'move --workspace 9', 'focus --workspace 9' ]
+    bindings: [ 'f21+f22+9' ]
+  - commands: [ 'move --workspace 10', 'focus --workspace 10' ]
+    bindings: [ 'f21+f22+0' ]
+  - commands: [ 'move --workspace 11', 'focus --workspace 11' ]
+    bindings: [ 'f21+f22+-' ]
+  - commands: [ 'move --workspace 12', 'focus --workspace 12' ]
+    bindings: [ 'f21+f22+=' ]
+#  - commands: [ 'move --workspace 99', 'focus --workspace 99' ]
+#    bindings: [ 'f21+f22+t' ]
 
   # Open Microsoft Edge.
-  - commands: ['shell-exec C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe']
-    bindings: ['f21+w']
+  - commands: [ 'shell-exec C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe' ]
+    bindings: [ 'f21+w' ]
 
   # Open Explorer.
 #  - commands: ['shell-exec explorer.exe']
