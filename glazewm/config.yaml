@@ -44,7 +44,7 @@ gaps:
   scale_with_dpi: false
 
   # Gap between adjacent windows.
-  #  inner_gap: '-60px'
+  #  inner_gap: '-40px'
   inner_gap: '2px'
 
   # Gap between windows and the screen edge.
@@ -152,16 +152,17 @@ window_rules:
       - window_class: { equals: 'WinUIDesktopWin32WindowClass' }
       - window_process: { equals: 'Everything64' }
 
+  - commands: [ "move --workspace 1" ]
+    match:
+      - window_process: { equals: "msedge" }
+        window_title: { regex: '.* Personal - Microsoft​ Edge' }
+
   # Automatically resize ChatGPT, Gemini, and Copilot windows.
   - commands: [ 'size --width 37%' ]
     match:
       - window_process: { equals: 'msedge' }
         #       window_title: { equals: 'ChatGPT' }
         window_title: { regex: '^(ChatGPT|Gemini|Copilot)$' }
-
-  - commands: [ "move --workspace 1" ]
-    match:
-      - window_process: { equals: "msedge" }
 
   - commands: [ "move --workspace 2" ]
     match:
