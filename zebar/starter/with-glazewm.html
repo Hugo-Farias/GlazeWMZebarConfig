@@ -153,9 +153,10 @@
         <div className="right">
           {(output.media && output.media.currentSession) ? (
             <>
-              <div className="media" onClick={() => output.media.togglePlayPause()}>
+              <div className="media">
                 {`${output.media?.currentSession?.artist} - ${output.media?.currentSession?.title}`}
               </div>
+
               {output.date ? <div className="separator"></div> : ''}
             </>
           ) : ''}

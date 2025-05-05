@@ -152,6 +152,12 @@ window_rules:
       - window_class: { equals: 'WinUIDesktopWin32WindowClass' }
       - window_process: { equals: 'Everything64' }
 
+  - commands: [ 'size --width 37%' ]
+    match:
+      - window_process: { equals: 'msedge' }
+        #       window_title: { equals: 'ChatGPT' }
+        window_title: { regex: '^(ChatGPT|Gemini|Copilot)$' }
+
   - commands: [ "move --workspace 1" ]
     match:
       - window_process: { equals: "msedge" }
@@ -210,8 +216,8 @@ binding_modes:
       - commands: [ 'resize --height -2%' ]
         bindings: [ 'j', 'down' ]
       # Press enter/escape to return to default keybindings.
-#      - commands: ['wm-disable-binding-mode --name resize']
-#        bindings: ['escape', 'enter', 'f21+r']
+#      - commands: [ 'wm-disable-binding-mode --name resize' ]
+#        bindings: [ 'escape', 'enter', 'f21+r' ]
 
 keybindings:
   # Shift focus in a given direction.
@@ -247,8 +253,8 @@ keybindings:
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
   # the name 'resize'.
-  #  - commands: ['wm-enable-binding-mode --name resize']
-  #    bindings: ['f21+r']
+  #  - commands: [ 'wm-enable-binding-mode --name resize' ]
+  #    bindings: [ 'f21+r' ]
 
   # Disables window management and all other keybindings until alt+f22+p
   # is pressed again.
@@ -294,6 +300,10 @@ keybindings:
   # Re-evaluate configuration file.
   - commands: [ 'wm-reload-config' ]
     bindings: [ 'f21+f22+r' ]
+
+  # Hard reload GlazeWM.
+  - commands: [ 'wm-exit', 'shell-exec --hide-window powershell -command "glazewm' ]
+    bindings: [ 'f21+f22+shift+r' ]
 
   - commands: [ 'wm-reload-config', 'shell-exec --hide-window powershell -command "taskkill /IM zebar.exe /F; zebar"' ]
     bindings: [ 'f21+f22+z' ]
