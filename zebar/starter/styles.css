@@ -39,7 +39,6 @@ body,
 }
 
 .media {
-  font-size: 10px;
   /*display: inline-block;*/
   overflow: clip;
   text-wrap: nowrap;
@@ -48,6 +47,12 @@ body,
   /*border-radius: 4px;*/
   /*background: rgb(84, 66, 220);*/
   /*margin-right: 4px;*/
+
+  .artist {
+    font-size: 10px;
+    color: rgb(115 130 175);
+    /*font-weight: bold;*/
+  }
 }
 
 .separator {

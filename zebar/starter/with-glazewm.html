@@ -154,7 +154,8 @@
           {(output.media && output.media.currentSession) ? (
             <>
               <div className="media">
-                {`${output.media?.currentSession?.artist} - ${output.media?.currentSession?.title}`}
+                <div className="artist">{output.media?.currentSession?.artist}</div>
+                {output.media?.currentSession?.title}
               </div>
 
               {output.date ? <div className="separator"></div> : ''}
