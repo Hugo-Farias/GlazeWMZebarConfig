@@ -140,6 +140,7 @@ body,
 
 .media {
   display: inline-block;
+  cursor: default;
   /*padding: 4px 8px;*/
   /*border-radius: 4px;*/
   /*background: rgb(84, 66, 220);*/
