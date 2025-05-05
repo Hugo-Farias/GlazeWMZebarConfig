@@ -400,8 +400,12 @@ keybindings:
   #    bindings: [ 'f21+f22+t' ]
 
   # Open Microsoft Edge.
-  - commands: [ 'shell-exec C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe' ]
+  - commands: [ 'shell-exec C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe', "focus --workspace 1" ]
     bindings: [ 'f21+w' ]
+
+  # Open ChatGPT.
+  - commands: [ 'shell-exec C:\Aplications\MSEdge\ChatGPT.lnk' ]
+    bindings: [ 'f21+b' ]
 
   # Open Explorer.
 #  - commands: ['shell-exec explorer.exe']
