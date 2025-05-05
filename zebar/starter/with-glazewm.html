@@ -161,6 +161,15 @@
         </div>
 
         <div className="right">
+          {(output.media && output.media.currentSession) ? (
+            <>
+              <div className="media">
+                {`${output.media?.currentSession?.artist} - ${output.media?.currentSession?.title}`}
+              </div>
+              {output.date ? <div className="separator"></div> : ''}
+            </>
+          ) : ''}
+          
           {output.glazewm && (
             <>
               {output.glazewm.bindingModes.map(bindingMode => (
