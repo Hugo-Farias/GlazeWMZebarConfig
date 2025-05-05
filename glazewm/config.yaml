@@ -152,6 +152,7 @@ window_rules:
       - window_class: { equals: 'WinUIDesktopWin32WindowClass' }
       - window_process: { equals: 'Everything64' }
 
+  # Automatically resize ChatGPT, Gemini, and Copilot windows.
   - commands: [ 'size --width 37%' ]
     match:
       - window_process: { equals: 'msedge' }

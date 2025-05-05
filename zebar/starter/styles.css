@@ -35,12 +35,12 @@ body,
   align-items: center;
   height: 100%;
   padding: 4px 1.5vw;
+  cursor: default;
 }
 
 .media {
   font-size: 10px;
-  display: inline-block;
-  cursor: default;
+  /*display: inline-block;*/
   overflow: clip;
   text-wrap: nowrap;
   max-width: 30vw;
@@ -113,7 +113,7 @@ body,
   color: rgb(255 255 255 / 90%);
   border: none;
   border-radius: 2px;
-  cursor: pointer;
+  /*cursor: pointer;*/
 
   &.displayed {
     background: rgb(255 255 255 / 15%);
@@ -133,7 +133,7 @@ body,
   line-height: 1;
   padding: 4px 8px;
   border: 0;
-  cursor: pointer;
+  /*cursor: pointer;*/
 }
 
 .binding-mode {
