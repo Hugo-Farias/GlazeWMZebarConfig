@@ -165,6 +165,9 @@ window_rules:
     match:
       - window_process: { equals: 'msedge' }
         window_title: { regex: '^(ChatGPT|Gemini|Copilot|T3 Chat)$' }
+      - window_process: { equals: 'webstorm64' }
+        window_title: { regex: '^Cascade - .*' }
+
 
   - commands: [ "move --workspace 2" ]
     match:
