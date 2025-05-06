@@ -155,18 +155,16 @@ window_rules:
         window_title: { regex: 'Add Torrents \(\d+\)' }
       - window_process: { equals: 'AMDAutoUpdate' }
 
-
   - commands: [ "move --workspace 1" ]
     match:
       - window_process: { equals: "msedge" }
         window_title: { regex: '.* Personal - Microsoft​ Edge' }
 
-  # Automatically resize ChatGPT, Gemini, and Copilot windows.
+  # Automatically resize Ai chat applications.
   - commands: [ 'size --width 37%' ]
     match:
       - window_process: { equals: 'msedge' }
-        #       window_title: { equals: 'ChatGPT' }
-        window_title: { regex: '^(ChatGPT|Gemini|Copilot)$' }
+        window_title: { regex: '^(ChatGPT|Gemini|Copilot|T3 Chat)$' }
 
   - commands: [ "move --workspace 2" ]
     match:
@@ -410,6 +408,9 @@ keybindings:
   # Open ChatGPT.
   - commands: [ 'shell-exec C:\Aplications\MSEdge\ChatGPT.lnk' ]
     bindings: [ 'f21+b' ]
+
+  - commands: [ 'shell-exec C:\Aplications\MSEdge\T3 Chat.lnk' ]
+    bindings: [ 'f21+t' ]
 
   # Open Explorer.
 #  - commands: ['shell-exec explorer.exe']
