@@ -151,6 +151,9 @@ window_rules:
       - window_title: { equals: 'Qt5152QWindowIcon' }
       - window_class: { equals: 'WinUIDesktopWin32WindowClass' }
       - window_process: { equals: 'Everything64' }
+      - window_process: { equals: 'deluge' }
+        window_title: { regex: 'Add Torrents \(\d+\)' }
+
 
   - commands: [ "move --workspace 1" ]
     match:
