@@ -153,6 +153,7 @@ window_rules:
       - window_process: { equals: 'Everything64' }
       - window_process: { equals: 'deluge' }
         window_title: { regex: 'Add Torrents \(\d+\)' }
+      - window_process: { equals: 'AMDAutoUpdate' }
 
 
   - commands: [ "move --workspace 1" ]
