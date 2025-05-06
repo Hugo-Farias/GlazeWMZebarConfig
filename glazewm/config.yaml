@@ -155,6 +155,11 @@ window_rules:
         window_title: { regex: 'Add Torrents \(\d+\)' }
       - window_process: { equals: 'AMDAutoUpdate' }
 
+  #  - commands: [ 'set-floating', 'set-fullscreen', 'size --width 100% --height 100%' ]
+  #    match:
+  #      - window_class: { equals: 'CASCADIA_HOSTING_WINDOW_CLASS' }
+  #        window_title: { equals: 'PowerShell 7.4.7 [ADMIN]' }
+
   - commands: [ "move --workspace 1" ]
     match:
       - window_process: { equals: "msedge" }
@@ -182,6 +187,7 @@ window_rules:
     match:
       - window_process: { equals: "Spotify" }
 
+  # Ignore rules for various 3rd-party apps.
   - commands: [ 'ignore' ]
     match:
       # Ignores any Zebar windows.
@@ -191,7 +197,6 @@ window_rules:
       - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
         window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
 
-      # Ignore rules for various 3rd-party apps.
       # Windows Terminal in quake mode.
       - window_class: { equals: 'CASCADIA_HOSTING_WINDOW_CLASS' }
         window_title: { equals: 'PowerShell 7.4.7 [ADMIN]' }
@@ -281,12 +286,12 @@ keybindings:
   - commands: [ 'toggle-floating' ]
     bindings: [ 'f21+f22+space' ]
 
+  # Change the focused window to be tiling.
   - commands: [ 'toggle-tiling' ]
     bindings: [ 'f21+f22+t' ]
 
-  # Change the focused window to be tiling.
-  #  - commands: ['shell-exexc wt.exe']
-  #    bindings: ['f21+t']
+  #  - commands: [ 'shell-exec --hide-window powershell -command "C:\Windows\System32\schtasks.exe /run /tn "TrustedApps\Terminal"' ]
+  #    bindings: [ 'f21+t' ]
 
   # Change the focused window to be fullscreen.
   - commands: [ 'toggle-fullscreen' ]

@@ -178,15 +178,6 @@
                 </button>
               ))}
 
-              {(output.media && output.media.currentSession) ? (
-                <>
-                  <div className="media">
-                    {`${output.media?.currentSession?.artist} - ${output.media?.currentSession?.title}`}
-                  </div>
-                  {output.date ? <div className="separator"></div> : ''}
-                </>
-              ) : ''}
-
               <button
                 className={`tiling-direction nf ${output.glazewm.tilingDirection === 'horizontal' ? 'nf-md-swap_horizontal' : 'nf-md-swap_vertical'}`}
                 onClick={() =>
