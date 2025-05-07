@@ -155,24 +155,21 @@ window_rules:
         window_title: { regex: 'Add Torrents \(\d+\)' }
       - window_process: { equals: 'AMDAutoUpdate' }
 
-  #  - commands: [ 'set-floating', 'set-fullscreen', 'size --width 100% --height 100%' ]
-  #    match:
-  #      - window_class: { equals: 'CASCADIA_HOSTING_WINDOW_CLASS' }
-  #        window_title: { equals: 'PowerShell 7.4.7 [ADMIN]' }
+  #      - commands: [ 'move --direction up' ]
+  #        match:
 
   - commands: [ "move --workspace 1" ]
     match:
       - window_process: { equals: "msedge" }
         window_title: { regex: '.* Personal - Microsoft​ Edge' }
 
-  # Automatically resize Ai chat applications.
+  # Automatically resize.
   - commands: [ 'size --width 37%' ]
     match:
       - window_process: { equals: 'msedge' }
         window_title: { regex: '^(ChatGPT|Gemini|Copilot|T3 Chat)$' }
       - window_process: { equals: 'webstorm64' }
         window_title: { regex: '^Cascade - .*' }
-
 
   - commands: [ "move --workspace 2" ]
     match:
@@ -198,8 +195,9 @@ window_rules:
         window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
 
       # Windows Terminal in quake mode.
-      - window_class: { equals: 'CASCADIA_HOSTING_WINDOW_CLASS' }
-        window_title: { equals: 'PowerShell 7.4.7 [ADMIN]' }
+      - window_process: { equals: 'WindowsTerminal' }
+        window_title: { equals: "quakemode " }
+        #        window_title: { equals: 'PowerShell 7.4.7 [ADMIN]' }
 
       #      - window_class: {regex: '.*Dialog.*'}
       #      - window_title: { equals: 'Window Spy for AHKv2' }
