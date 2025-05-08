@@ -338,13 +338,13 @@ keybindings:
 
   # Focus the next/previous active workspace defined in `workspaces` config.
   - commands: [ 'focus --next-active-workspace' ]
-    bindings: [ 'f21+s' ]
+    bindings: [ 'f21+d' ]
   - commands: [ 'focus --prev-active-workspace' ]
-    bindings: [ 'f21+a' ]
+    bindings: [ 'f21+s' ]
 
   # Focus the workspace that last had focus.
   - commands: [ 'focus --recent-workspace' ]
-    bindings: [ 'f21+d' ]
+    bindings: [ 'f21+a' ]
 
   # Change focus to a workspace defined in `workspaces` config.
   - commands: [ 'focus --workspace 1' ]
@@ -429,6 +429,8 @@ keybindings:
   - commands: [ 'shell-exec explorer' ]
     bindings: [ 'f21+r' ]
 
+  - commands: [ 'size --width 37%' ]
+    bindings: [ 'f21+t' ]
   # Open Explorer.
 #  - commands: ['shell-exec explorer.exe']
 #    bindings: ['f21+e']
