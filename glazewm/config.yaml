@@ -189,6 +189,8 @@ window_rules:
   - commands: [ "move --workspace 11" ]
     match:
       - window_process: { equals: "Spotify" }
+      - window_process: { equals: 'chrome' }
+        window_title: { regex: "DevTools" }
 
   # Ignore rules for various 3rd-party apps.
   - commands: [ 'ignore' ]
