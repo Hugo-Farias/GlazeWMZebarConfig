@@ -142,6 +142,10 @@ workspaces:
 #    bind_to_monitor: 1
 
 window_rules:
+  - commands: [ 'toggle-tiling-direction' , 'wm-redraw' ]
+    match:
+      - window_title: { regex: '.*' }
+
   - commands: [ 'set-floating' ]
     match:
       - window_title: { equals: 'Album Art Downloader' }
@@ -416,7 +420,10 @@ keybindings:
     bindings: [ 'f21+b' ]
 
   - commands: [ 'shell-exec C:\Aplications\MSEdge\T3 Chat.lnk' ]
-    bindings: [ 'f21+t' ]
+    bindings: [ 'f21+f22+b' ]
+
+  - commands: [ 'shell-exec explorer' ]
+    bindings: [ 'f21+r' ]
 
   # Open Explorer.
 #  - commands: ['shell-exec explorer.exe']
