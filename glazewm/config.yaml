@@ -442,6 +442,9 @@ keybindings:
 
   - commands: [ 'size --width 80% --height 75%', 'position --centered' ]
     bindings: [ 'f21+g' ]
+
+  - commands: [ 'size --width 50% --height 50%', 'position --centered' ]
+    bindings: [ 'f21+shift+t' ]
   # Open Explorer.
 #  - commands: ['shell-exec explorer.exe']
 #    bindings: ['f21+e']
