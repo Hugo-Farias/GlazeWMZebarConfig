@@ -259,14 +259,22 @@ keybindings:
     bindings: [ 'f21+f22+j', 'f21+f22+down' ]
 
   # Resize focused window by a percentage or pixel amount.
-  - commands: [ 'resize --width -2%' ]
+  - commands: [ 'resize --width -1%' ]
     bindings: [ 'f21+y' ]
-  - commands: [ 'resize --width +2%' ]
+  - commands: [ 'resize --width -5%' ]
+    bindings: [ 'f21+f22+y' ]
+  - commands: [ 'resize --width +1%' ]
     bindings: [ 'f21+o' ]
-  - commands: [ 'resize --height +2%' ]
+  - commands: [ 'resize --width +5%' ]
+    bindings: [ 'f21+f22+o' ]
+  - commands: [ 'resize --height +1%' ]
     bindings: [ 'f21+u' ]
-  - commands: [ 'resize --height -2%' ]
+  - commands: [ 'resize --height +5%' ]
+    bindings: [ 'f21+f22+u' ]
+  - commands: [ 'resize --height -1%' ]
     bindings: [ 'f21+i' ]
+  - commands: [ 'resize --height -5%' ]
+    bindings: [ 'f21+f22+i' ]
 
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
@@ -429,8 +437,11 @@ keybindings:
   - commands: [ 'shell-exec explorer' ]
     bindings: [ 'f21+r' ]
 
-  - commands: [ 'size --width 37%' ]
+  - commands: [ 'size --width 63% --height 58%', 'position --centered' ]
     bindings: [ 'f21+t' ]
+
+  - commands: [ 'size --width 80% --height 75%', 'position --centered' ]
+    bindings: [ 'f21+g' ]
   # Open Explorer.
 #  - commands: ['shell-exec explorer.exe']
 #    bindings: ['f21+e']
