@@ -186,11 +186,11 @@ window_rules:
       - window_process: { equals: "vivaldi" }
         window_title: { equals: 'https://www.youtube.com/tv - YouTube on TV' }
 
-  - commands: [ "move --workspace 11" ]
+  - commands: [ "move --workspace 10" ]
     match:
       - window_process: { equals: "Spotify" }
-      - window_process: { equals: 'chrome' }
-        window_title: { regex: "DevTools" }
+  #      - window_process: { equals: 'chrome' }
+  #        window_title: { regex: "DevTools" }
 
   # Ignore rules for various 3rd-party apps.
   - commands: [ 'ignore' ]
@@ -259,22 +259,23 @@ keybindings:
     bindings: [ 'f21+f22+j', 'f21+f22+down' ]
 
   # Resize focused window by a percentage or pixel amount.
-  - commands: [ 'resize --width -1%' ]
-    bindings: [ 'f21+y' ]
   - commands: [ 'resize --width -5%' ]
-    bindings: [ 'f21+f22+y' ]
-  - commands: [ 'resize --width +1%' ]
-    bindings: [ 'f21+o' ]
+    bindings: [ 'f21+y' ]
   - commands: [ 'resize --width +5%' ]
-    bindings: [ 'f21+f22+o' ]
-  - commands: [ 'resize --height +1%' ]
-    bindings: [ 'f21+u' ]
+    bindings: [ 'f21+o' ]
   - commands: [ 'resize --height +5%' ]
-    bindings: [ 'f21+f22+u' ]
-  - commands: [ 'resize --height -1%' ]
-    bindings: [ 'f21+i' ]
+    bindings: [ 'f21+u' ]
   - commands: [ 'resize --height -5%' ]
-    bindings: [ 'f21+f22+i' ]
+    bindings: [ 'f21+i' ]
+
+  - commands: [ 'resize --width -1%' ]
+    bindings: [ 'f21+shift+y' ]
+  - commands: [ 'resize --width +1%' ]
+    bindings: [ 'f21+shift+o' ]
+  - commands: [ 'resize --height +1%' ]
+    bindings: [ 'f21+shift+u' ]
+  - commands: [ 'resize --height -1%' ]
+    bindings: [ 'f21+shift+i' ]
 
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
