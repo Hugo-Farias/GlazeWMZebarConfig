@@ -146,6 +146,12 @@ window_rules:
     match:
       - window_title: { regex: '.*' }
 
+  - commands: [ 'set-title-bar-visibility hidden' ]
+    match:
+      - window_process: { equals: 'WindowsTerminal' }
+      - window_process: { equals: 'chrome' }
+        window_title: { regex: 'DevTools .*' }
+
   - commands: [ 'set-floating' ]
     match:
       - window_title: { equals: 'Album Art Downloader' }
@@ -177,6 +183,11 @@ window_rules:
       - window_process: { equals: 'chrome' }
         window_class: { equals: 'Chrome_WidgetWin_1' }
 
+  - commands: [ 'size --height 30%' ]
+    match:
+      - window_process: { equals: 'chrome' }
+        window_title: { regex: 'DevTools .*' }
+
   - commands: [ "move --workspace 2" ]
     match:
       - window_process: { equals: "webstorm64" }
@@ -189,8 +200,6 @@ window_rules:
   - commands: [ "move --workspace 10" ]
     match:
       - window_process: { equals: "Spotify" }
-  #      - window_process: { equals: 'chrome' }
-  #        window_title: { regex: "DevTools" }
 
   # Ignore rules for various 3rd-party apps.
   - commands: [ 'ignore' ]
