@@ -147,7 +147,9 @@
           )}
         </div>
 
-        <div className="center">{output.date?.formatted}</div>
+        {/*<div className="center">{output.date?.formatted}</div>*/}
+        {<div
+          className="center">{output.glazewm?.currentWorkspace}</div>}
 
         <div className="right">
           {(output.media && output.media.currentSession) ? (
@@ -230,6 +232,12 @@
               {Math.round(output.weather.celsiusTemp)}°C
             </div>
           )}
+
+          <div className="separator"></div>
+
+          <div className="Date">
+            {output.date?.formatted}
+          </div>
         </div>
       </div>
     );
