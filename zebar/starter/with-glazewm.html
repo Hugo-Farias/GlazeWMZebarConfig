@@ -143,13 +143,13 @@
                   {workspace.displayName ?? workspace.name}
                 </button>
               ))}
+              <div className="separator"></div>
+              <div className="title">{output.glazewm?.focusedContainer?.title}</div>
             </div>
           )}
         </div>
 
         {/*<div className="center">{output.date?.formatted}</div>*/}
-        {<div
-          className="center">{output.glazewm?.currentWorkspace}</div>}
 
         <div className="right">
           {(output.media && output.media.currentSession) ? (

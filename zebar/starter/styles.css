@@ -26,7 +26,7 @@ body,
   /*border-bottom: 1px solid rgb(255 255 255 / 5%);*/
   /*background: linear-gradient(rgb(0 0 0 / 90%), rgb(5 2 20 / 85%));  !*default values*!*/
   /*background: linear-gradient(rgb(0 0 0 / 100%), rgb(5 2 20 / 75%));*/
-  background-color: rgb(0 0 0 / 70%);
+  background-color: rgb(0 0 0 / 80%);
   /*border: 1px solid rgb(255 255 255 / 20%);*/
 }
 
@@ -39,6 +39,14 @@ body,
   height: 100%;
   padding: 4px 1.5vw;
   cursor: default;
+}
+
+.title {
+  /*font-size: 10px;*/
+  /*font-weight: bold;*/
+  overflow: clip;
+  text-wrap: nowrap;
+  max-width: 50vw;
 }
 
 .media {
