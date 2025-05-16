@@ -78,7 +78,7 @@ window_effects:
   # Visual effects to apply to non-focused windows.
   other_windows:
     border:
-      enabled: true
+      enabled: false
       color: '#a1a1a1'
     hide_title_bar:
       enabled: false
@@ -460,6 +460,7 @@ keybindings:
 
   - commands: [ 'size --width 50% --height 50%', 'position --centered' ]
     bindings: [ 'f21+shift+t' ]
+
   # Open Explorer.
 #  - commands: ['shell-exec explorer.exe']
 #    bindings: ['f21+e']
