@@ -11,7 +11,9 @@ i {
 
 body {
   color: rgb(255 255 255 / 90%);
-  font-family: ui-monospace, monospace;
+  /*font-family: ui-monospace, monospace;*/
+  font-family: "CaskaydiaCove Nerd Font", monospace;
+  /*font-family: cursive, sans-serif;*/
   font-size: 12px;
   overflow: hidden;
 }
@@ -46,7 +48,7 @@ body,
   /*font-weight: bold;*/
   overflow: clip;
   text-wrap: nowrap;
-  max-width: 50vw;
+  max-width: 43vw;
 }
 
 .media {
@@ -130,7 +132,6 @@ body,
   color: rgb(255 255 255 / 90%);
   border: none;
   border-radius: 2px;
-  /*cursor: pointer;*/
 
   &.displayed {
     background: rgb(255 255 255 / 15%);
