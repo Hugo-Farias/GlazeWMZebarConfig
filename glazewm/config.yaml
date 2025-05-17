@@ -184,6 +184,8 @@ window_rules:
         window_title: { regex: '^Cascade - .*' }
       - window_process: { equals: 'chrome' }
         window_class: { equals: 'Chrome_WidgetWin_1' }
+      - window_process: { equals: 'WindowsTerminal' }
+        window_title: { equals: 'PowerShell 7' }
 
   - commands: [ 'size --height 30%' ]
     match:
@@ -353,7 +355,7 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  - commands: [ 'shell-exec pwsh' ]
+  - commands: [ 'shell-exec wt' ]
     bindings: [ 'f21+enter' ]
 
   # Focus the next/previous active workspace defined in `workspaces` config.
