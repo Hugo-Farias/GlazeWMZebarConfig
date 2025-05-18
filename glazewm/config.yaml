@@ -167,7 +167,8 @@ window_rules:
         window_title: { regex: 'Add Torrents \(\d+\)' }
       - window_process: { equals: 'AMDAutoUpdate' }
       - window_title: { regex: '.*Error.*' }
-
+      - window_process: { equals: 'WindowsTerminal' }
+        window_title: { equals: 'C:\Users\Hugo\AppData\Local\Microsoft\WinGet\Links\ntop.exe' }
 
   #      - commands: [ 'move --direction up' ]
   #        match:
