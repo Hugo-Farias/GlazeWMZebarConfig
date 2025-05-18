@@ -187,7 +187,6 @@ window_rules:
       - window_process: { equals: 'chrome' }
         window_class: { equals: 'Chrome_WidgetWin_1' }
       - window_process: { equals: 'WindowsTerminal' }
-        window_title: { equals: 'PowerShell 7' }
 
   - commands: [ 'size --height 30%' ]
     match:
@@ -340,7 +339,8 @@ keybindings:
     bindings: [ 'f21+f22+delete' ]
 
   # Re-evaluate configuration file.
-  - commands: [ 'wm-reload-config', 'wm-reload-config' ]
+  #  - commands: [ 'wm-reload-config', 'toggle-tiling-direction' ]
+  - commands: [ 'wm-reload-config' ]
     bindings: [ 'f21+f22+r' ]
 
   # Hard reload GlazeWM.
@@ -357,7 +357,7 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  - commands: [ 'shell-exec wt' ]
+  - commands: [ 'shell-exec pwsh -nologo' ]
     bindings: [ 'f21+enter' ]
 
   # Focus the next/previous active workspace defined in `workspaces` config.
@@ -464,6 +464,12 @@ keybindings:
 
   - commands: [ 'size --width 50% --height 50%', 'position --centered' ]
     bindings: [ 'f21+shift+t' ]
+
+  - commands: [ 'shell-exec lazygit' ]
+    bindings: [ 'f21+shift+enter' ]
+
+  - commands: [ 'shell-exec ntop' ]
+    bindings: [ 'f21+escape' ]
 
   # Open Explorer.
 #  - commands: ['shell-exec explorer.exe']
