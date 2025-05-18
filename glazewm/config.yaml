@@ -151,6 +151,8 @@ window_rules:
       - window_process: { equals: 'WindowsTerminal' }
       - window_process: { equals: 'chrome' }
         window_title: { regex: 'DevTools .*' }
+      - window_process: { equals: "vivaldi" }
+        window_title: { equals: 'https://www.youtube.com/tv' }
 
   - commands: [ 'set-floating' ]
     match:
@@ -388,11 +390,11 @@ keybindings:
   - commands: [ 'focus --workspace 9' ]
     bindings: [ 'f21+9' ]
   - commands: [ 'focus --workspace 10' ]
-    bindings: [ 'f21+0' ]
+    bindings: [ 'f21+0',  'f21+f1' ]
   - commands: [ 'focus --workspace 11' ]
-    bindings: [ 'f21+-' ]
+    bindings: [ 'f21+-',  'f21+f2' ]
   - commands: [ 'focus --workspace 12' ]
-    bindings: [ 'f21+=' ]
+    bindings: [ 'f21+=',  'f21+f3' ]
   #  - commands: [ 'focus --workspace 99' ]
   #    bindings: [ 'f21+t' ]
   #  - commands: [ 'focus --workspace 99', 'shell-exec wt' ]
@@ -429,11 +431,11 @@ keybindings:
   - commands: [ 'move --workspace 9', 'focus --workspace 9' ]
     bindings: [ 'f21+f22+9' ]
   - commands: [ 'move --workspace 10', 'focus --workspace 10' ]
-    bindings: [ 'f21+f22+0' ]
+    bindings: [ 'f21+f22+0', 'f21+f22+f1' ]
   - commands: [ 'move --workspace 11', 'focus --workspace 11' ]
-    bindings: [ 'f21+f22+-' ]
+    bindings: [ 'f21+f22+-', 'f21+f22+f2' ]
   - commands: [ 'move --workspace 12', 'focus --workspace 12' ]
-    bindings: [ 'f21+f22+=' ]
+    bindings: [ 'f21+f22+=', 'f21+f22+f3' ]
   #  - commands: [ 'move --workspace 99', 'focus --workspace 99' ]
   #    bindings: [ 'f21+f22+t' ]
 

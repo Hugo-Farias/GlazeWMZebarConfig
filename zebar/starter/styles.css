@@ -12,7 +12,8 @@ i {
 body {
   color: rgb(255 255 255 / 90%);
   /*font-family: ui-monospace, monospace;*/
-  font-family: "CaskaydiaCove Nerd Font", monospace;
+  /*font-family: "CaskaydiaCove Nerd Font", monospace;*/
+  font-family: "UbuntuMono Nerd Font", monospace;
   /*font-family: cursive, sans-serif;*/
   font-size: 12px;
   overflow: hidden;
@@ -39,13 +40,14 @@ body,
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  padding: 4px 1.5vw;
+  padding: 4px 1vw;
   cursor: default;
 }
 
 .title {
   /*font-size: 10px;*/
   /*font-weight: bold;*/
+  margin-inline: 3px;
   overflow: clip;
   text-wrap: nowrap;
   max-width: 43vw;
@@ -71,8 +73,8 @@ body,
 .separator {
   width: 1px;
   height: 50vh;
-  padding-inline: 3px;
-  /*background: rgb(255 255 255 / 35%);*/
+  /*padding-inline: 3px;*/
+  background: rgb(255 255 255 / 35%);
 }
 
 .left,
