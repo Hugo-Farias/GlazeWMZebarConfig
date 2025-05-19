@@ -153,6 +153,7 @@ window_rules:
         window_title: { regex: 'DevTools .*' }
       - window_process: { equals: "vivaldi" }
       - window_process: { equals: "notepad++" }
+      - window_process: { equals: "alacritty" }
 
   - commands: [ 'set-floating' ]
     match:
