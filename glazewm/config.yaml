@@ -152,7 +152,7 @@ window_rules:
       - window_process: { equals: 'chrome' }
         window_title: { regex: 'DevTools .*' }
       - window_process: { equals: "vivaldi" }
-        window_title: { equals: 'https://www.youtube.com/tv' }
+      - window_process: { equals: "notepad++" }
 
   - commands: [ 'set-floating' ]
     match:
@@ -201,7 +201,7 @@ window_rules:
   - commands: [ "move --workspace 10" ]
     match:
       - window_process: { equals: "vivaldi" }
-        window_title: { equals: 'https://www.youtube.com/tv' }
+        window_title: { regex: 'https:\/\/www.youtube.com\/tv.*' }
 
   - commands: [ "move --workspace 11" ]
     match:
