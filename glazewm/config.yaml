@@ -149,11 +149,10 @@ window_rules:
   - commands: [ 'set-title-bar-visibility hidden' ]
     match:
       - window_process: { equals: 'WindowsTerminal' }
-      - window_process: { equals: 'chrome' }
-        window_title: { regex: 'DevTools .*' }
       - window_process: { equals: "vivaldi" }
       - window_process: { equals: "notepad++" }
       - window_process: { equals: "alacritty" }
+      - window_process: { equals: "neovide" }
 
   - commands: [ 'set-floating' ]
     match:
