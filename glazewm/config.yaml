@@ -153,6 +153,9 @@ window_rules:
       - window_process: { equals: "notepad++" }
       - window_process: { equals: "alacritty" }
       - window_process: { equals: "neovide" }
+      - window_process: { equals: "Mp3tag" }
+      - window_process: { equals: "Topaz Gigapixel AI" }
+  #      - window_process: { equals: "mpc-hc64" }
 
   - commands: [ 'set-floating' ]
     match:
@@ -169,6 +172,7 @@ window_rules:
       - window_title: { regex: '.*Error.*' }
       - window_process: { equals: 'WindowsTerminal' }
         window_title: { equals: 'C:\Users\Hugo\AppData\Local\Microsoft\WinGet\Links\ntop.exe' }
+      - window_process: { equals: 'TeraCopy' }
 
   #      - commands: [ 'move --direction up' ]
   #        match:
