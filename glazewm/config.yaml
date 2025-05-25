@@ -155,7 +155,8 @@ window_rules:
       - window_process: { equals: "neovide" }
       - window_process: { equals: "Mp3tag" }
       - window_process: { equals: "Topaz Gigapixel AI" }
-  #      - window_process: { equals: "mpc-hc64" }
+      - window_process: { equals: "deluge" }
+      - window_process: { equals: "JDownloader2" }
 
   - commands: [ 'set-floating' ]
     match:
@@ -239,6 +240,10 @@ window_rules:
         window_title: { regex: '.*? - Peek' }
       - window_process: { equals: 'Lively' }
         window_class: { regex: 'HwndWrapper' }
+      - window_process: { equals: 'Microsoft.CmdPal.UI' }
+        window_title: { equals: 'Command Palette' }
+
+
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
@@ -475,6 +480,9 @@ keybindings:
 
   - commands: [ 'shell-exec ntop' ]
     bindings: [ 'f21+escape' ]
+
+  - commands: [ 'shell-exec neovide' ]
+    bindings: [ 'f21+n' ]
 
   # Open Explorer.
 #  - commands: ['shell-exec explorer.exe']

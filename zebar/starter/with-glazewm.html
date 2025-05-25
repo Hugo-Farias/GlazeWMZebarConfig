@@ -32,13 +32,13 @@
   import * as zebar from 'https://esm.sh/zebar@2';
 
   const providers = zebar.createProviderGroup({
-    network: {type: 'network'},
+    // network: {type: 'network'},
     glazewm: {type: 'glazewm'},
     cpu: {type: 'cpu'},
     date: {type: 'date', formatting: 'EEE d MMM T'},
     media: {type: 'media'},
     memory: {type: 'memory'},
-    weather: {type: 'weather'},
+    // weather: {type: 'weather'},
   });
 
   createRoot(document.getElementById('root')).render(<App/>);
@@ -194,25 +194,26 @@
             </div>
           )}
 
-          {output.memory && (
-            <div className="memory">
-              <i className="nf nf-fae-chip"></i>
-              {Math.round(output.memory.usage)}%
-            </div>
-          )}
-
           {output.cpu && (
             <div className="cpu">
-              <i className="nf nf-oct-cpu"></i>
+              {/*<i className="nf nf-oct-cpu"></i>*/}
 
               {/* Change the text color if the CPU usage is high. */}
               <span
                 className={output.cpu.usage > 85 ? 'high-usage' : ''}
               >
-                    {Math.round(output.cpu.usage)}%
+                    {`C:${Math.round(output.cpu.usage)}`}
                   </span>
             </div>
           )}
+
+          {output.memory && (
+            <div className="memory">
+              {/*<i className="nf nf-fae-chip"></i>*/}
+              {`M:${Math.round(output.memory.usage)}`}
+            </div>
+          )}
+
 
           {/*{output.battery && (
             <div className="battery">
