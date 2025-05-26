@@ -178,12 +178,13 @@
                 </button>
               ))}
 
-              <button
-                className={`tiling-direction nf ${output.glazewm.tilingDirection === 'horizontal' ? 'nf-md-swap_horizontal' : 'nf-md-swap_vertical'}`}
+              <span
+                  // className={`tiling-direction nf ${output.glazewm.tilingDirection === 'horizontal' ? 'nf-md-swap_horizontal' : 'nf-md-swap_vertical'}`}
+                className={`tiling-direction-text ${output.glazewm.tilingDirection}`}
                 onClick={() =>
                   output.glazewm.runCommand('toggle-tiling-direction')
                 }
-              ></button>
+              >{'|'}</span>
             </>
           )}
 
@@ -191,6 +192,13 @@
             <div className="network">
               {getNetworkIcon(output.network)}
               {output.network.defaultGateway?.ssid}
+            </div>
+          )}
+
+          {output.memory && (
+            <div className="memory">
+              {/*<i className="nf nf-fae-chip"></i>*/}
+              {`M:${Math.round(output.memory.usage)}`}
             </div>
           )}
 
@@ -206,14 +214,6 @@
                   </span>
             </div>
           )}
-
-          {output.memory && (
-            <div className="memory">
-              {/*<i className="nf nf-fae-chip"></i>*/}
-              {`M:${Math.round(output.memory.usage)}`}
-            </div>
-          )}
-
 
           {/*{output.battery && (
             <div className="battery">

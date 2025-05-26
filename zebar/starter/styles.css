@@ -11,10 +11,8 @@ i {
 
 body {
   color: rgb(255 255 255 / 90%);
-  /*font-family: ui-monospace, monospace;*/
-  /*font-family: "CaskaydiaCove Nerd Font", monospace;*/
   font-family: "UbuntuMono Nerd Font", monospace;
-  /*font-family: cursive, sans-serif;*/
+  /*font-family: Roboto, sans-serif;*/
   font-size: 12px;
   overflow: hidden;
 }
@@ -45,14 +43,15 @@ body,
 }
 
 .title {
-  color: black;
-  font-weight: bold;
-  background-color: rgba(255 255 255 / 90%);
+  /*color: black;*/
+  /*font-weight: bold;*/
+  /*font-family: Roboto, sans-serif;*/
+  /*background-color: rgba(255 255 255 / 90%);*/
   border-radius: 10px;
   padding-inline: 5px;
   /*font-size: 10px;*/
   /*font-weight: bold;*/
-  margin-inline: 3px;
+  /*margin-inline: 3px;*/
   overflow: clip;
   text-wrap: nowrap;
   max-width: 43vw;
@@ -133,6 +132,7 @@ body,
 }
 
 .workspace {
+  /*transition: background-color 0.3s ease;*/
   background: rgb(255 255 255 / 5%);
   margin-right: 4px;
   /*padding: 4px 8px;*/
@@ -147,6 +147,14 @@ body,
   &.focused,
   &:hover {
     background: rgb(75 115 255 / 50%);
+  }
+}
+
+.tiling-direction-text {
+  /*transition: transform 0.2s ease;*/
+
+  &.vertical {
+    transform: rotate(-90deg);
   }
 }
 
