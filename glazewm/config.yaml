@@ -484,6 +484,9 @@ keybindings:
   - commands: [ 'shell-exec neovide' ]
     bindings: [ 'f21+n' ]
 
+  - commands: [ 'shell-exec SCHTASKS.EXE /RUN /TN  "\TrustedApps\Terminal in Quake Mode"' ]
+    bindings: [ 'f21+`' ]
+
   # Open Explorer.
 #  - commands: ['shell-exec explorer.exe']
 #    bindings: ['f21+e']
