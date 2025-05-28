@@ -451,9 +451,15 @@ keybindings:
 
   # Open Microsoft Edge.
   - commands: [ 'shell-exec C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe', "focus --workspace 1" ]
-    bindings: [ 'f21+w' ]
+    bindings: [ 'f21+w', 'f21+ctrl+1' ]
 
-  # Open ChatGPT.
+  - commands: [ 'shell-exec C:\Users\Hugo\AppData\Local\Programs\WebStorm 2\bin\webstorm64.exe', "focus --workspace 2" ]
+    bindings: [ 'f21+ctrl+2' ]
+
+  - commands: [ 'shell-exec C:\Users\Hugo\AppData\Roaming\Spotify\Spotify.exe' ]
+    bindings: [ 'f21+ctrl+-' ]
+
+  # Open ChatGPT
   - commands: [ 'shell-exec C:\Aplications\MSEdge\ChatGPT.lnk' ]
     bindings: [ 'f21+b' ]
 
