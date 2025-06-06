@@ -142,32 +142,32 @@ workspaces:
 #    bind_to_monitor: 1
 
 window_rules:
-  - commands: [ 'toggle-tiling-direction' , 'set-title-bar-visibility hidden', 'wm-redraw' ]
+  - commands: [ 'toggle-tiling-direction' , 'wm-redraw' ]
     match:
       - window_title: { regex: '.*' }
 
-  - commands: [ 'set-title-bar-visibility shown' ]
-    match:
-      - window_process: { equals: 'msedge' }
-      - window_process: { equals: 'explorer' }
-      - window_process: { equals: 'webstorm64' }
-      - window_process: { equals: 'vivaldi' }
-      - window_process: { equals: 'zebar' }
-      - window_process: { regex: 'PowerToys.*' }
-      - window_process: { equals: 'ApplicationFrameHost' }
-        window_title: { equals: 'Settings' }
+  # - commands: [ 'set-title-bar-visibility shown' ]
+  #   match:
+  #     - window_process: { equals: 'msedge' }
+  #     - window_process: { equals: 'explorer' }
+  #     - window_process: { equals: 'webstorm64' }
+  #     - window_process: { equals: 'vivaldi' }
+  #     - window_process: { equals: 'zebar' }
+  #     - window_process: { regex: 'PowerToys.*' }
+  #     - window_process: { equals: 'ApplicationFrameHost' }
+  #       window_title: { equals: 'Settings' }
 
-  #  - commands: [ 'set-title-bar-visibility hidden' ]
-  #    match:
-  #      - window_process: { equals: 'WindowsTerminal' }
-  #      - window_process: { equals: "vivaldi" }
-  #      - window_process: { equals: "notepad++" }
-  #      - window_process: { equals: "alacritty" }
-  #      - window_process: { equals: "neovide" }
-  #      - window_process: { equals: "Mp3tag" }
-  #      - window_process: { equals: "Topaz Gigapixel AI" }
-  #      - window_process: { equals: "deluge" }
-  #      - window_process: { equals: "JDownloader2" }
+  - commands: [ 'set-title-bar-visibility hidden' ]
+    match:
+      - window_process: { equals: "windowsterminal" }
+      - window_process: { equals: "vivaldi" }
+      - window_process: { equals: "notepad++" }
+      - window_process: { equals: "alacritty" }
+      - window_process: { equals: "neovide" }
+      - window_process: { equals: "Mp3tag" }
+      - window_process: { equals: "Topaz Gigapixel AI" }
+      - window_process: { equals: "deluge" }
+      - window_process: { equals: "JDownloader2" }
 
   - commands: [ 'set-floating' ]
     match:
@@ -302,22 +302,22 @@ keybindings:
     bindings: [ 'f21+f22+j', 'f21+f22+down' ]
 
   # Resize focused window by a percentage or pixel amount.
-  - commands: [ 'resize --width -5%' ]
+  - commands: [ 'resize --width -10%' ]
     bindings: [ 'f21+y' ]
-  - commands: [ 'resize --width +5%' ]
+  - commands: [ 'resize --width +10%' ]
     bindings: [ 'f21+o' ]
-  - commands: [ 'resize --height +5%' ]
+  - commands: [ 'resize --height +10%' ]
     bindings: [ 'f21+u' ]
-  - commands: [ 'resize --height -5%' ]
+  - commands: [ 'resize --height -10%' ]
     bindings: [ 'f21+i' ]
 
-  - commands: [ 'resize --width -1%' ]
+  - commands: [ 'resize --width -2%' ]
     bindings: [ 'f21+shift+y' ]
-  - commands: [ 'resize --width +1%' ]
+  - commands: [ 'resize --width +2%' ]
     bindings: [ 'f21+shift+o' ]
-  - commands: [ 'resize --height +1%' ]
+  - commands: [ 'resize --height +2%' ]
     bindings: [ 'f21+shift+u' ]
-  - commands: [ 'resize --height -1%' ]
+  - commands: [ 'resize --height -2%' ]
     bindings: [ 'f21+shift+i' ]
 
   # As an alternative to the resize keybindings above, resize mode enables
@@ -476,10 +476,10 @@ keybindings:
     bindings: [ 'f21+ctrl+2' ]
 
   - commands: [ 'shell-exec C:\Users\Hugo\AppData\Roaming\Spotify\Spotify.exe' ]
-    bindings: [ 'f21+ctrl+-' ]
+    bindings: [ 'f21+ctrl+-', 'f21+ctrl+f2' ]
 
   - commands: [ 'shell-exec C:\Users\Hugo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Vivaldi Apps\Youtube on TV.lnk' ]
-    bindings: [ 'f21+ctrl+0' ]
+    bindings: [ 'f21+ctrl+0', 'f21+ctrl+f1' ]
 
   - commands: [ 'shell-exec D:\Users\Hugo\Documents\Scripts\Restart SmoothScroll.bat' ]
     bindings: [ 'f21+f22+insert' ]
