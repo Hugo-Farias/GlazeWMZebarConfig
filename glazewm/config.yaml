@@ -159,7 +159,8 @@ window_rules:
 
   - commands: [ 'set-title-bar-visibility hidden' ]
     match:
-      - window_process: { equals: "windowsterminal" }
+      - window_process: { equals: "WindowsTerminal" }
+      - window_process: { equals: "Terminal" }
       - window_process: { equals: "vivaldi" }
       - window_process: { equals: "notepad++" }
       - window_process: { equals: "alacritty" }
@@ -189,13 +190,13 @@ window_rules:
         window_title: { regex: '.*- Lazygit' }
 
 
-    #  - commands: [ 'set-floating' , 'size --width 77% --height 70%', 'position --centered' ]
-    #    match:
-    #      - window_process: { equals: 'WindowsTerminal' }
-    #   window_title: { regex: '.*- Lazygit' }
+  - commands: [ 'set-floating' , 'size --width 77% --height 70%', 'position --centered' ]
+    match:
+      - window_process: { equals: 'WindowsTerminal' }
+        window_title: { regex: '.*- Lazygit' }
 
-  #      - commands: [ 'move --direction up' ]
-  #        match:
+#      - commands: [ 'move --direction up' ]
+#        match:
 
   - commands: [ "move --workspace 1" ]
     match:
@@ -502,6 +503,9 @@ keybindings:
 
   - commands: [ 'shell-exec neovide' ]
     bindings: [ 'f21+n' ]
+
+  - commands: [ 'shell-exec nvim' ]
+    bindings: [ 'f21+shift+n' ]
 
   - commands: [ 'shell-exec SCHTASKS.EXE /RUN /TN  "\TrustedApps\Terminal in Quake Mode"' ]
     bindings: [ 'f21+f22+`' ]
