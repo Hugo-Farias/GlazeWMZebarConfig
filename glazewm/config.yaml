@@ -161,7 +161,6 @@ window_rules:
     match:
       - window_process: { equals: "WindowsTerminal" }
       - window_process: { equals: "Terminal" }
-      - window_process: { equals: "vivaldi" }
       - window_process: { equals: "notepad++" }
       - window_process: { equals: "alacritty" }
       - window_process: { equals: "neovide" }
@@ -172,6 +171,9 @@ window_rules:
       - window_process: { equals: "stremio" }
       - window_process: { equals: "WhatsApp" }
       - window_process: { equals: "Steam ROM Manager" }
+      - window_process: { equals: "mailspring" }
+      # - window_process: { equals: "explorer" }
+      - window_process: { equals: "windhawk" }
 
   - commands: [ 'set-floating' ]
     match:
@@ -240,6 +242,8 @@ window_rules:
     match:
       # Ignores any Zebar windows.
       - window_process: { equals: 'zebar' }
+
+      # - window_process: { equals: 'pcsx2' }
 
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
@@ -474,10 +478,13 @@ keybindings:
 
   # Open Microsoft Edge.
   - commands: [ 'shell-exec C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe', "focus --workspace 1" ]
-    bindings: [ 'f21+w', 'f21+f22+1' ]
+    bindings: [ 'f21+f22+1' ]
 
-  - commands: [ 'shell-exec C:\Users\Hugo\AppData\Local\Programs\WebStorm 2\bin\webstorm64.exe', "focus --workspace 2" ]
-    bindings: [ 'f21+f22+2' ]
+  - commands: [ 'shell-exec C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe' ]
+    bindings: [ 'f21+w' ]
+
+  # - commands: [ 'shell-exec C:\Users\Hugo\AppData\Local\Programs\WebStorm 2\bin\webstorm64.exe', "focus --workspace 2" ]
+  #   bindings: [ 'f21+f22+2' ]
 
   - commands: [ 'shell-exec C:\Users\Hugo\AppData\Roaming\Spotify\Spotify.exe' ]
     bindings: [ 'f21+f22+-', 'f21+f22+f2' ]
@@ -487,6 +494,10 @@ keybindings:
 
   - commands: [ 'shell-exec D:\Users\Hugo\Documents\Scripts\Restart SmoothScroll.bat' ]
     bindings: [ 'f22+insert' ]
+
+  # Open Mail Client
+  - commands: [ 'shell-exec C:\Users\Hugo\AppData\Local\Mailspring\mailspring.exe' ]
+    bindings: [ 'f21+m' ]
 
   # Open ChatGPT
   - commands: [ 'shell-exec C:\Aplications\MSEdge\ChatGPT.lnk' ]
