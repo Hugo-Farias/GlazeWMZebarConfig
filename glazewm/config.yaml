@@ -495,6 +495,10 @@ keybindings:
   - commands: [ 'shell-exec D:\Users\Hugo\Documents\Scripts\Restart SmoothScroll.bat' ]
     bindings: [ 'f22+insert' ]
 
+  # Open Messaging App
+  - commands: [ 'shell-exec C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2523.1.0_x64__cv1g1gvanyjgm\WhatsApp.exe' ]
+    bindings: [ 'f21+f22+m' ]
+
   # Open Mail Client
   - commands: [ 'shell-exec C:\Users\Hugo\AppData\Local\Mailspring\mailspring.exe' ]
     bindings: [ 'f21+m' ]
