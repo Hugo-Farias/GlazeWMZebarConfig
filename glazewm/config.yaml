@@ -160,6 +160,7 @@ window_rules:
   - commands: [ 'set-title-bar-visibility hidden' ]
     match:
       - window_process: { equals: "WindowsTerminal" }
+      - window_process: { equals: "vivaldi" }
       - window_process: { equals: "Terminal" }
       - window_process: { equals: "notepad++" }
       - window_process: { equals: "alacritty" }
@@ -426,7 +427,7 @@ keybindings:
     bindings: [ 'f21+8' ]
   - commands: [ 'focus --workspace 9' ]
     bindings: [ 'f21+9' ]
-  - commands: [ 'focus --workspace 10' ]
+  - commands: [ 'focus --workspace 11', 'focus --workspace 10' ]
     bindings: [ 'f21+0',  'f21+f1' ]
   - commands: [ 'focus --workspace 11' ]
     bindings: [ 'f21+-',  'f21+f2' ]
@@ -485,6 +486,15 @@ keybindings:
 
   # - commands: [ 'shell-exec C:\Users\Hugo\AppData\Local\Programs\WebStorm 2\bin\webstorm64.exe', "focus --workspace 2" ]
   #   bindings: [ 'f21+f22+2' ]
+  
+  - commands: [ 'shell-exec neovide', "focus --workspace 2" ]
+    bindings: [ 'f21+f22+2' ]
+
+  - commands: [ 'shell-exec C:\Aplications\MSEdge\ChatGPT.lnk', "focus --workspace 3" ]
+    bindings: [ 'f21+f22+3' ]
+    
+  - commands: [ 'shell-exec C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe', "focus --workspace 1" ]
+    bindings: [ 'f21+f22+1' ]
 
   - commands: [ 'shell-exec C:\Users\Hugo\AppData\Roaming\Spotify\Spotify.exe' ]
     bindings: [ 'f21+f22+-', 'f21+f22+f2' ]
