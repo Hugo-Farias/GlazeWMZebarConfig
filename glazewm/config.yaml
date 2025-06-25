@@ -467,6 +467,13 @@ keybindings:
   - commands: ["move-workspace --direction down"]
     bindings: ["f22+s"]
 
+    # Move all windows to the monitors they're bound to
+  - commands:
+      [
+        "shell-exec pwsh D:/Users/Hugo/Documents/Scripts/GlazeWMReorganizeWorkspaces.ps1",
+      ]
+    bindings: ["f21+f22+w"]
+
   # Move focused window to a workspace defined in `workspaces` config.
   - commands: ["move --workspace 1", "focus --workspace 1"]
     bindings: ["f22+1"]
