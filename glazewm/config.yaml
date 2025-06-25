@@ -182,7 +182,8 @@ window_rules:
       # - window_process: { equals: "explorer" }
       - window_process: { equals: "windhawk" }
       - window_process: { equals: "mpc-hc64" }
-      # - window_process: { equals: "ApplicationFrameHost" }
+      - window_process: { equals: "SoulseekQt" }
+      # - window_process: { equals: "ApplicatioFrameHost" }
 
   - commands: ["set-floating"]
     match:
@@ -198,13 +199,10 @@ window_rules:
       - window_process: { equals: "AMDAutoUpdate" }
       - window_title: { regex: ".*Error.*" }
       - window_process: { equals: "WindowsTerminal" }
-        window_title:
-          {
-            equals: 'C:\Users\Hugo\AppData\Local\Microsoft\WinGet\Links\ntop.exe',
-          }
+        window_title: { regex: '.*\\ntop.exe|.*- Lazygit' }
       - window_process: { equals: "TeraCopy" }
-      - window_process: { equals: "WindowsTerminal" }
-        window_title: { regex: ".*- Lazygit" }
+      - window_process: { equals: "SoulseekQt" }
+        window_title: { regex: "Select Color.*|Select Font" }
 
   - commands:
       ["set-floating", "size --width 77% --height 70%", "position --centered"]
@@ -268,8 +266,8 @@ window_rules:
       # Windows Terminal in quake mode.
       - window_process: { equals: "WindowsTerminal" }
         window_title: { equals: "quakemode " }
-      - window_process: { equals: "WindowsTerminal" }
-        window_title: { regex: "Yazi: *" }
+      # - window_process: { equals: "WindowsTerminal" }
+      # window_title: { regex: "Yazi: *" }
       #        window_title: { equals: 'PowerShell 7.4.7 [ADMIN]' }
 
       #      - window_class: {regex: '.*Dialog.*'}
@@ -415,7 +413,7 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  - commands: ["shell-exec pwsh -nologo"]
+  - commands: ["shell-exec pwsh"]
     bindings: ["f21+enter"]
 
   # Focus the next/previous active workspace defined in `workspaces` config.
@@ -544,9 +542,9 @@ keybindings:
   # Open Messaging App
   - commands:
       [
-        'shell-exec "C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2524.4.0_x64__cv1g1gvanyjgm\WhatsApp.exe',
+        'shell-exec C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2524.4.0_x64__cv1g1gvanyjgm\WhatsApp.exe',
       ]
-    bindings: ["f21+f22+m"]
+    bindings: ["f22+m"]
 
   # Open Mail Client
   - commands:
@@ -555,7 +553,7 @@ keybindings:
 
   # Open Google Keep
   - commands: ['shell-exec C:\Aplications\MSEdge\Google Keep.lnk']
-    bindings: ["f21+f22+k"]
+    bindings: ["f22+k"]
 
   # Open ChatGPT
   - commands: ['shell-exec C:\Aplications\MSEdge\ChatGPT.lnk']
@@ -568,7 +566,7 @@ keybindings:
     bindings: ["f21+r"]
 
   - commands: ["shell-exec lazygit"]
-    bindings: ["f21+f22+enter"]
+    bindings: ["f22+enter"]
 
   - commands: ["shell-exec ntop"]
     bindings: ["f21+escape"]
@@ -577,7 +575,7 @@ keybindings:
     bindings: ["f21+n"]
 
   - commands: ["shell-exec nvim"]
-    bindings: ["f21+f22+n"]
+    bindings: ["f22+n"]
 
   - commands:
       [
