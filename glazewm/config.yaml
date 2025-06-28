@@ -203,6 +203,12 @@ window_rules:
       - window_process: { equals: "TeraCopy" }
       - window_process: { equals: "SoulseekQt" }
         window_title: { regex: "Select Color.*|Select Font" }
+      - window_process: { equals: "steamwebhelper" }
+
+  - commands: ["set-tiling"]
+    match:
+      - window_process: { equals: "steamwebhelper" }
+        window_title: { equals: "Steam" }
 
   - commands:
       ["set-floating", "size --width 77% --height 70%", "position --centered"]
@@ -265,7 +271,7 @@ window_rules:
 
       # Windows Terminal in quake mode.
       - window_process: { equals: "WindowsTerminal" }
-        window_title: { equals: "quakemode " }
+        window_title: { regex: "quakemode |GlazeWM Workspace Organizer" }
       # - window_process: { equals: "WindowsTerminal" }
       # window_title: { regex: "Yazi: *" }
       #        window_title: { equals: 'PowerShell 7.4.7 [ADMIN]' }
@@ -467,13 +473,6 @@ keybindings:
   - commands: ["move-workspace --direction down"]
     bindings: ["f22+s"]
 
-    # Move all windows to the monitors they're bound to
-  - commands:
-      [
-        "shell-exec pwsh D:/Users/Hugo/Documents/Scripts/GlazeWMReorganizeWorkspaces.ps1",
-      ]
-    bindings: ["f21+f22+w"]
-
   # Move focused window to a workspace defined in `workspaces` config.
   - commands: ["move --workspace 1", "focus --workspace 1"]
     bindings: ["f22+1"]
@@ -546,6 +545,13 @@ keybindings:
       ['shell-exec D:\Users\Hugo\Documents\Scripts\Restart SmoothScroll.bat']
     bindings: ["f22+insert"]
 
+    # Move all windows to the monitors they're bound to
+  - commands:
+      [
+        "shell-exec pwsh -NoProfile D:/Users/Hugo/Documents/Scripts/GlazeWMReorganizeWorkspaces.ps1",
+      ]
+    bindings: ["f21+f22+insert"]
+
   # Open Messaging App
   - commands:
       [
@@ -560,7 +566,7 @@ keybindings:
 
   # Open Google Keep
   - commands: ['shell-exec C:\Aplications\MSEdge\Google Keep.lnk']
-    bindings: ["f22+k"]
+    bindings: ["f21+f22+k"]
 
   # Open ChatGPT
   - commands: ['shell-exec C:\Aplications\MSEdge\ChatGPT.lnk']
