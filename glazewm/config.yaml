@@ -183,6 +183,7 @@ window_rules:
       - window_process: { equals: "windhawk" }
       - window_process: { equals: "mpc-hc64" }
       - window_process: { equals: "SoulseekQt" }
+      - window_process: { equals: "pwsh" }
       # - window_process: { equals: "ApplicatioFrameHost" }
 
   - commands: ["set-floating"]
@@ -199,11 +200,12 @@ window_rules:
       - window_process: { equals: "AMDAutoUpdate" }
       - window_title: { regex: ".*Error.*" }
       - window_process: { equals: "WindowsTerminal" }
-        window_title: { regex: '.*\\ntop.exe|.*- Lazygit' }
+        window_title: { regex: ".*ntop.exe$" }
       - window_process: { equals: "TeraCopy" }
       - window_process: { equals: "SoulseekQt" }
         window_title: { regex: "Select Color.*|Select Font" }
       - window_process: { equals: "steamwebhelper" }
+      - window_process: { equals: "procexp64" }
 
   - commands: ["set-tiling"]
     match:
@@ -214,7 +216,7 @@ window_rules:
       ["set-floating", "size --width 77% --height 70%", "position --centered"]
     match:
       - window_process: { equals: "WindowsTerminal" }
-        window_title: { regex: ".*- Lazygit" }
+        window_title: { equals: ".*- Lazygit" }
 
   #      - commands: [ 'move --direction up' ]
   #        match:
@@ -228,7 +230,8 @@ window_rules:
   - commands: ["size --width 37%"]
     match:
       - window_process: { equals: "msedge" }
-        window_title: { regex: "^(ChatGPT|Gemini|Copilot|T3 Chat)$" }
+        window_title:
+          { regex: "^(ChatGPT|Gemini|Copilot|T3 Chat|Codeium Chat)$" }
       - window_process: { equals: "webstorm64" }
         window_title: { regex: "^Cascade - .*" }
       - window_process: { equals: "chrome" }
@@ -271,7 +274,8 @@ window_rules:
 
       # Windows Terminal in quake mode.
       - window_process: { equals: "WindowsTerminal" }
-        window_title: { regex: "quakemode |GlazeWM Workspace Organizer" }
+        window_title:
+          { regex: "quakemode |GlazeWM Workspace Reorganize Workspaces" }
       # - window_process: { equals: "WindowsTerminal" }
       # window_title: { regex: "Yazi: *" }
       #        window_title: { equals: 'PowerShell 7.4.7 [ADMIN]' }
@@ -419,7 +423,7 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  - commands: ["shell-exec pwsh"]
+  - commands: ["shell-exec pwsh -nologo"]
     bindings: ["f21+enter"]
 
   # Focus the next/previous active workspace defined in `workspaces` config.
@@ -548,11 +552,11 @@ keybindings:
     # Move all windows to the monitors they're bound to
   - commands:
       [
-        "shell-exec pwsh -NoProfile D:/Users/Hugo/Documents/Scripts/GlazeWMReorganizeWorkspaces.ps1",
+        'shell-exec pwsh -NoProfile C:\Users\Hugo\.glzr\glazewm\ReorganizeWorkspaces.ps1',
       ]
     bindings: ["f21+f22+insert"]
 
-  # Open Messaging App
+  # # Open Messaging App
   - commands:
       [
         'shell-exec C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2524.4.0_x64__cv1g1gvanyjgm\WhatsApp.exe',
@@ -575,6 +579,9 @@ keybindings:
   - commands: ['shell-exec C:\Aplications\MSEdge\Copilot.lnk']
     bindings: ["f22+b"]
 
+  - commands: ['shell-exec C:\Aplications\MSEdge\Codeium Chat.lnk']
+    bindings: ["f21+f22+b"]
+
   - commands: ["shell-exec explorer"]
     bindings: ["f21+r"]
 
@@ -595,9 +602,6 @@ keybindings:
         'shell-exec SCHTASKS.EXE /RUN /TN  "\TrustedApps\Terminal in Quake Mode"',
       ]
     bindings: ["f22+`"]
-
-  #  - commands: [ 'shell-exec powershell -WindowStyle Hidden -Command D:\Users\Hugo\Documents\Scripts\TerminalQuakeMode.ps1' ]
-  #    bindings: [ 'f22+`' ]
 
   # Resize and position windows shortcuts.
   - commands: ["size --width 63% --height 58%", "position --centered"]
