@@ -46,14 +46,14 @@ gaps:
 
   # Gap between adjacent windows.
   #  inner_gap: '-40px'
-  inner_gap: "2px"
+  inner_gap: "10px"
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: "2px"
-    right: "2px"
-    bottom: "2px"
-    left: "2px"
+    top: "10px"
+    right: "10px"
+    bottom: "10px"
+    left: "10px"
 
 window_effects:
   # Visual effects to apply to the focused window.
@@ -216,7 +216,7 @@ window_rules:
       ["set-floating", "size --width 77% --height 70%", "position --centered"]
     match:
       - window_process: { equals: "WindowsTerminal" }
-        window_title: { equals: ".*- Lazygit" }
+        window_title: { regex: ".*- Lazygit" }
 
   #      - commands: [ 'move --direction up' ]
   #        match:
