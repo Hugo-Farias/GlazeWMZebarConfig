@@ -1,8 +1,8 @@
-/**
+/* *
  * Import the Nerdfonts icon font.
  * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
- */
-@import 'https://www.nerdfonts.com/assets/css/webfont.css';
+  */
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
 
 i {
   color: rgb(115 130 175 / 95%);
@@ -12,7 +12,7 @@ i {
 body {
   color: rgb(255 255 255 / 90%);
   font-family: "UbuntuMono Nerd Font", monospace;
-  /*font-family: Roboto, sans-serif;*/
+  /* font-family: Roboto, sans-serif; */
   font-size: 12px;
   overflow: hidden;
 }
@@ -24,17 +24,17 @@ body,
 }
 
 #root {
-  /*border-bottom: 1px solid rgb(255 255 255 / 5%);*/
-  /*background: linear-gradient(rgb(0 0 0 / 90%), rgb(5 2 20 / 85%));  !*default values*!*/
-  /*background: linear-gradient(rgb(0 0 0 / 100%), rgb(5 2 20 / 75%));*/
+  /* border-bottom: 1px solid rgb(255 255 255 / 5%); */
+  /* background: linear-gradient(rgb(0 0 0 / 90%), rgb(5 2 20 / 85%));  !*default values*! */
+  /* background: linear-gradient(rgb(0 0 0 / 100%), rgb(5 2 20 / 75%)); */
   background-color: rgb(0 0 0 / 80%);
-  /*border: 1px solid rgb(255 255 255 / 20%);*/
+  /* border: 1px solid rgb(255 255 255 / 20%); */
 }
 
 .app {
   position: relative;
   display: flex;
-  /*grid-template-columns: 1fr 1fr 1fr;*/
+  /* grid-template-columns: 1fr 1fr 1fr; */
   justify-content: space-between;
   align-items: center;
   height: 100%;
@@ -43,41 +43,41 @@ body,
 }
 
 .title {
-  /*color: black;*/
-  /*font-weight: bold;*/
-  /*font-family: Roboto, sans-serif;*/
-  /*background-color: rgba(255 255 255 / 90%);*/
+  /* color: black; */
+  /* font-weight: bold; */
+  /* font-family: Roboto, sans-serif; */
+  /* background-color: rgba(255 255 255 / 90%); */
   border-radius: 10px;
   padding-inline: 5px;
-  /*font-size: 10px;*/
-  /*font-weight: bold;*/
-  /*margin-inline: 3px;*/
+  /* font-size: 10px; */
+  /* font-weight: bold; */
+  /* margin-inline: 3px; */
   overflow: clip;
   text-wrap: nowrap;
   max-width: 43vw;
 }
 
 .media {
-  /*display: inline-block;*/
+  /* display: inline-block; */
   overflow: clip;
   text-wrap: nowrap;
   max-width: 30vw;
-  /*padding: 4px 8px;*/
-  /*border-radius: 4px;*/
-  /*background: rgb(84, 66, 220);*/
-  /*margin-right: 4px;*/
+  /* padding: 4px 8px; */
+  /* border-radius: 4px; */
+  /* background: rgb(84, 66, 220); */
+  /* margin-right: 4px; */
 
   .artist {
     font-size: 10px;
     color: rgb(115 130 175);
-    /*font-weight: bold;*/
+    /* font-weight: bold; */
   }
 }
 
 .separator {
   width: 1px;
   height: 50vh;
-  /*padding-inline: 3px;*/
+  /* padding-inline: 3px; */
   background: rgb(255 255 255 / 35%);
 }
 
@@ -95,14 +95,14 @@ body,
   translate: -50% 0;
   overflow: hidden;
   z-index: 2;
-  /*background-color: red;*/
-  /*padding-inline: 10px;*/
-  /*margin-left: auto;*/
-  /*justify-self: center;*/
+  /* background-color: red; */
+  /* padding-inline: 10px; */
+  /* margin-left: auto; */
+  /* justify-self: center; */
 }
 
 .right {
-  /*align-items: center;*/
+  /* align-items: center; */
   justify-content: space-between;
   gap: 10px;
 }
@@ -111,34 +111,34 @@ body,
   gap: 10px;
 }
 
-/*.right {*/
-/*  justify-self: end;*/
-/*}*/
+/* .right { */
+/*   justify-self: end; */
+/* } */
 
-/*.logo,*/
-/*.binding-mode,*/
-/*.tiling-direction,*/
-/*.network,*/
-/*.memory,*/
-/*.cpu,*/
-/*.battery {*/
-/*margin-right: 20px;*/
-/*}*/
+/* .logo, */
+/* .binding-mode, */
+/* .tiling-direction, */
+/* .network, */
+/* .memory, */
+/* .cpu, */
+/* .battery { */
+/* margin-right: 20px; */
+/* } */
 
 .workspaces {
   display: flex;
   align-items: center;
-  /*margin-left: 10px;*/
+  /* margin-left: 10px; */
 }
 
 .workspace {
-  /*transition: background-color 0.3s ease;*/
+  /* transition: background-color 0.3s ease; */
   background: rgb(255 255 255 / 5%);
   margin-right: 4px;
-  /*padding: 4px 8px;*/
+  /* padding: 4px 8px; */
   color: rgb(255 255 255 / 90%);
   border: none;
-  /*border-radius: 2px;*/
+  /* border-radius: 2px; */
 
   &.displayed {
     background: rgb(255 255 255 / 15%);
@@ -151,7 +151,7 @@ body,
 }
 
 .tiling-direction-text {
-  /*transition: transform 0.2s ease;*/
+  /* transition: transform 0.2s ease; */
 
   &.vertical {
     transform: rotate(-90deg);
@@ -166,7 +166,7 @@ body,
   line-height: 1;
   padding: 4px 8px;
   border: 0;
-  /*cursor: pointer;*/
+  /* cursor: pointer; */
 }
 
 .binding-mode {

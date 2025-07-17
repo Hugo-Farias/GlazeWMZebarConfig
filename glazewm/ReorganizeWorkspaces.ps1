@@ -15,17 +15,6 @@ $console = [Console.Window]::GetConsoleWindow()
 # 0 hide
 [Console.Window]::ShowWindow($console, 0) | Out-Null
 
-# pause
-# Start-Sleep -Seconds 1
-
-# TASKKILL /F /IM SmoothScroll.exe T
-# SCHTASKS.EXE /END /TN \TrustedApps\SmoothScroll
-# timeout 1
-# REM SCHTASKS.EXE /RUN /TN "\TrustedApps\SmoothScroll Registration"
-# REM SCHTASKS.EXE /RUN /TN "\TrustedApps\SmoothScroll Registration"
-# SCHTASKS.EXE /RUN /TN \TrustedApps\SmoothScroll
-
-
 for ($i = 1; $i -le 9; $i++) {
     glazewm command focus --workspace $i
     glazewm command set-tiling-direction horizontal
@@ -39,5 +28,18 @@ for ($i = 10; $i -le 12; $i++) {
     glazewm command move-workspace --direction left
 }
 
+glazewm command focus --workspace 11
 glazewm command focus --workspace 10
 glazewm command focus --workspace 1
+
+# pause
+# Start-Sleep -Seconds 1
+
+SCHTASKS.EXE /END /TN \TrustedApps\SmoothScroll
+TASKKILL /F /IM SmoothScroll.exe T
+timeout 1
+REM SCHTASKS.EXE /RUN /TN "\TrustedApps\SmoothScroll Registration"
+REM SCHTASKS.EXE /RUN /TN "\TrustedApps\SmoothScroll Registration"
+SCHTASKS.EXE /RUN /TN \TrustedApps\SmoothScroll
+
+

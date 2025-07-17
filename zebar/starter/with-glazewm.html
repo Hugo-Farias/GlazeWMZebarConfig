@@ -34,8 +34,8 @@
       // network: {type: 'network'},
       glazewm: {type: 'glazewm'},
       cpu: {type: 'cpu'},
-      date: {type: 'date', formatting: 'EEE d MMM T'},
-      // date: {type: 'date', formatting: 'EEE m/d T'},
+      //date: {type: 'date', formatting: 'EEE d MMM T'},
+      date: {type: 'date', formatting: 'EEE M/d T'},
       media: {type: 'media'},
       memory: {type: 'memory'},
       // weather: {type: 'weather'},
@@ -187,13 +187,6 @@
               </>
             )}
 
-            {output.network && (
-              <div className="network">
-                {getNetworkIcon(output.network)}
-                {output.network.defaultGateway?.ssid}
-              </div>
-            )}
-
             {output.memory && (
               <div className="memory">
                 {/*<i className="nf nf-fae-chip"></i>*/}
@@ -211,6 +204,13 @@
                 >
                   {`C:${Math.round(output.cpu.usage)}`}
                 </span>
+              </div>
+            )}
+            
+            {output.network && (
+              <div className="network">
+                {getNetworkIcon(output.network)}
+                {/*output.network.defaultGateway?.ssid*/}
               </div>
             )}
 
