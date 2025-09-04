@@ -138,6 +138,8 @@ workspaces:
     bind_to_monitor: 0
   - name: "12"
     bind_to_monitor: 0
+  - name: "13"
+    bind_to_monitor: 0
 #  - name: '99'
 #    display_name: 'Terminal'
 #    bind_to_monitor: 1
@@ -166,8 +168,8 @@ window_rules:
   - commands: ["set-title-bar-visibility hidden"]
     match:
       - window_process: { equals: "WindowsTerminal" }
-      - window_process: { equals: "vivaldi" }
       - window_process: { equals: "Terminal" }
+      # - window_process: { equals: "chrome" }
       - window_process: { equals: "notepad++" }
       - window_process: { equals: "alacritty" }
       - window_process: { equals: "neovide" }
@@ -181,7 +183,7 @@ window_rules:
       - window_process: { equals: "mailspring" }
       # - window_process: { equals: "explorer" }
       - window_process: { equals: "windhawk" }
-      - window_process: { equals: "mpc-hc64" }
+      # - window_process: { equals: "mpc-hc64" }
       - window_process: { equals: "SoulseekQt" }
       - window_process: { equals: "pwsh" }
       - window_process: { equals: "picard" }
@@ -195,7 +197,7 @@ window_rules:
       - window_class: { regex: ".*Dialog.*" }
       - window_title: { equals: "Window Spy for AHKv2" }
       - window_title: { equals: "Unsaved Changes" }
-      - window_title: { equals: "Qt5152QWindowIcon" }
+      # - window_title: { equals: "Qt5152QWindowIcon" }
       - window_class: { equals: "WinUIDesktopWin32WindowClass" }
       - window_process: { equals: "Everything64" }
       - window_process: { equals: "deluge" }
@@ -203,7 +205,7 @@ window_rules:
       - window_process: { equals: "AMDAutoUpdate" }
       - window_title: { regex: ".*Error.*" }
       - window_process: { equals: "WindowsTerminal" }
-        window_title: { regex: ".*ntop.exe$" }
+        window_title: { regex: "^(.*ntop.exe|btop4win..)$" }
       - window_process: { equals: "TeraCopy" }
       - window_process: { equals: "SoulseekQt" }
         window_title: { regex: "Select Color.*|Select Font" }
@@ -214,6 +216,7 @@ window_rules:
       - window_process: { equals: "picard" }
         window_title: { regex: "Track Search Results|Track Info" }
       - window_process: { equals: "HeSuVi" }
+      - window_process: { equals: "AMD Ryzen Master" }
 
   - commands: ["set-tiling"]
     match:
@@ -224,7 +227,8 @@ window_rules:
       ["set-floating", "size --width 77% --height 70%", "position --centered"]
     match:
       - window_process: { equals: "WindowsTerminal" }
-        window_title: { regex: ".*- Lazygit" }
+        # window_title: { regex: ".*- Lazygit" }
+        window_title: { regex: "^(.*- Lazygit|btop4win..)$" }
 
   #      - commands: [ 'move --direction up' ]
   #        match:
@@ -255,6 +259,10 @@ window_rules:
     match:
       - window_process: { equals: "mpc-hc64" }
 
+  - commands: ["size --width 24%"]
+    match:
+      - window_process: { equals: "AIMP" }
+
   # - commands: ["move --workspace 2"]
   #   match:
   #     - window_process: { equals: "webstorm64" }
@@ -267,6 +275,11 @@ window_rules:
   - commands: ["move --workspace 11"]
     match:
       - window_process: { equals: "Spotify" }
+
+  - commands: ["move --workspace 4"]
+    match:
+      - window_process: { equals: "steamwebhelper" }
+        window_class: { equals: "SDL_app" }
 
   # Ignore rules for various 3rd-party apps.
   - commands: ["ignore"]
@@ -465,7 +478,12 @@ keybindings:
     bindings: ["f21+8"]
   - commands: ["focus --workspace 9"]
     bindings: ["f21+9"]
-  - commands: ["focus --workspace 10", "focus --workspace 10"]
+  - commands:
+      [
+        "focus --workspace 10",
+        "focus --recent-workspace",
+        "focus --recent-workspace",
+      ]
     bindings: ["f21+0", "f21+f1"]
   - commands: ["focus --workspace 11"]
     bindings: ["f21+-", "f21+f2"]
@@ -549,6 +567,9 @@ keybindings:
   - commands: ['shell-exec C:\Users\Hugo\AppData\Roaming\Spotify\Spotify.exe']
     bindings: ["f21+f22+-", "f21+f22+f2"]
 
+  - commands: ['shell-exec C:\Program Files\AIMP\AIMP.exe']
+    bindings: ["f21+f22+=", "f21+f22+f3"]
+
   - commands:
       [
         'shell-exec C:\Users\Hugo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Vivaldi Apps\Youtube on TV.lnk',
@@ -569,7 +590,7 @@ keybindings:
   # # Open Messaging App
   - commands:
       [
-        'shell-exec C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2526.2.0_x64__cv1g1gvanyjgm\WhatsApp.exe',
+        'shell-exec C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2534.2.0_x64__cv1g1gvanyjgm\WhatsApp.exe',
       ]
     bindings: ["f22+m"]
 
@@ -600,6 +621,9 @@ keybindings:
 
   - commands: ["shell-exec ntop"]
     bindings: ["f21+escape"]
+
+  - commands: ["shell-exec btop"]
+    bindings: ["f21+f22+escape"]
 
   - commands: ['shell-exec wt --profile "Neovim"']
     bindings: ["f21+n"]

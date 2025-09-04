@@ -31,7 +31,7 @@
     import * as zebar from 'https://esm.sh/zebar@2';
 
     const providers = zebar.createProviderGroup({
-      // network: {type: 'network'},
+      //network: {type: 'network'},
       glazewm: {type: 'glazewm'},
       cpu: {type: 'cpu'},
       //date: {type: 'date', formatting: 'EEE d MMM T'},
@@ -187,6 +187,13 @@
               </>
             )}
 
+            {output.network && (
+              <div className="network">
+                {getNetworkIcon(output.network)}
+                {output.network.defaultGateway?.ssid}
+              </div>
+            )}
+
             {output.memory && (
               <div className="memory">
                 {/*<i className="nf nf-fae-chip"></i>*/}
@@ -207,13 +214,6 @@
               </div>
             )}
             
-            {output.network && (
-              <div className="network">
-                {getNetworkIcon(output.network)}
-                {/*output.network.defaultGateway?.ssid*/}
-              </div>
-            )}
-
             {/*{output.battery && (
             <div className="battery">
               {/* Show icon for whether battery is charging. *\/}

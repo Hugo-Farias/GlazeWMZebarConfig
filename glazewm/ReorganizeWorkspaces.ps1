@@ -21,15 +21,16 @@ for ($i = 1; $i -le 9; $i++) {
     glazewm command move-workspace --direction right
 }
 
-# Move workspaces 10 through 12 to the left
+# # Move workspaces 10 through 12 to the left
 for ($i = 10; $i -le 12; $i++) {
     glazewm command focus --workspace $i
     glazewm command set-tiling-direction horizontal
-    glazewm command move-workspace --direction left
+    # glazewm command move-workspace --direction left
 }
 
 glazewm command focus --workspace 11
-glazewm command focus --workspace 10
+# glazewm command focus --workspace 10
+
 glazewm command focus --workspace 1
 
 # pause

@@ -118,10 +118,13 @@ body,
 /* .logo, */
 /* .binding-mode, */
 /* .tiling-direction, */
-/* .network, */
 /* .memory, */
 /* .cpu, */
-/* .battery { */
+/* .battery, */
+/* .network, */
+/* .nf-md-wifi_strength_4 { */
+/*   color: rgb(115 130 175 / 95%); */
+/* display: none; */
 /* margin-right: 20px; */
 /* } */
 
