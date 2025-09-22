@@ -114,7 +114,6 @@ window_behavior:
 workspaces:
   - name: "1"
     bind_to_monitor: 1
-  #    keep_alive: true
   - name: "2"
     bind_to_monitor: 1
   - name: "3"
@@ -132,17 +131,14 @@ workspaces:
   - name: "9"
     bind_to_monitor: 1
   - name: "10"
-    bind_to_monitor: 0
-  #    keep_alive: true
+    # bind_to_monitor: 0
+    # keep_alive: true
   - name: "11"
-    bind_to_monitor: 0
+    # bind_to_monitor: 0
   - name: "12"
-    bind_to_monitor: 0
+    # bind_to_monitor: 0
   - name: "13"
-    bind_to_monitor: 0
-#  - name: '99'
-#    display_name: 'Terminal'
-#    bind_to_monitor: 1
+    # bind_to_monitor: 0
 
 window_rules:
   - commands:
@@ -217,11 +213,13 @@ window_rules:
         window_title: { regex: "Track Search Results|Track Info" }
       - window_process: { equals: "HeSuVi" }
       - window_process: { equals: "AMD Ryzen Master" }
+      - window_process: { equals: "Modmanager" }
+      - window_title: { equals: "Fluffy Mod Manager" }
 
   - commands: ["set-tiling"]
     match:
       - window_process: { equals: "steamwebhelper" }
-        window_title: { equals: "Steam" }
+        window_title: { regex: "^Steam$|^Steam Big Picture Mode$" }
 
   - commands:
       ["set-floating", "size --width 77% --height 70%", "position --centered"]
@@ -233,6 +231,11 @@ window_rules:
   #      - commands: [ 'move --direction up' ]
   #        match:
 
+  # - commands: ["set-fullscreen"]
+  #   match:
+  #     - window_process: { equals: "steamwebhelper" }
+  #       window_title: { equals: "Steam Big Picture Mode" }
+  #
   - commands: ["move --workspace 1"]
     match:
       - window_process: { equals: "msedge" }
@@ -541,14 +544,17 @@ keybindings:
       ]
     bindings: ["f21+f22+1"]
 
-  - commands:
-      [
-        'shell-exec C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe',
-      ]
-    bindings: ["f21+w"]
+  # - commands:
+  #     [
+  #       'shell-exec C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe',
+  #     ]
+  #   bindings: ["f21+w"]
 
-  # - commands: [ 'shell-exec C:\Users\Hugo\AppData\Local\Programs\WebStorm 2\bin\webstorm64.exe', "focus --workspace 2" ]
-  #   bindings: [ 'f21+f22+2' ]
+  # - commands: ["shell-exec cmd curl https://wttr.in/planaltina%20goias"]
+  #   bindings: ["f21+w"]
+
+  # # - commands: [ 'shell-exec C:\Users\Hugo\AppData\Local\Programs\WebStorm 2\bin\webstorm64.exe', "focus --workspace 2" ]
+  # #   bindings: [ 'f21+f22+2' ]
 
   - commands: ["shell-exec wt", "focus --workspace 2"]
     bindings: ["f21+f22+2"]
@@ -590,7 +596,7 @@ keybindings:
   # # Open Messaging App
   - commands:
       [
-        'shell-exec C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2534.2.0_x64__cv1g1gvanyjgm\WhatsApp.exe',
+        'shell-exec C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2535.3.0_x64__cv1g1gvanyjgm\WhatsApp.exe',
       ]
     bindings: ["f22+m"]
 
