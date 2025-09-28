@@ -131,24 +131,24 @@ workspaces:
   - name: "9"
     bind_to_monitor: 1
   - name: "10"
-    # bind_to_monitor: 0
+    bind_to_monitor: 1
     # keep_alive: true
   - name: "11"
-    # bind_to_monitor: 0
+    bind_to_monitor: 1
   - name: "12"
-    # bind_to_monitor: 0
+    bind_to_monitor: 1
   - name: "13"
-    # bind_to_monitor: 0
+    bind_to_monitor: 0
 
 window_rules:
-  - commands:
-      [
-        "toggle-tiling-direction",
-        "wm-redraw",
-        "shell-exec nircmd win hide class Shell_TrayWnd",
-      ]
-    match:
-      - window_title: { regex: ".*" }
+  # - commands: [
+  #       # "toggle-tiling-direction",
+  #       # "shell-exec cmd 'C:/Users/Hugo/.glzr/glazewm/DinamicTiling.ps1'",
+  #       "wm-redraw",
+  #       "shell-exec nircmd win hide class Shell_TrayWnd",
+  #     ]
+  #   match:
+  #     - window_title: { regex: ".*" }
 
   # - commands: [ 'set-title-bar-visibility shown' ]
   #   match:
@@ -397,6 +397,9 @@ keybindings:
   # Change focus from tiling windows -> floating -> fullscreen.
   - commands: ["wm-cycle-focus"]
     bindings: ["f21+e"]
+
+  - commands: ["shell-exec cmd glazewm command move-workspace --direction left"]
+    bindings: ["f21+q"]
 
   # Change the focused window to be floating.
   - commands: ["toggle-floating"]
