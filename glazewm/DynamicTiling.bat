@@ -2,11 +2,34 @@
 setlocal enabledelayedexpansion
 
 :: Example JSON
-set "json={"width":1900,"height":1035,"x":10,"y":35}"
+for /f "delims=" %%A in ('glazewm query focused') do set "json=%%A"
+for /f "delims=" %%A in ('echo !json! ^| rg "\"width\"\:(\d+)" -or "$1" -') do set "W=%%A"
+
+if 1900 GTR !W! (
+  glazewm command set-tiling-direction vertical
+) else (
+  glazewm command set-tiling-direction horizontal
+)
+ 
+
+REM set "json={"width":1900,"height":1035,"x":10,"y":35}"
+REM for /f "delims=" %%A in ('glazewm query workspaces') do set "json=%%A"
 
 :: Use rg to print all matches for width and height
-echo !json! | rg "\"width\"\:(\d+)" -or "$1"
-echo !json! | rg "\"height\"\:(\d+)" -or "$1"
+REM echo JSON: !json!
+REM echo !json! | rg "\"width\"\:(\d+)" -or "$1"
+REM echo !json! | rg "\"height\"\:(\d+)" -or "$1"
+REM glazewm query focused | rg "\"processName\"\:(.*?)\," -or "$1"
+REM glazewm query focused | rg "\"height\"\:(\d+)" -or "$1"
+REM echo glazewm query workspaces | jq -r 'first(.data.workspaces[].children[]? | select(.hasFocus == true)) | .type'
+
+REM for /f "delims=" %%A in ('echo !json! ^| rg "\"height\"\:(\d+)" -or "$1" -') do set "H=%%A"
+
+REM echo Width: !W!
+REM echo Height: !H!
+REM set /a Sum=!W!-!H!-865
+REM echo Total: !Sum!
+
 
 :: defaults
 REM set "W=0"

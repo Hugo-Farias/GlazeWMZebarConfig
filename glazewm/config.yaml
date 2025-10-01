@@ -38,7 +38,7 @@ general:
   # effect if `hide_method: 'hide'`.
   # - 'true': Show all windows (regardless of workspace).
   # - 'false': Only show windows from the currently shown workspaces.
-  show_all_in_taskbar: false
+  show_all_in_taskbar: true
 
 gaps:
   # Whether to scale the gaps with the DPI of the monitor.
@@ -141,25 +141,14 @@ workspaces:
     bind_to_monitor: 0
 
 window_rules:
-  # - commands: [
-  #       # "toggle-tiling-direction",
-  #       # "shell-exec cmd 'C:/Users/Hugo/.glzr/glazewm/DinamicTiling.ps1'",
-  #       "wm-redraw",
-  #       "shell-exec nircmd win hide class Shell_TrayWnd",
-  #     ]
-  #   match:
-  #     - window_title: { regex: ".*" }
-
-  # - commands: [ 'set-title-bar-visibility shown' ]
-  #   match:
-  #     - window_process: { equals: 'msedge' }
-  #     - window_process: { equals: 'explorer' }
-  #     - window_process: { equals: 'webstorm64' }
-  #     - window_process: { equals: 'vivaldi' }
-  #     - window_process: { equals: 'zebar' }
-  #     - window_process: { regex: 'PowerToys.*' }
-  #     - window_process: { equals: 'ApplicationFrameHost' }
-  #       window_title: { equals: 'Settings' }
+  - commands: [
+        # "toggle-tiling-direction",
+        "shell-exec --hide-window  C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat",
+        "wm-redraw",
+        "shell-exec nircmd win hide class Shell_TrayWnd",
+      ]
+    match:
+      - window_title: { regex: ".*" }
 
   - commands: ["set-title-bar-visibility hidden"]
     match:
@@ -394,12 +383,17 @@ keybindings:
   - commands: ["toggle-tiling-direction"]
     bindings: ["f21+v"]
 
+  - commands:
+      ["shell-exec --hide-window C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat"]
+    bindings: ["f22+v"]
+
   # Change focus from tiling windows -> floating -> fullscreen.
   - commands: ["wm-cycle-focus"]
     bindings: ["f21+e"]
 
-  - commands: ["shell-exec cmd glazewm command move-workspace --direction left"]
-    bindings: ["f21+q"]
+  # - commands:
+  #     ["shell-exec cmd & glazewm command move-workspace --direction left"]
+  #   bindings: ["f21+q"]
 
   # Change the focused window to be floating.
   - commands: ["toggle-floating"]
@@ -455,6 +449,10 @@ keybindings:
   - commands: ["shell-exec wt"]
     bindings: ["f21+enter"]
 
+  - commands:
+      ["shell-exec --hide-window powershell Start-Process wt -Verb runAs"]
+    bindings: ["f21+f22+enter"]
+
   # Focus the next/previous active workspace defined in `workspaces` config.
   - commands: ["focus --next-active-workspace"]
     bindings: ["f21+d"]
@@ -484,11 +482,10 @@ keybindings:
     bindings: ["f21+8"]
   - commands: ["focus --workspace 9"]
     bindings: ["f21+9"]
-  - commands:
-      [
+  - commands: [
         "focus --workspace 10",
-        "focus --recent-workspace",
-        "focus --recent-workspace",
+        # "focus --recent-workspace",
+        # "focus --recent-workspace",
       ]
     bindings: ["f21+0", "f21+f1"]
   - commands: ["focus --workspace 11"]
