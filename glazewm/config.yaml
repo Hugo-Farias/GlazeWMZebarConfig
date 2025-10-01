@@ -144,8 +144,8 @@ window_rules:
   - commands: [
         # "toggle-tiling-direction",
         "shell-exec --hide-window  C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat",
-        "wm-redraw",
-        "shell-exec nircmd win hide class Shell_TrayWnd",
+        # "wm-redraw",
+        # "shell-exec nircmd win hide class Shell_TrayWnd",
       ]
     match:
       - window_title: { regex: ".*" }
@@ -329,9 +329,17 @@ binding_modes:
 
 keybindings:
   # Shift focus in a given direction.
-  - commands: ["focus --direction left"]
+  - commands:
+      [
+        "focus --direction left",
+        "shell-exec --hide-window C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat",
+      ]
     bindings: ["f21+h", "f21+left"]
-  - commands: ["focus --direction right"]
+  - commands:
+      [
+        "focus --direction right",
+        "shell-exec --hide-window C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat",
+      ]
     bindings: ["f21+l", "f21+right"]
   - commands: ["focus --direction up"]
     bindings: ["f21+k", "f21+up"]
@@ -396,11 +404,19 @@ keybindings:
   #   bindings: ["f21+q"]
 
   # Change the focused window to be floating.
-  - commands: ["toggle-floating"]
+  - commands:
+      [
+        "toggle-floating",
+        "shell-exec --hide-window C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat",
+      ]
     bindings: ["f22+space"]
 
   # Change the focused window to be tiling.
-  - commands: ["toggle-tiling"]
+  - commands:
+      [
+        "toggle-tiling",
+        "shell-exec --hide-window C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat",
+      ]
     bindings: ["f22+t"]
 
   #  - commands: [ 'shell-exec --hide-window powershell -command "C:\Windows\System32\schtasks.exe /run /tn "TrustedApps\Terminal"' ]
@@ -415,7 +431,11 @@ keybindings:
   #   bindings: [ 'f21+m' ]
 
   # Close focused window.
-  - commands: ["close"]
+  - commands:
+      [
+        "close",
+        "shell-exec --hide-window C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat",
+      ]
     bindings: ["f22+q"]
 
   # Kill GlazeWM process safely.
