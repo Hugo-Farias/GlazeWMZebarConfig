@@ -143,7 +143,7 @@ workspaces:
 window_rules:
   - commands: [
         # "toggle-tiling-direction",
-        "shell-exec --hide-window  C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat",
+        "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
         "wm-redraw",
         # "shell-exec nircmd win hide class Shell_TrayWnd",
       ]
@@ -186,7 +186,7 @@ window_rules:
       - window_class: { equals: "WinUIDesktopWin32WindowClass" }
       - window_process: { equals: "Everything64" }
       - window_process: { equals: "deluge" }
-        window_title: { regex: '^Add Torrents.*' }
+        window_title: { regex: "^Add Torrents.*" }
       - window_process: { equals: "AMDAutoUpdate" }
       - window_title: { regex: ".*Error.*" }
       # - window_process: { equals: "WindowsTerminal" }
@@ -333,25 +333,25 @@ keybindings:
   - commands:
       [
         "focus --direction left",
-        "shell-exec --hide-window C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat",
+        "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
       ]
     bindings: ["f21+h", "f21+left"]
   - commands:
       [
         "focus --direction right",
-        "shell-exec --hide-window C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat",
+        "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
       ]
     bindings: ["f21+l", "f21+right"]
   - commands:
       [
         "focus --direction up",
-        "shell-exec --hide-window C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat",
+        "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
       ]
     bindings: ["f21+k", "f21+up"]
   - commands:
       [
         "focus --direction down",
-        "shell-exec --hide-window C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat",
+        "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
       ]
     bindings: ["f21+j", "f21+down"]
 
@@ -401,7 +401,7 @@ keybindings:
     bindings: ["f21+v"]
 
   - commands:
-      ["shell-exec --hide-window C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat"]
+      ["shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat"]
     bindings: ["f22+v"]
 
   # Change focus from tiling windows -> floating -> fullscreen.
@@ -416,7 +416,7 @@ keybindings:
   - commands:
       [
         "toggle-floating",
-        "shell-exec --hide-window C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat",
+        "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
       ]
     bindings: ["f22+space"]
 
@@ -424,7 +424,7 @@ keybindings:
   - commands:
       [
         "toggle-tiling",
-        "shell-exec --hide-window C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat",
+        "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
       ]
     bindings: ["f22+t"]
 
@@ -443,7 +443,7 @@ keybindings:
   - commands:
       [
         "close",
-        "shell-exec --hide-window C:/Users/Hugo/.glzr/glazewm/DynamicTiling.bat",
+        "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
       ]
     bindings: ["f22+q"]
 
@@ -579,8 +579,9 @@ keybindings:
   #     ]
   #   bindings: ["f21+w"]
 
-  # - commands: ["shell-exec cmd curl https://wttr.in/planaltina%20goias"]
-  #   bindings: ["f21+w"]
+  # - commands: ["shell-exec pwsh curl https://wttr.in/planaltina%20goias"]
+  - commands: ["shell-exec C:/Users/Hugo/.glzr/scripts/Current Wallpaper.vbs"]
+    bindings: ["f21+f22+w"]
 
   # # - commands: [ 'shell-exec C:\Users\Hugo\AppData\Local\Programs\WebStorm 2\bin\webstorm64.exe', "focus --workspace 2" ]
   # #   bindings: [ 'f21+f22+2' ]
@@ -612,13 +613,13 @@ keybindings:
     bindings: ["f21+f22+0", "f21+f22+f1"]
 
   - commands:
-      ['shell-exec D:\Users\Hugo\Documents\Scripts\Restart SmoothScroll.bat']
+      ['shell-exec D:\Users\Hugo\Documents\scripts\Restart SmoothScroll.bat']
     bindings: ["f22+insert"]
 
     # Move all windows to the monitors they're bound to
   - commands:
       [
-        'shell-exec --hide-window powershell C:\Users\Hugo\.glzr\glazewm\ReorganizeWorkspaces.ps1',
+        'shell-exec --hide-window powershell C:\Users\Hugo\.glzr\scripts\ReorganizeWorkspaces.ps1',
       ]
     bindings: ["f21+f22+insert"]
 
