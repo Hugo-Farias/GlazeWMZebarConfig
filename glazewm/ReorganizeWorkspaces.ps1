@@ -28,9 +28,9 @@ $workspace = Get-GlazeCurrentWorkspace
 
 for ($i = 1; $i -le 12; $i++) {
     glazewm command focus --workspace $i
-    glazewm command set-tiling-direction horizontal
-    glazewm command move-workspace --direction right
-    # Start-Sleep -Milliseconds 50
+    # glazewm command set-tiling-direction horizontal
+    # glazewm command move-workspace --direction right
+    Start-Sleep -Milliseconds 10
 }
 
 # # Move workspaces 10 through 12 to the left
@@ -43,9 +43,9 @@ for ($i = 1; $i -le 12; $i++) {
 # glazewm command focus --workspace 11
 # glazewm command focus --workspace 10
 
-glazewm command focus --workspace 13
-glazewm command set-tiling-direction horizontal
-glazewm command move-workspace --direction left
+# glazewm command focus --workspace 1
+# glazewm command set-tiling-direction horizontal
+# glazewm command move-workspace --direction left
 glazewm command focus --workspace $workspace
 
 # pause
