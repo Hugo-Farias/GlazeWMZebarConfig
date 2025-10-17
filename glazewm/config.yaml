@@ -583,6 +583,10 @@ keybindings:
   - commands: ["shell-exec C:/Users/Hugo/.glzr/scripts/Current Wallpaper.vbs"]
     bindings: ["f21+f22+w"]
 
+  - commands:
+      ["shell-exec C:/Program Files (x86)/SoundWire Server/SoundWireServer.exe"]
+    bindings: ["f21+f22+s"]
+
   # # - commands: [ 'shell-exec C:\Users\Hugo\AppData\Local\Programs\WebStorm 2\bin\webstorm64.exe', "focus --workspace 2" ]
   # #   bindings: [ 'f21+f22+2' ]
 
