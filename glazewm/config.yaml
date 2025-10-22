@@ -98,7 +98,7 @@ window_behavior:
   state_defaults:
     floating:
       # Whether to center floating windows by default.
-      centered: true
+      centered: false
 
       # Whether to show floating windows as always on top.
       shown_on_top: true
@@ -113,39 +113,39 @@ window_behavior:
 
 workspaces:
   - name: "1"
-    # bind_to_monitor: 1
-  - name: "2"
-    # bind_to_monitor: 1
-  - name: "3"
-    # bind_to_monitor: 1
-  - name: "4"
-    # bind_to_monitor: 1
-  - name: "5"
-    # bind_to_monitor: 1
-  - name: "6"
-    # bind_to_monitor: 1
-  - name: "7"
-    # bind_to_monitor: 1
-  - name: "8"
-    # bind_to_monitor: 1
-  - name: "9"
-    # bind_to_monitor: 1
-  - name: "10"
-    # bind_to_monitor: 1
+    bind_to_monitor: 1
     # keep_alive: true
+  - name: "2"
+    bind_to_monitor: 1
+  - name: "3"
+    bind_to_monitor: 1
+  - name: "4"
+    bind_to_monitor: 1
+  - name: "5"
+    bind_to_monitor: 1
+  - name: "6"
+    bind_to_monitor: 1
+  - name: "7"
+    bind_to_monitor: 1
+  - name: "8"
+    bind_to_monitor: 1
+  - name: "9"
+    bind_to_monitor: 1
+  - name: "10"
+    bind_to_monitor: 1
   - name: "11"
-    # bind_to_monitor: 1
+    bind_to_monitor: 1
   - name: "12"
-    # bind_to_monitor: 1
-  # - name: "13"
-  # bind_to_monitor: 0
+    bind_to_monitor: 1
+  - name: "13"
+    bind_to_monitor: 0
 
 window_rules:
   - commands: [
         # "toggle-tiling-direction",
         "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
         "wm-redraw",
-        # "shell-exec nircmd win hide class Shell_TrayWnd",
+        "shell-exec nircmd win hide class Shell_TrayWnd",
       ]
     match:
       - window_title: { regex: ".*" }
@@ -164,7 +164,6 @@ window_rules:
       - window_process: { equals: "JDownloader2" }
       - window_process: { equals: "stremio" }
       - window_process: { equals: "WhatsApp" }
-      - window_process: { equals: "Steam ROM Manager" }
       - window_process: { equals: "mailspring" }
       # - window_process: { equals: "explorer" }
       - window_process: { equals: "windhawk" }
@@ -175,10 +174,10 @@ window_rules:
       - window_process: { equals: "wezterm-gui" }
       - window_process: { equals: "Editor" }
         window_title: { equals: "Equalizer APO 1.4.2 Configuration Editor" }
+      - window_process: { equals: "qutebrowser" }
 
   - commands: ["set-floating"]
     match:
-      - window_title: { equals: "Album Art Downloader" }
       - window_class: { regex: ".*Dialog.*" }
       - window_title: { equals: "Window Spy for AHKv2" }
       - window_title: { equals: "Unsaved Changes" }
@@ -205,7 +204,7 @@ window_rules:
       - window_process: { equals: "Modmanager" }
       - window_title: { equals: "Fluffy Mod Manager" }
       - window_process: { equals: "spek" }
-      - window_title: { regex: "^Sign in - Google Accounts - Profile.*" }
+      - window_title: { regex: "^Sign in - Google Accounts" }
 
   - commands: ["set-tiling"]
     match:
@@ -235,7 +234,7 @@ window_rules:
   # Automatically resize.
   - commands: ["size --width 37%"]
     match:
-      - window_process: { equals: "msedge" }
+      - window_process: { equals: "brave" }
         window_title:
           { regex: "^(ChatGPT|Gemini|Copilot|T3 Chat|Codeium Chat)$" }
       - window_process: { equals: "webstorm64" }
@@ -271,6 +270,10 @@ window_rules:
     match:
       - window_process: { equals: "Spotify" }
 
+  - commands: ["move --workspace 12"]
+    match:
+      - window_process: { equals: "deluge" }
+
   - commands: ["move --workspace 4"]
     match:
       - window_process: { equals: "steamwebhelper" }
@@ -280,7 +283,13 @@ window_rules:
   - commands: ["ignore"]
     match:
       - window_process: { equals: "zebar" }
+      - window_title: { equals: "Album Art Downloader" }
+
+      # Ignores games.
+      - window_process: { equals: "Lion" }
+      - window_process: { equals: "Lion-Win64-Shipping" }
       - window_process: { equals: "re4" }
+      - window_process: { equals: "NINJAGAIDEN4-Steam" }
 
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
@@ -288,10 +297,7 @@ window_rules:
 
       # Windows Terminal in quake mode.
       - window_process: { equals: "WindowsTerminal" }
-        window_title:
-          {
-            regex: "PowerShell 7 QuakeMode|GlazeWM Workspace Reorganize Workspaces",
-          }
+        window_title: { regex: "PowerShell 7 QuakeMode" }
       # - window_process: { equals: "WindowsTerminal" }
       # window_title: { regex: "Yazi: *" }
       #        window_title: { equals: 'PowerShell 7.4.7 [ADMIN]' }
@@ -565,10 +571,10 @@ keybindings:
   #  - commands: [ 'move --workspace 99', 'focus --workspace 99' ]
   #    bindings: [ 'f22+t' ]
 
-  # Open Microsoft Edge.
+  # Open Browser.
   - commands:
       [
-        'shell-exec C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe',
+        'shell-exec C:\Users\Hugo\AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe',
         "focus --workspace 1",
       ]
     bindings: ["f21+f22+1"]
@@ -583,9 +589,18 @@ keybindings:
   - commands: ["shell-exec C:/Users/Hugo/.glzr/scripts/Current Wallpaper.vbs"]
     bindings: ["f21+f22+w"]
 
+  # - commands: ["shell-exec C:/Program Files/qutebrowser/qutebrowser.exe"]
+  #   bindings: ["f21+f22+q"]
+
   - commands:
       ["shell-exec C:/Program Files (x86)/SoundWire Server/SoundWireServer.exe"]
     bindings: ["f21+f22+s"]
+
+  - commands:
+      [
+        'shell-exec C:\Users\Hugo\AppData\Local\Programs\OpenComic\opencomic.exe',
+      ]
+    bindings: ["f21+f22+o"]
 
   # # - commands: [ 'shell-exec C:\Users\Hugo\AppData\Local\Programs\WebStorm 2\bin\webstorm64.exe', "focus --workspace 2" ]
   # #   bindings: [ 'f21+f22+2' ]
@@ -594,15 +609,11 @@ keybindings:
     bindings: ["f21+f22+2"]
 
   - commands:
-      ['shell-exec C:\Aplications\MSEdge\ChatGPT.lnk', "focus --workspace 3"]
-    bindings: ["f21+f22+3"]
-
-  - commands:
       [
-        'shell-exec C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe',
-        "focus --workspace 1",
+        'shell-exec C:\Aplications\Brave Apps\ChatGPT.lnk',
+        "focus --workspace 3",
       ]
-    bindings: ["f21+f22+1"]
+    bindings: ["f21+f22+3"]
 
   - commands: ['shell-exec C:\Users\Hugo\AppData\Roaming\Spotify\Spotify.exe']
     bindings: ["f21+f22+-", "f21+f22+f2"]
@@ -616,8 +627,10 @@ keybindings:
       ]
     bindings: ["f21+f22+0", "f21+f22+f1"]
 
-  - commands:
-      ['shell-exec D:\Users\Hugo\Documents\scripts\Restart SmoothScroll.bat']
+  - commands: [
+        # 'shell-exec --hide-window D:\Users\Hugo\Documents\scripts\Restart SmoothScroll.bat',
+        'shell-exec --hide-window D:\Users\Hugo\Documents\scripts\Restart Kanata.bat',
+      ]
     bindings: ["f22+insert"]
 
     # Move all windows to the monitors they're bound to
@@ -627,10 +640,10 @@ keybindings:
       ]
     bindings: ["f21+f22+insert"]
 
-  # # Open Messaging App
+  # Open Messaging App
   - commands:
       [
-        'shell-exec C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2539.2.0_x64__cv1g1gvanyjgm\WhatsApp.exe',
+        'shell-exec C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2542.2.0_x64__cv1g1gvanyjgm/WhatsApp.exe',
       ]
     bindings: ["f22+m"]
 
@@ -640,17 +653,17 @@ keybindings:
     bindings: ["f21+m"]
 
   # Open Google Keep
-  - commands: ['shell-exec C:\Aplications\MSEdge\Google Keep.lnk']
+  - commands: ['shell-exec C:\Aplications\Brave Apps\Google Keep.lnk']
     bindings: ["f21+f22+k"]
 
   # Open ChatGPT
-  - commands: ['shell-exec C:\Aplications\MSEdge\ChatGPT.lnk']
+  - commands: ['shell-exec C:\Aplications\Brave Apps\ChatGPT.lnk']
     bindings: ["f21+b"]
 
-  - commands: ['shell-exec C:\Aplications\MSEdge\Copilot.lnk']
+  - commands: ['shell-exec C:\Aplications\Brave Apps\Copilot.lnk']
     bindings: ["f22+b"]
 
-  - commands: ['shell-exec C:\Aplications\MSEdge\Gemini.lnk']
+  - commands: ['shell-exec C:\Aplications\Brave Apps\Gemini.lnk']
     bindings: ["f21+f22+b"]
 
   - commands: ["shell-exec explorer"]

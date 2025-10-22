@@ -20,7 +20,7 @@
 # $type = glazewm query workspaces | jq -r 'first(.data.workspaces[].children[]? | select(.hasFocus == true)) | .type'
 # $type = glazewm query focused | jq -r 'first(.data.workspaces[].children[]? | select(.hasFocus == true)) | .type'
 # $type = glazewm query focused | jq ".data.focused.width"
-$type = glazewm query focused | rg "\"height\"\:(\d+)" -or "$1"
+$type = glazewm query focused | rg "\"width\"\:(\d+)" -or "$1"
 
 Write-Output $type
 
