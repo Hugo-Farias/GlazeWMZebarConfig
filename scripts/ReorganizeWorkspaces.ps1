@@ -40,9 +40,10 @@ for ($i = 1; $i -le 12; $i++) {
 #     # glazewm command move-workspace --direction left
 # }
 
-glazewm command focus --workspace 13
+glazewm command focus --workspace 0
 glazewm command move-workspace --direction left
 glazewm command move --workspace $workspace
+
 glazewm command focus --workspace 10
 glazewm command move-workspace --direction left
 

@@ -98,7 +98,7 @@ window_behavior:
   state_defaults:
     floating:
       # Whether to center floating windows by default.
-      centered: false
+      centered: true
 
       # Whether to show floating windows as always on top.
       shown_on_top: true
@@ -112,6 +112,8 @@ window_behavior:
       shown_on_top: false
 
 workspaces:
+  - name: "0"
+    bind_to_monitor: 0
   - name: "1"
     bind_to_monitor: 1
     # keep_alive: true
@@ -137,8 +139,6 @@ workspaces:
     bind_to_monitor: 1
   - name: "12"
     bind_to_monitor: 1
-  - name: "13"
-    bind_to_monitor: 0
 
 window_rules:
   - commands: [
@@ -178,6 +178,7 @@ window_rules:
 
   - commands: ["set-floating"]
     match:
+      - window_process: { equals: "mpc-hc64" }
       - window_class: { regex: ".*Dialog.*" }
       - window_title: { equals: "Window Spy for AHKv2" }
       - window_title: { equals: "Unsaved Changes" }
@@ -249,13 +250,11 @@ window_rules:
         window_title: { regex: "DevTools .*" }
 
   # - commands: ["size --width 20% --height 20%"]
-  - commands: ["set-floating"]
-    match:
-      - window_process: { equals: "mpc-hc64" }
 
   - commands: ["size --width 24%"]
     match:
       - window_process: { equals: "AIMP" }
+        window_class: { equals: "TAIMPMainForm" }
 
   # - commands: ["move --workspace 2"]
   #   match:
@@ -382,13 +381,13 @@ keybindings:
     bindings: ["f21+i"]
 
   - commands: ["resize --width -2%"]
-    bindings: ["f21+f22+y"]
+    bindings: ["f22+y"]
   - commands: ["resize --width +2%"]
-    bindings: ["f21+f22+o"]
+    bindings: ["f22+o"]
   - commands: ["resize --height +2%"]
-    bindings: ["f21+f22+u"]
+    bindings: ["f22+u"]
   - commands: ["resize --height -2%"]
-    bindings: ["f21+f22+i"]
+    bindings: ["f22+i"]
 
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
@@ -404,11 +403,11 @@ keybindings:
   # Change tiling direction. This determines where new tiling windows will
   # be inserted.
   - commands: ["toggle-tiling-direction"]
-    bindings: ["f21+v"]
+    bindings: ["f22+v"]
 
   - commands:
       ["shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat"]
-    bindings: ["f22+v"]
+    bindings: ["f21+v"]
 
   # Change focus from tiling windows -> floating -> fullscreen.
   - commands: ["wm-cycle-focus"]
@@ -600,7 +599,7 @@ keybindings:
       [
         'shell-exec C:\Users\Hugo\AppData\Local\Programs\OpenComic\opencomic.exe',
       ]
-    bindings: ["f21+f22+o"]
+    bindings: ["f21+f22+4"]
 
   # # - commands: [ 'shell-exec C:\Users\Hugo\AppData\Local\Programs\WebStorm 2\bin\webstorm64.exe', "focus --workspace 2" ]
   # #   bindings: [ 'f21+f22+2' ]
@@ -643,7 +642,7 @@ keybindings:
   # Open Messaging App
   - commands:
       [
-        'shell-exec C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2542.2.0_x64__cv1g1gvanyjgm/WhatsApp.exe',
+        'shell-exec C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2543.50.0_x64__cv1g1gvanyjgm/WhatsApp.exe',
       ]
     bindings: ["f22+m"]
 
@@ -672,8 +671,8 @@ keybindings:
   - commands: ["shell-exec lazygit"]
     bindings: ["f22+enter"]
 
-  - commands: ["shell-exec wt ntop"]
-    bindings: ["f21+escape"]
+  # - commands: ["shell-exec wt btop"]
+  #   bindings: ["f21+escape"]
 
   - commands: ["shell-exec wt btop"]
     bindings: ["f21+f22+escape"]
