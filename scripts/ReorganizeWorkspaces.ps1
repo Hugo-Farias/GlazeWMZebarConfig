@@ -26,11 +26,15 @@ $console = [Console.Window]::GetConsoleWindow()
 
 $workspace = Get-GlazeCurrentWorkspace
 
+if ($workspace -eq 0) {
+  $workspace = 1
+}
+
 for ($i = 1; $i -le 12; $i++) {
-    glazewm command focus --workspace $i
-    # glazewm command set-tiling-direction horizontal
-    glazewm command move-workspace --direction right
-    Start-Sleep -Milliseconds 10
+  glazewm command focus --workspace $i
+  # glazewm command set-tiling-direction horizontal
+  glazewm command move-workspace --direction right
+  Start-Sleep -Milliseconds 10
 }
 
 # # Move workspaces 10 through 12 to the left

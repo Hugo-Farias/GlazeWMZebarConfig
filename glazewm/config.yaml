@@ -45,7 +45,7 @@ gaps:
   scale_with_dpi: false
 
   # Gap between adjacent windows.
-  #  inner_gap: '-40px'
+  # inner_gap: '-40px'
   inner_gap: "10px"
 
   # Gap between windows and the screen edge.
@@ -175,6 +175,9 @@ window_rules:
       - window_process: { equals: "Editor" }
         window_title: { equals: "Equalizer APO 1.4.2 Configuration Editor" }
       - window_process: { equals: "qutebrowser" }
+      - window_process: { equals: "vivaldi" }
+      - window_process: { equals: "msedge" }
+      - window_process: { equals: "ReflectBin" }
 
   - commands: ["set-floating"]
     match:
@@ -182,7 +185,7 @@ window_rules:
       - window_class: { regex: ".*Dialog.*" }
       - window_title: { equals: "Window Spy for AHKv2" }
       - window_title: { equals: "Unsaved Changes" }
-      # - window_title: { equals: "Qt5152QWindowIcon" }
+      - window_title: { equals: "Qt5152QWindowIcon" }
       - window_class: { equals: "WinUIDesktopWin32WindowClass" }
       - window_process: { equals: "Everything64" }
       - window_process: { equals: "deluge" }
@@ -227,12 +230,12 @@ window_rules:
   #     - window_process: { equals: "steamwebhelper" }
   #       window_title: { equals: "Steam Big Picture Mode" }
   #
-  - commands: ["move --workspace 1"]
-    match:
-      - window_process: { equals: "msedge" }
-        window_title: { regex: ".* Personal - Microsoft​ Edge" }
-
-  # Automatically resize.
+  # - commands: ["move --workspace 1"]
+  #   match:
+  #     - window_process: { equals: "msedge" }
+  #       window_title: { regex: ".* Personal - Microsoft​ Edge" }
+  #
+  # # Automatically resize.
   - commands: ["size --width 37%"]
     match:
       - window_process: { equals: "brave" }
@@ -263,7 +266,7 @@ window_rules:
   - commands: ["move --workspace 10"]
     match:
       - window_process: { equals: "vivaldi" }
-        window_title: { regex: 'https:\/\/www.youtube.com\/tv.*' }
+        window_title: { equals: "https://www.youtube.com/tv" }
 
   - commands: ["move --workspace 11"]
     match:
@@ -289,6 +292,7 @@ window_rules:
       - window_process: { equals: "Lion-Win64-Shipping" }
       - window_process: { equals: "re4" }
       - window_process: { equals: "NINJAGAIDEN4-Steam" }
+      - window_process: { equals: "Blacklist_DX11_game" }
 
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
@@ -335,28 +339,24 @@ binding_modes:
 
 keybindings:
   # Shift focus in a given direction.
-  - commands:
-      [
+  - commands: [
         "focus --direction left",
-        "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
+        # "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
       ]
     bindings: ["f21+h", "f21+left"]
-  - commands:
-      [
+  - commands: [
         "focus --direction right",
-        "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
+        # "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
       ]
     bindings: ["f21+l", "f21+right"]
-  - commands:
-      [
+  - commands: [
         "focus --direction up",
-        "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
+        # "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
       ]
     bindings: ["f21+k", "f21+up"]
-  - commands:
-      [
+  - commands: [
         "focus --direction down",
-        "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
+        # "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
       ]
     bindings: ["f21+j", "f21+down"]
 
@@ -403,11 +403,11 @@ keybindings:
   # Change tiling direction. This determines where new tiling windows will
   # be inserted.
   - commands: ["toggle-tiling-direction"]
-    bindings: ["f22+v"]
+    bindings: ["f21+v"]
 
   - commands:
       ["shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat"]
-    bindings: ["f21+v"]
+    bindings: ["f22+v"]
 
   # Change focus from tiling windows -> floating -> fullscreen.
   - commands: ["wm-cycle-focus"]
@@ -622,15 +622,16 @@ keybindings:
 
   - commands:
       [
-        'shell-exec C:\Users\Hugo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Vivaldi Apps\Youtube on TV.lnk',
+        'shell-exec C:\Users\Hugo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Vivaldi Apps\Youtube TV.lnk',
       ]
+      # ['shell-exec C:\Aplications/MSEdge/YouTube TV.lnk']
     bindings: ["f21+f22+0", "f21+f22+f1"]
 
   - commands: [
-        # 'shell-exec --hide-window D:\Users\Hugo\Documents\scripts\Restart SmoothScroll.bat',
-        'shell-exec --hide-window D:\Users\Hugo\Documents\scripts\Restart Kanata.bat',
+        # 'shell-exec --hide-window C:\Users\Hugo\.glzr\scripts\Restart SmoothScroll.bat',
+        'shell-exec --hide-window C:\Users\Hugo\.glzr\scripts\RestartKanata.bat',
       ]
-    bindings: ["f22+insert"]
+    bindings: ["f13"]
 
     # Move all windows to the monitors they're bound to
   - commands:
@@ -642,7 +643,7 @@ keybindings:
   # Open Messaging App
   - commands:
       [
-        'shell-exec C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2543.50.0_x64__cv1g1gvanyjgm/WhatsApp.exe',
+        'shell-exec C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2586.3.0_x64__cv1g1gvanyjgm/WhatsApp.Root.exe',
       ]
     bindings: ["f22+m"]
 
@@ -682,6 +683,9 @@ keybindings:
 
   - commands: ["shell-exec wt nvim"]
     bindings: ["f22+n"]
+
+  - commands: ['shell-exec C:\Program Files\AMD\CNext\CNext\RadeonSoftware.exe']
+    bindings: ["f21+f22+a"]
 
   - commands:
       [

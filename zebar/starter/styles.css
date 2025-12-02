@@ -135,7 +135,7 @@ body,
 }
 
 .workspace {
-  transition: background-color 0.3s ease;
+  /* transition: background-color 0.3s ease; */
   background: rgb(255 255 255 / 10%);
   margin-right: 4px;
   color: rgb(255 255 255 / 50%);
@@ -145,7 +145,7 @@ body,
 
   &.displayed {
     background: rgb(75 115 255 / 30%);
-    color: rgb(255 255 255 / 90%);
+    color: rgb(255 255 255 / 100%);
   }
 
   &.focused,
@@ -156,7 +156,7 @@ body,
 }
 
 .tiling-direction-text {
-  transition: transform 0.1s ease;
+  /* transition: transform 0.1s ease; */
 
   &.vertical {
     transform: rotate(-90deg);
