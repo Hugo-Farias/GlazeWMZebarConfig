@@ -2,7 +2,13 @@ general:
   # Commands to run when the WM has started. This is useful for running a
   # script or launching another application.
   # Example: The below command launches Zebar.
-  startup_commands: ["shell-exec zebar"]
+  startup_commands:
+    [
+      "shell-exec zebar",
+      "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/RestartKanata.bat",
+      "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/ReorganizeWorkspaces.ps1",
+      "shell-exec --hide-window nircmd win hide class Shell_TrayWnd",
+    ]
 
   # Commands to run just before the WM is shutdown.
   # Example: The below command kills Zebar.
@@ -72,9 +78,9 @@ window_effects:
     # Change the corner style of the window's frame.
     # ** Exclusive to Windows 11 due to API limitations.
     corner_style:
-      enabled: false
+      enabled: true
       # Allowed values: 'square', 'rounded', 'small_rounded'.
-      style: "rounded"
+      style: "square"
 
   # Visual effects to apply to non-focused windows.
   other_windows:
@@ -84,8 +90,8 @@ window_effects:
     hide_title_bar:
       enabled: false
     corner_style:
-      enabled: false
-      style: "rounded"
+      enabled: true
+      style: "square"
 
 window_behavior:
   # New windows are created in this state whenever possible.
@@ -114,9 +120,9 @@ window_behavior:
 workspaces:
   - name: "0"
     bind_to_monitor: 0
+    # keep_alive: true
   - name: "1"
     bind_to_monitor: 1
-    # keep_alive: true
   - name: "2"
     bind_to_monitor: 1
   - name: "3"
@@ -134,10 +140,16 @@ workspaces:
   - name: "9"
     bind_to_monitor: 1
   - name: "10"
-    bind_to_monitor: 1
+    bind_to_monitor: 0
   - name: "11"
     bind_to_monitor: 1
   - name: "12"
+    bind_to_monitor: 1
+  - name: "13"
+    bind_to_monitor: 1
+  - name: "14"
+    bind_to_monitor: 1
+  - name: "15"
     bind_to_monitor: 1
 
 window_rules:
@@ -145,22 +157,22 @@ window_rules:
         # "toggle-tiling-direction",
         "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
         "wm-redraw",
-        "shell-exec nircmd win hide class Shell_TrayWnd",
+        # "shell-exec --hide-window nircmd win hide class Shell_TrayWnd",
       ]
     match:
       - window_title: { regex: ".*" }
 
   - commands: ["set-title-bar-visibility hidden"]
     match:
-      - window_process: { equals: "WindowsTerminal" }
-      - window_process: { equals: "Terminal" }
+      # - window_process: { equals: "WindowsTerminal" }
+      # - window_process: { equals: "Terminal" }
       # - window_process: { equals: "chrome" }
       - window_process: { equals: "notepad++" }
       - window_process: { equals: "alacritty" }
       - window_process: { equals: "neovide" }
       - window_process: { equals: "Mp3tag" }
       - window_process: { equals: "Topaz Gigapixel AI" }
-      - window_process: { equals: "deluge" }
+      # - window_process: { equals: "deluge" }
       - window_process: { equals: "JDownloader2" }
       - window_process: { equals: "stremio" }
       - window_process: { equals: "WhatsApp" }
@@ -178,6 +190,7 @@ window_rules:
       - window_process: { equals: "vivaldi" }
       - window_process: { equals: "msedge" }
       - window_process: { equals: "ReflectBin" }
+      - window_process: { equals: "Everything64" }
 
   - commands: ["set-floating"]
     match:
@@ -208,7 +221,7 @@ window_rules:
       - window_process: { equals: "Modmanager" }
       - window_title: { equals: "Fluffy Mod Manager" }
       - window_process: { equals: "spek" }
-      - window_title: { regex: "^Sign in - Google Accounts" }
+      - window_process: { equals: "TrRebootTools" }
 
   - commands: ["set-tiling"]
     match:
@@ -247,10 +260,9 @@ window_rules:
         window_class: { equals: "Chrome_WidgetWin_1" }
       - window_process: { equals: "WindowsTerminal" }
 
-  - commands: ["size --height 30%"]
+  - commands: ["size --height 30% --width 30%"]
     match:
-      - window_process: { equals: "chrome" }
-        window_title: { regex: "DevTools .*" }
+      - window_title: { regex: "DevTools - .*" }
 
   # - commands: ["size --width 20% --height 20%"]
 
@@ -271,15 +283,26 @@ window_rules:
   - commands: ["move --workspace 11"]
     match:
       - window_process: { equals: "Spotify" }
+      - window_process: { equals: "AIMP" }
 
   - commands: ["move --workspace 12"]
     match:
       - window_process: { equals: "deluge" }
+      - window_process: { equals: "JDownloader2" }
+
+  - commands: ["move --workspace 1"]
+    match:
+      - window_process: { equals: "brave" }
+        window_title: { regex: '.* \- Brave$' }
 
   - commands: ["move --workspace 4"]
     match:
       - window_process: { equals: "steamwebhelper" }
         window_class: { equals: "SDL_app" }
+
+  - commands: ["move --workspace 5"]
+    match:
+      - window_process: { equals: "Vortex" }
 
   # Ignore rules for various 3rd-party apps.
   - commands: ["ignore"]
@@ -291,8 +314,9 @@ window_rules:
       - window_process: { equals: "Lion" }
       - window_process: { equals: "Lion-Win64-Shipping" }
       - window_process: { equals: "re4" }
-      - window_process: { equals: "NINJAGAIDEN4-Steam" }
       - window_process: { equals: "Blacklist_DX11_game" }
+      - window_process: { equals: "Sifu" }
+      - window_process: { equals: "Sifu-Win64-Shipping" }
 
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
@@ -380,13 +404,13 @@ keybindings:
   - commands: ["resize --height -10%"]
     bindings: ["f21+i"]
 
-  - commands: ["resize --width -2%"]
+  - commands: ["resize --width -1%"]
     bindings: ["f22+y"]
-  - commands: ["resize --width +2%"]
+  - commands: ["resize --width +1%"]
     bindings: ["f22+o"]
-  - commands: ["resize --height +2%"]
+  - commands: ["resize --height +1%"]
     bindings: ["f22+u"]
-  - commands: ["resize --height -2%"]
+  - commands: ["resize --height -1%"]
     bindings: ["f22+i"]
 
   # As an alternative to the resize keybindings above, resize mode enables
@@ -526,6 +550,12 @@ keybindings:
     bindings: ["f21+-", "f21+f2"]
   - commands: ["focus --workspace 12"]
     bindings: ["f21+=", "f21+f3"]
+  - commands: ["focus --workspace 13"]
+    bindings: ["f21+f4"]
+  - commands: ["focus --workspace 14"]
+    bindings: ["f21+f5"]
+  - commands: ["focus --workspace 15"]
+    bindings: ["f21+f6"]
   #  - commands: [ 'focus --workspace 99' ]
   #    bindings: [ 'f21+t' ]
   #  - commands: [ 'focus --workspace 99', 'shell-exec wt' ]
@@ -562,11 +592,18 @@ keybindings:
   - commands: ["move --workspace 9", "focus --workspace 9"]
     bindings: ["f22+9"]
   - commands: ["move --workspace 10", "focus --workspace 10"]
-    bindings: ["f22+0", "f22+f1"]
+    bindings: ["f22+f1"]
   - commands: ["move --workspace 11", "focus --workspace 11"]
-    bindings: ["f22+-", "f22+f2"]
+    bindings: ["f22+f2"]
   - commands: ["move --workspace 12", "focus --workspace 12"]
-    bindings: ["f22+=", "f22+f3"]
+    bindings: ["f22+f3"]
+  - commands: ["move --workspace 13", "focus --workspace 13"]
+    bindings: ["f22+f4"]
+  - commands: ["move --workspace 14", "focus --workspace 14"]
+    bindings: ["f22+f5"]
+  - commands: ["move --workspace 15", "focus --workspace 15"]
+    bindings: ["f22+f6"]
+
   #  - commands: [ 'move --workspace 99', 'focus --workspace 99' ]
   #    bindings: [ 'f22+t' ]
 
@@ -574,7 +611,6 @@ keybindings:
   - commands:
       [
         'shell-exec C:\Users\Hugo\AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe',
-        "focus --workspace 1",
       ]
     bindings: ["f21+f22+1"]
 
@@ -643,7 +679,7 @@ keybindings:
   # Open Messaging App
   - commands:
       [
-        'shell-exec C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2586.3.0_x64__cv1g1gvanyjgm/WhatsApp.Root.exe',
+        'shell-exec C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2587.9.0_x64__cv1g1gvanyjgm/WhatsApp.Root.exe',
       ]
     bindings: ["f22+m"]
 
@@ -669,7 +705,7 @@ keybindings:
   - commands: ["shell-exec explorer"]
     bindings: ["f21+r"]
 
-  - commands: ["shell-exec lazygit"]
+  - commands: ["shell-exec wt lazygit"]
     bindings: ["f22+enter"]
 
   # - commands: ["shell-exec wt btop"]
