@@ -6,7 +6,6 @@ general:
     [
       "shell-exec zebar",
       "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/RestartKanata.bat",
-      "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/ReorganizeWorkspaces.ps1",
       "shell-exec --hide-window nircmd win hide class Shell_TrayWnd",
     ]
 
@@ -222,6 +221,8 @@ window_rules:
       - window_title: { equals: "Fluffy Mod Manager" }
       - window_process: { equals: "spek" }
       - window_process: { equals: "TrRebootTools" }
+      - window_process: { equals: "Photoshop" }
+        window_class: { equals: "PSFloatC" }
 
   - commands: ["set-tiling"]
     match:
@@ -299,6 +300,7 @@ window_rules:
     match:
       - window_process: { equals: "steamwebhelper" }
         window_class: { equals: "SDL_app" }
+      - window_class: { equals: "Photoshop" }
 
   - commands: ["move --workspace 5"]
     match:
@@ -665,7 +667,7 @@ keybindings:
 
   - commands: [
         # 'shell-exec --hide-window C:\Users\Hugo\.glzr\scripts\Restart SmoothScroll.bat',
-        'shell-exec --hide-window C:\Users\Hugo\.glzr\scripts\RestartKanata.bat',
+        'shell-exec C:\Users\Hugo\.glzr\scripts\RestartKanata.bat',
       ]
     bindings: ["f13"]
 
