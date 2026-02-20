@@ -49,8 +49,7 @@
       "shownInTaskbar": false,
       "focused": false,
       "resizable": false,
-      "transparent": true,
-      "includeFiles": ["**/**"],
+      "transparent": false,
       "caching": {
         "defaultDuration": 604800,
         "rules": []

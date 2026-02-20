@@ -6,7 +6,6 @@ general:
     [
       "shell-exec zebar",
       "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/RestartKanata.bat",
-      "shell-exec --hide-window nircmd win hide class Shell_TrayWnd",
     ]
 
   # Commands to run just before the WM is shutdown.
@@ -67,7 +66,8 @@ window_effects:
     # ** Exclusive to Windows 11 due to API limitations.
     border:
       enabled: true
-      color: "#8dbcff"
+      # color: "#8dbcff"
+      color: "#386591"
 
     # Remove the title bar from the window's frame. Note that this can
     # cause rendering issues for some applications.
@@ -103,7 +103,7 @@ window_behavior:
   state_defaults:
     floating:
       # Whether to center floating windows by default.
-      centered: true
+      centered: false
 
       # Whether to show floating windows as always on top.
       shown_on_top: true
@@ -190,6 +190,7 @@ window_rules:
       - window_process: { equals: "msedge" }
       - window_process: { equals: "ReflectBin" }
       - window_process: { equals: "Everything64" }
+      - window_process: { equals: "zebar" }
 
   - commands: ["set-floating"]
     match:
@@ -199,11 +200,12 @@ window_rules:
       - window_title: { equals: "Unsaved Changes" }
       - window_title: { equals: "Qt5152QWindowIcon" }
       - window_class: { equals: "WinUIDesktopWin32WindowClass" }
+        window_process: { equals: "PowerToys" }
       - window_process: { equals: "Everything64" }
       - window_process: { equals: "deluge" }
         window_title: { regex: "^Add Torrents.*" }
       - window_process: { equals: "AMDAutoUpdate" }
-      - window_title: { regex: ".*Error.*" }
+      # - window_title: { regex: ".*Error.*" }
       # - window_process: { equals: "WindowsTerminal" }
       #   window_title: { regex: "^(.*ntop|btop4win..)$" }
       - window_process: { equals: "TeraCopy" }
@@ -279,7 +281,7 @@ window_rules:
   - commands: ["move --workspace 10"]
     match:
       - window_process: { equals: "vivaldi" }
-        window_title: { equals: "https://www.youtube.com/tv" }
+        # window_title: { equals: "https://www.youtube.com/tv" }
 
   - commands: ["move --workspace 11"]
     match:
@@ -301,10 +303,13 @@ window_rules:
       - window_process: { equals: "steamwebhelper" }
         window_class: { equals: "SDL_app" }
       - window_class: { equals: "Photoshop" }
+      - window_process: { equals: "opencomic" }
+      - window_process: { equals: "stremio" }
 
   - commands: ["move --workspace 5"]
     match:
       - window_process: { equals: "Vortex" }
+      - window_process: { equals: "RadeonSoftware" }
 
   # Ignore rules for various 3rd-party apps.
   - commands: ["ignore"]
@@ -319,6 +324,7 @@ window_rules:
       - window_process: { equals: "Blacklist_DX11_game" }
       - window_process: { equals: "Sifu" }
       - window_process: { equals: "Sifu-Win64-Shipping" }
+      - window_process: { equals: "WindowsSandboxClient" }
 
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
@@ -340,8 +346,8 @@ window_rules:
 
       - window_process: { equals: "PowerToys" }
         window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
-      - window_process: { equals: "motionRightPowerToys" }
-        window_title: { regex: ".*? - Peek" }
+      # - window_process: { equals: "motionRightPowerToys" }
+      # window_title: { regex: ".*? - Peek" }
       - window_process: { equals: "Lively" }
         window_class: { regex: "HwndWrapper" }
       - window_process: { equals: "Microsoft.CmdPal.UI" }
@@ -524,6 +530,8 @@ keybindings:
     bindings: ["f21+a"]
 
   # Change focus to a workspace defined in `workspaces` config.
+  - commands: ["focus --workspace 0"]
+    bindings: ["f21+`"]
   - commands: ["focus --workspace 1"]
     bindings: ["f21+1"]
   - commands: ["focus --workspace 2"]
@@ -575,6 +583,8 @@ keybindings:
     bindings: ["f22+s"]
 
   # Move focused window to a workspace defined in `workspaces` config.
+  - commands: ["move --workspace 0", "focus --workspace 0"]
+    bindings: ["f22+`"]
   - commands: ["move --workspace 1", "focus --workspace 1"]
     bindings: ["f22+1"]
   - commands: ["move --workspace 2", "focus --workspace 2"]
@@ -681,7 +691,7 @@ keybindings:
   # Open Messaging App
   - commands:
       [
-        'shell-exec C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2587.9.0_x64__cv1g1gvanyjgm/WhatsApp.Root.exe',
+        "shell-exec C:/Program Files/WindowsApps/5319275A.WhatsAppDesktop_2.2605.103.0_x64__cv1g1gvanyjgm/WhatsApp.Root.exe",
       ]
     bindings: ["f22+m"]
 
@@ -699,10 +709,10 @@ keybindings:
     bindings: ["f21+b"]
 
   - commands: ['shell-exec C:\Aplications\Brave Apps\Copilot.lnk']
-    bindings: ["f22+b"]
+    bindings: ["f21+f22+b"]
 
   - commands: ['shell-exec C:\Aplications\Brave Apps\Gemini.lnk']
-    bindings: ["f21+f22+b"]
+    bindings: ["f22+b"]
 
   - commands: ["shell-exec explorer"]
     bindings: ["f21+r"]
@@ -727,9 +737,9 @@ keybindings:
 
   - commands:
       [
-        'shell-exec SCHTASKS.EXE /RUN /TN  "\TrustedApps\Terminal in Quake Mode"',
+        'shell-exec --hide-window SCHTASKS.EXE /RUN /TN  "\TrustedApps\Terminal in Quake Mode"',
       ]
-    bindings: ["f22+`"]
+    bindings: ["f21+f22+`"]
 
   # Resize and position windows shortcuts.
   - commands: ["size --width 63% --height 58%", "position --centered"]

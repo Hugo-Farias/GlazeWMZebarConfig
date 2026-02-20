@@ -10,7 +10,7 @@ i {
 }
 
 body {
-  color: rgb(255 255 255 / 90%);
+  color: rgb(255 255 255 / 80%);
   font-family: "UbuntuMono Nerd Font", monospace;
   /* font-family: Roboto, sans-serif; */
   font-size: 12px;
@@ -26,8 +26,9 @@ body,
 #root {
   /* border-bottom: 1px solid rgb(255 255 255 / 5%); */
   /* background: linear-gradient(rgb(0 0 0 / 90%), rgb(5 2 20 / 85%));  !*default values*! */
-  /* background: linear-gradient(rgb(0 0 0 / 100%), rgb(5 2 20 / 75%)); */
-  background-color: rgb(0 0 0 / 80%);
+  /* background: linear-gradient(rgb(0 0 0 / 100%), rgb(5 2 20 / 90%)); */
+  /* background-color: rgb(0 0 0 / 80%); */
+  background-color: black;
   /* border: 1px solid rgb(255 255 255 / 20%); */
 }
 
@@ -127,6 +128,10 @@ body,
 /* display: none; */
 /* margin-right: 20px; */
 /* } */
+
+.nf-md-ethernet_cable {
+  margin-right: 0;
+}
 
 .workspaces {
   display: flex;

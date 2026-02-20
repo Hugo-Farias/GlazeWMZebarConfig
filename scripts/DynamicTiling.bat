@@ -1,5 +1,6 @@
 REM @echo off
 setlocal enabledelayedexpansion
+nircmd win hide class Shell_TrayWnd
 
 :: Example JSON
 REM for /f "delims=" %%A in ('glazewm query focused') do set "json=%%A"
