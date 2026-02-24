@@ -195,6 +195,7 @@ window_rules:
   - commands: ["set-floating"]
     match:
       - window_process: { equals: "mpc-hc64" }
+      - window_process: { equals: "mpv" }
       - window_class: { regex: ".*Dialog.*" }
       - window_title: { equals: "Window Spy for AHKv2" }
       - window_title: { equals: "Unsaved Changes" }
@@ -225,6 +226,8 @@ window_rules:
       - window_process: { equals: "TrRebootTools" }
       - window_process: { equals: "Photoshop" }
         window_class: { equals: "PSFloatC" }
+      - window_process: { equals: "mmc" }
+        window_class: { regex: 'WindowsForms10\.Window\.8.*' }
 
   - commands: ["set-tiling"]
     match:
@@ -662,7 +665,7 @@ keybindings:
       ]
     bindings: ["f21+f22+3"]
 
-  - commands: ['shell-exec C:\Users\Hugo\AppData\Roaming\Spotify\Spotify.exe']
+  - commands: ['shell-exec C:\Users\Hugo\AppData\Roaming\Spotify\Spotify.lnk']
     bindings: ["f21+f22+-", "f21+f22+f2"]
 
   - commands: ['shell-exec C:\Program Files\AIMP\AIMP.exe']
@@ -684,24 +687,23 @@ keybindings:
     # Move all windows to the monitors they're bound to
   - commands:
       [
-        'shell-exec --hide-window powershell C:\Users\Hugo\.glzr\scripts\ReorganizeWorkspaces.ps1',
+        shell-exec --hide-window powershell C:\Users\Hugo\.glzr\scripts\ReorganizeWorkspaces.ps1,
       ]
     bindings: ["f21+f22+insert"]
 
   # Open Messaging App
   - commands:
       [
-        "shell-exec C:/Program Files/WindowsApps/5319275A.WhatsAppDesktop_2.2605.103.0_x64__cv1g1gvanyjgm/WhatsApp.Root.exe",
+        shell-exec --hide-window powershell -NoProfile -Command "Start-Process explorer.exe 'shell:AppsFolder\5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App'",
       ]
     bindings: ["f22+m"]
 
   # Open Mail Client
-  - commands:
-      ['shell-exec C:\Users\Hugo\AppData\Local\Mailspring\mailspring.exe']
+  - commands: [shell-exec C:\Users\Hugo\AppData\Local\Mailspring\mailspring.exe]
     bindings: ["f21+m"]
 
   # Open Google Keep
-  - commands: ['shell-exec C:\Aplications\Brave Apps\Google Keep.lnk']
+  - commands: [shell-exec C:\Aplications\Brave Apps\Google Keep.lnk]
     bindings: ["f21+f22+k"]
 
   # Open ChatGPT
@@ -737,7 +739,7 @@ keybindings:
 
   - commands:
       [
-        'shell-exec --hide-window SCHTASKS.EXE /RUN /TN  "\TrustedApps\Terminal in Quake Mode"',
+        'shell-exec --hide-window SCHTASKS.EXE /RUN /TN  "\TrustedApps\Terminal in Quake Mode (1)"',
       ]
     bindings: ["f21+f22+`"]
 
