@@ -168,6 +168,7 @@ window_rules:
       # - window_process: { equals: "chrome" }
       - window_process: { equals: "notepad++" }
       - window_process: { equals: "alacritty" }
+      - window_process: { equals: "cmd" }
       - window_process: { equals: "neovide" }
       - window_process: { equals: "Mp3tag" }
       - window_process: { equals: "Topaz Gigapixel AI" }
@@ -191,10 +192,12 @@ window_rules:
       - window_process: { equals: "ReflectBin" }
       - window_process: { equals: "Everything64" }
       - window_process: { equals: "zebar" }
+      - window_process: { equals: "mpv" }
 
   - commands: ["set-floating"]
     match:
       - window_process: { equals: "mpc-hc64" }
+      - window_process: { equals: "OnScreen Control" }
       - window_process: { equals: "mpv" }
       - window_class: { regex: ".*Dialog.*" }
       - window_title: { equals: "Window Spy for AHKv2" }
@@ -228,6 +231,8 @@ window_rules:
         window_class: { equals: "PSFloatC" }
       - window_process: { equals: "mmc" }
         window_class: { regex: 'WindowsForms10\.Window\.8.*' }
+      - window_process: { equals: "explorer" }
+        window_title: { equals: "ApplicationFrameWindow" }
 
   - commands: ["set-tiling"]
     match:
@@ -321,12 +326,12 @@ window_rules:
       - window_title: { equals: "Album Art Downloader" }
 
       # Ignores games.
-      - window_process: { equals: "Lion" }
-      - window_process: { equals: "Lion-Win64-Shipping" }
-      - window_process: { equals: "re4" }
-      - window_process: { equals: "Blacklist_DX11_game" }
-      - window_process: { equals: "Sifu" }
-      - window_process: { equals: "Sifu-Win64-Shipping" }
+      # - window_process: { equals: "Lion" }
+      # - window_process: { equals: "Lion-Win64-Shipping" }
+      # - window_process: { equals: "re4" }
+      # - window_process: { equals: "Blacklist_DX11_game" }
+      # - window_process: { equals: "Sifu" }
+      # - window_process: { equals: "Sifu-Win64-Shipping" }
       - window_process: { equals: "WindowsSandboxClient" }
 
       # Ignores picture-in-picture windows for browsers.
@@ -533,8 +538,8 @@ keybindings:
     bindings: ["f21+a"]
 
   # Change focus to a workspace defined in `workspaces` config.
-  - commands: ["focus --workspace 0"]
-    bindings: ["f21+`"]
+  # - commands: ["focus --workspace 0"]
+  #   bindings: ["f21+`"]
   - commands: ["focus --workspace 1"]
     bindings: ["f21+1"]
   - commands: ["focus --workspace 2"]
@@ -586,8 +591,8 @@ keybindings:
     bindings: ["f22+s"]
 
   # Move focused window to a workspace defined in `workspaces` config.
-  - commands: ["move --workspace 0", "focus --workspace 0"]
-    bindings: ["f22+`"]
+  # - commands: ["move --workspace 0", "focus --workspace 0"]
+  #   bindings: ["f22+`"]
   - commands: ["move --workspace 1", "focus --workspace 1"]
     bindings: ["f22+1"]
   - commands: ["move --workspace 2", "focus --workspace 2"]
@@ -650,7 +655,7 @@ keybindings:
       [
         'shell-exec C:\Users\Hugo\AppData\Local\Programs\OpenComic\opencomic.exe',
       ]
-    bindings: ["f21+f22+4"]
+    bindings: ["f21+f22+o"]
 
   # # - commands: [ 'shell-exec C:\Users\Hugo\AppData\Local\Programs\WebStorm 2\bin\webstorm64.exe', "focus --workspace 2" ]
   # #   bindings: [ 'f21+f22+2' ]
@@ -743,6 +748,12 @@ keybindings:
       ]
     bindings: ["f21+f22+`"]
 
+  - commands:
+      [
+        'shell-exec C:\Users\Hugo\AppData\Local\JDownloader 2.0\JDownloader2.exe',
+      ]
+    bindings: ["f21+f22+j"]
+
   # Resize and position windows shortcuts.
   - commands: ["size --width 63% --height 58%", "position --centered"]
     bindings: ["f21+t"]
@@ -755,3 +766,7 @@ keybindings:
 
   - commands: ["size --width 50% --height 50%", "position --centered"]
     bindings: ["f21+f22+t"]
+
+  - commands:
+      ["shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat"]
+    bindings: ["f21+escape"]
