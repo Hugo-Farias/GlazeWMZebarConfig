@@ -166,20 +166,20 @@ window_rules:
       # - window_process: { equals: "WindowsTerminal" }
       # - window_process: { equals: "Terminal" }
       # - window_process: { equals: "chrome" }
+      # - window_process: { equals: "deluge" }
+      # - window_process: { equals: "explorer" }
+      # - window_process: { equals: "mpc-hc64" }
       - window_process: { equals: "notepad++" }
       - window_process: { equals: "alacritty" }
       - window_process: { equals: "cmd" }
       - window_process: { equals: "neovide" }
       - window_process: { equals: "Mp3tag" }
       - window_process: { equals: "Topaz Gigapixel AI" }
-      # - window_process: { equals: "deluge" }
       - window_process: { equals: "JDownloader2" }
       - window_process: { equals: "stremio" }
       - window_process: { equals: "WhatsApp" }
       - window_process: { equals: "mailspring" }
-      # - window_process: { equals: "explorer" }
       - window_process: { equals: "windhawk" }
-      # - window_process: { equals: "mpc-hc64" }
       - window_process: { equals: "SoulseekQt" }
       - window_process: { equals: "pwsh" }
       - window_process: { equals: "picard" }
@@ -271,7 +271,7 @@ window_rules:
         window_class: { equals: "Chrome_WidgetWin_1" }
       - window_process: { equals: "WindowsTerminal" }
 
-  - commands: ["size --height 30% --width 30%"]
+  - commands: ["size --height 30% --width 37%"]
     match:
       - window_title: { regex: "DevTools - .*" }
 
