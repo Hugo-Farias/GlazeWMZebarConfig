@@ -2,10 +2,9 @@ general:
   # Commands to run when the WM has started. This is useful for running a
   # script or launching another application.
   # Example: The below command launches Zebar.
-  startup_commands:
-    [
+  startup_commands: [
       "shell-exec zebar",
-      "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/RestartKanata.bat",
+      # "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/RestartKanata.bat",
     ]
 
   # Commands to run just before the WM is shutdown.
@@ -155,7 +154,6 @@ window_rules:
   - commands: [
         # "toggle-tiling-direction",
         "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
-        "wm-redraw",
         # "shell-exec --hide-window nircmd win hide class Shell_TrayWnd",
       ]
     match:
@@ -189,13 +187,20 @@ window_rules:
       - window_process: { equals: "qutebrowser" }
       - window_process: { equals: "vivaldi" }
       - window_process: { equals: "msedge" }
+      - window_process: { equals: "chrome" }
       - window_process: { equals: "ReflectBin" }
       - window_process: { equals: "Everything64" }
       - window_process: { equals: "zebar" }
       - window_process: { equals: "mpv" }
+      - window_process: { equals: "TekkenGame-Win64-Shipping" }
+      - window_process: { equals: "brave" }
 
   - commands: ["set-floating"]
     match:
+      - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
+        window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
+      - window_process: { equals: "Raycast" }
+        window_title: { equals: "Raycast Settings" }
       - window_process: { equals: "mpc-hc64" }
       - window_process: { equals: "OnScreen Control" }
       - window_process: { equals: "mpv" }
@@ -205,7 +210,7 @@ window_rules:
       - window_title: { equals: "Qt5152QWindowIcon" }
       - window_class: { equals: "WinUIDesktopWin32WindowClass" }
         window_process: { equals: "PowerToys" }
-      - window_process: { equals: "Everything64" }
+      # - window_process: { equals: "Everything64" }
       - window_process: { equals: "deluge" }
         window_title: { regex: "^Add Torrents.*" }
       - window_process: { equals: "AMDAutoUpdate" }
@@ -233,6 +238,7 @@ window_rules:
         window_class: { regex: 'WindowsForms10\.Window\.8.*' }
       - window_process: { equals: "explorer" }
         window_title: { equals: "ApplicationFrameWindow" }
+      - window_process: { equals: "BB_Launcher" }
 
   - commands: ["set-tiling"]
     match:
@@ -260,16 +266,15 @@ window_rules:
   #       window_title: { regex: ".* Personal - Microsoft​ Edge" }
   #
   # # Automatically resize.
-  - commands: ["size --width 37%"]
+  - commands: ["size --width 27%"]
     match:
       - window_process: { equals: "brave" }
         window_title:
-          { regex: "^(ChatGPT|Gemini|Copilot|T3 Chat|Codeium Chat)$" }
-      - window_process: { equals: "webstorm64" }
-        window_title: { regex: "^Cascade - .*" }
-      - window_process: { equals: "chrome" }
-        window_class: { equals: "Chrome_WidgetWin_1" }
-      - window_process: { equals: "WindowsTerminal" }
+          {
+            regex: "^(ChatGPT|Gemini|Copilot|T3 Chat|Codeium Chat|Google Keep)$",
+          }
+      # - window_process: { equals: "chrome" }
+      #   window_class: { equals: "Chrome_WidgetWin_1" }
 
   - commands: ["size --height 30% --width 37%"]
     match:
@@ -282,6 +287,11 @@ window_rules:
       - window_process: { equals: "AIMP" }
         window_class: { equals: "TAIMPMainForm" }
 
+  - commands: ["size --width 76%"]
+    match:
+      - window_process: { equals: "spotify" }
+        window_class: { equals: "Chrome_WidgetWin_1" }
+
   # - commands: ["move --workspace 2"]
   #   match:
   #     - window_process: { equals: "webstorm64" }
@@ -289,7 +299,7 @@ window_rules:
   - commands: ["move --workspace 10"]
     match:
       - window_process: { equals: "vivaldi" }
-        # window_title: { equals: "https://www.youtube.com/tv" }
+        window_title: { equals: "https://www.youtube.com/tv" }
 
   - commands: ["move --workspace 11"]
     match:
@@ -305,6 +315,12 @@ window_rules:
     match:
       - window_process: { equals: "brave" }
         window_title: { regex: '.* \- Brave$' }
+
+  - commands: ["set-floating", "move --workspace 0"]
+    match:
+      - window_process: { equals: "node" }
+        window_class: { equals: "ConsoleWindowClass" }
+        window_title: { regex: "npm install @google/gemini-cli.*" }
 
   - commands: ["move --workspace 4"]
     match:
@@ -332,11 +348,13 @@ window_rules:
       # - window_process: { equals: "Blacklist_DX11_game" }
       # - window_process: { equals: "Sifu" }
       # - window_process: { equals: "Sifu-Win64-Shipping" }
+      - window_process: { equals: "eldenring" }
       - window_process: { equals: "WindowsSandboxClient" }
+      - window_process: { equals: "shadPS4" }
 
       # Ignores picture-in-picture windows for browsers.
-      - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
-        window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
+      # - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
+      #   window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
 
       # Windows Terminal in quake mode.
       - window_process: { equals: "WindowsTerminal" }
@@ -665,7 +683,7 @@ keybindings:
 
   - commands:
       [
-        'shell-exec C:\Aplications\Brave Apps\ChatGPT.lnk',
+        'shell-exec C:\Users\Hugo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Brave Apps\ChatGPT.lnk',
         "focus --workspace 3",
       ]
     bindings: ["f21+f22+3"]
@@ -708,17 +726,29 @@ keybindings:
     bindings: ["f21+m"]
 
   # Open Google Keep
-  - commands: [shell-exec C:\Aplications\Brave Apps\Google Keep.lnk]
+  - commands:
+      [
+        "shell-exec C:/Users/Hugo/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Brave Apps/Google Keep.lnk",
+      ]
     bindings: ["f21+f22+k"]
 
   # Open ChatGPT
-  - commands: ['shell-exec C:\Aplications\Brave Apps\ChatGPT.lnk']
+  - commands:
+      [
+        'shell-exec C:\Users\Hugo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Brave Apps\ChatGPT.lnk',
+      ]
     bindings: ["f21+b"]
 
-  - commands: ['shell-exec C:\Aplications\Brave Apps\Copilot.lnk']
+  - commands:
+      [
+        'shell-exec C:\Users\Hugo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Brave Apps\Copilot.lnk',
+      ]
     bindings: ["f21+f22+b"]
 
-  - commands: ['shell-exec C:\Aplications\Brave Apps\Gemini.lnk']
+  - commands:
+      [
+        'shell-exec C:\Users\Hugo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Brave Apps\Gemini.lnk',
+      ]
     bindings: ["f22+b"]
 
   - commands: ["shell-exec explorer"]
@@ -758,7 +788,7 @@ keybindings:
   - commands: ["size --width 63% --height 58%", "position --centered"]
     bindings: ["f21+t"]
 
-  - commands: ["size --width 77% --height 70%", "position --centered"]
+  - commands: ["size --width 73% --height 70%", "position --centered"]
     bindings: ["f21+g"]
 
   - commands: ["size --height 50%", "position --centered"]
@@ -770,3 +800,6 @@ keybindings:
   - commands:
       ["shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat"]
     bindings: ["f21+escape"]
+
+  - commands: ["position --centered"]
+    bindings: ["f21+f22+c"]
