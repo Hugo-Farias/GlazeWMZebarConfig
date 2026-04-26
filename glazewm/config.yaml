@@ -210,7 +210,6 @@ window_rules:
       - window_title: { equals: "Qt5152QWindowIcon" }
       - window_class: { equals: "WinUIDesktopWin32WindowClass" }
         window_process: { equals: "PowerToys" }
-      # - window_process: { equals: "Everything64" }
       - window_process: { equals: "deluge" }
         window_title: { regex: "^Add Torrents.*" }
       - window_process: { equals: "AMDAutoUpdate" }
@@ -275,6 +274,11 @@ window_rules:
           }
       # - window_process: { equals: "chrome" }
       #   window_class: { equals: "Chrome_WidgetWin_1" }
+
+  - commands:
+      ["set-floating", "size --width 73% --height 70%", "position --centered"]
+    match:
+      - window_process: { equals: "Everything64" }
 
   - commands: ["size --height 30% --width 37%"]
     match:
