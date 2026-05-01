@@ -29,7 +29,7 @@ general:
     # Trigger for cursor jump:
     # - 'monitor_focus': Jump when focus changes between monitors.
     # - 'window_focus': Jump when focus changes between windows.
-    trigger: "monitor_focus"
+    trigger: "window_focus"
 
   # How windows should be hidden when switching workspaces.
   # - 'cloak': Recommended. Hides windows with no animation.
@@ -194,6 +194,8 @@ window_rules:
       - window_process: { equals: "mpv" }
       - window_process: { equals: "TekkenGame-Win64-Shipping" }
       - window_process: { equals: "brave" }
+      - window_process: { equals: "TeraCopy" }
+        window_class: { equals: "TeraCopy3" }
 
   - commands: ["set-floating"]
     match:
@@ -208,8 +210,6 @@ window_rules:
       - window_title: { equals: "Window Spy for AHKv2" }
       - window_title: { equals: "Unsaved Changes" }
       - window_title: { equals: "Qt5152QWindowIcon" }
-      - window_class: { equals: "WinUIDesktopWin32WindowClass" }
-        window_process: { equals: "PowerToys" }
       - window_process: { equals: "deluge" }
         window_title: { regex: "^Add Torrents.*" }
       - window_process: { equals: "AMDAutoUpdate" }
@@ -238,6 +238,8 @@ window_rules:
       - window_process: { equals: "explorer" }
         window_title: { equals: "ApplicationFrameWindow" }
       - window_process: { equals: "BB_Launcher" }
+      - window_process: { equals: "PowerToys" }
+        window_class: { equals: "WinUIDesktopWin32WindowClass" }
 
   - commands: ["set-tiling"]
     match:
@@ -279,6 +281,9 @@ window_rules:
       ["set-floating", "size --width 73% --height 70%", "position --centered"]
     match:
       - window_process: { equals: "Everything64" }
+        window_class: { equals: "EVERYTHING" }
+      - window_class: { equals: "WinUIDesktopWin32WindowClass" }
+        window_process: { equals: "PowerToys.Settings" }
 
   - commands: ["size --height 30% --width 37%"]
     match:
@@ -376,8 +381,6 @@ window_rules:
 
       - window_process: { equals: "PowerToys" }
         window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
-      # - window_process: { equals: "motionRightPowerToys" }
-      # window_title: { regex: ".*? - Peek" }
       - window_process: { equals: "Lively" }
         window_class: { regex: "HwndWrapper" }
       - window_process: { equals: "Microsoft.CmdPal.UI" }
@@ -806,4 +809,4 @@ keybindings:
     bindings: ["f21+escape"]
 
   - commands: ["position --centered"]
-    bindings: ["f21+f22+c"]
+    bindings: ["f22+c"]
