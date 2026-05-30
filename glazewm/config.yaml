@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://json.schemastore.org/any.json
+# yaml-language-server: $schema=config-schema.json
 general:
   # Commands to run when the WM has started. This is useful for running a
   # script or launching another application.

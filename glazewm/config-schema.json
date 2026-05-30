@@ -1,0 +1,354 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GlazeWM Config",
+  "type": "object",
+  "additionalProperties": false,
+
+  "properties": {
+    "general": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "startup_commands": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "shutdown_commands": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "config_reload_commands": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+
+        "focus_follows_cursor": {
+          "type": "boolean"
+        },
+
+        "toggle_workspace_on_refocus": {
+          "type": "boolean"
+        },
+
+        "hide_method": {
+          "type": "string",
+          "enum": ["cloak", "hide", "place_in_corner"]
+        },
+
+        "show_all_in_taskbar": {
+          "type": "boolean"
+        },
+
+        "cursor_jump": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "trigger": {
+              "type": "string",
+              "enum": ["monitor_focus", "window_focus"]
+            }
+          }
+        }
+      }
+    },
+
+    "gaps": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scale_with_dpi": {
+          "type": "boolean"
+        },
+
+        "inner_gap": {
+          "$ref": "#/$defs/size"
+        },
+
+        "outer_gap": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "top": { "$ref": "#/$defs/size" },
+            "right": { "$ref": "#/$defs/size" },
+            "bottom": { "$ref": "#/$defs/size" },
+            "left": { "$ref": "#/$defs/size" }
+          }
+        }
+      }
+    },
+
+    "window_effects": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "focused_window": {
+          "$ref": "#/$defs/windowEffects"
+        },
+        "other_windows": {
+          "$ref": "#/$defs/windowEffects"
+        }
+      }
+    },
+
+    "window_behavior": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "initial_state": {
+          "type": "string",
+          "enum": ["tiling", "floating"]
+        },
+
+        "state_defaults": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "floating": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "centered": {
+                  "type": "boolean"
+                },
+                "shown_on_top": {
+                  "type": "boolean"
+                }
+              }
+            },
+
+            "fullscreen": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "maximized": {
+                  "type": "boolean"
+                },
+                "shown_on_top": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "workspaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "bind_to_monitor": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "keep_alive": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+
+    "window_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["commands", "match"],
+        "properties": {
+          "commands": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+
+          "match": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "window_process": {
+                  "$ref": "#/$defs/matcher"
+                },
+
+                "window_title": {
+                  "$ref": "#/$defs/matcher"
+                },
+
+                "window_class": {
+                  "$ref": "#/$defs/matcher"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "binding_modes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "keybindings"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+
+          "keybindings": {
+            "$ref": "#/properties/keybindings"
+          }
+        }
+      }
+    },
+
+    "keybindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["commands", "bindings"],
+        "properties": {
+          "commands": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+
+          "bindings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "$defs": {
+    "size": {
+      "type": "string",
+      "pattern": "^[0-9]+(px|%)?$"
+    },
+
+    "opacity": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9]+%$"
+        },
+        {
+          "type": "string",
+          "pattern": "^0(\\.\\d+)?|1(\\.0+)?$"
+        }
+      ]
+    },
+
+    "matcher": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "equals": {
+          "type": "string"
+        },
+
+        "regex": {
+          "type": "string"
+        },
+
+        "not_regex": {
+          "type": "string"
+        }
+      }
+    },
+
+    "borderEffect": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+
+        "color": {
+          "type": "string",
+          "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$"
+        }
+      }
+    },
+
+    "hideTitleBarEffect": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    },
+
+    "cornerStyleEffect": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+
+        "style": {
+          "type": "string",
+          "enum": ["square", "rounded", "small_rounded"]
+        }
+      }
+    },
+
+    "transparencyEffect": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+
+        "opacity": {
+          "$ref": "#/$defs/opacity"
+        }
+      }
+    },
+
+    "windowEffects": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "border": {
+          "$ref": "#/$defs/borderEffect"
+        },
+
+        "hide_title_bar": {
+          "$ref": "#/$defs/hideTitleBarEffect"
+        },
+
+        "corner_style": {
+          "$ref": "#/$defs/cornerStyleEffect"
+        },
+
+        "transparency": {
+          "$ref": "#/$defs/transparencyEffect"
+        }
+      }
+    }
+  }
+}
