@@ -1,9 +1,10 @@
+# yaml-language-server: $schema=https://json.schemastore.org/any.json
 general:
   # Commands to run when the WM has started. This is useful for running a
   # script or launching another application.
   # Example: The below command launches Zebar.
   startup_commands: [
-      "shell-exec zebar",
+      'shell-exec C:\Program Files\glzr.io\Zebar\zebar.exe',
       # "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/RestartKanata.bat",
     ]
 
@@ -77,7 +78,7 @@ window_effects:
     # Change the corner style of the window's frame.
     # ** Exclusive to Windows 11 due to API limitations.
     corner_style:
-      enabled: true
+      enabled: false
       # Allowed values: 'square', 'rounded', 'small_rounded'.
       style: "square"
 
@@ -89,7 +90,7 @@ window_effects:
     hide_title_bar:
       enabled: false
     corner_style:
-      enabled: true
+      enabled: false
       style: "square"
 
 window_behavior:
@@ -192,7 +193,6 @@ window_rules:
       - window_process: { equals: "ReflectBin" }
       - window_process: { equals: "Everything64" }
       - window_process: { equals: "zebar" }
-      - window_process: { equals: "mpv" }
       - window_process: { equals: "TekkenGame-Win64-Shipping" }
       - window_process: { equals: "brave" }
       - window_process: { equals: "TeraCopy" }
@@ -236,8 +236,8 @@ window_rules:
         window_class: { equals: "PSFloatC" }
       - window_process: { equals: "mmc" }
         window_class: { regex: 'WindowsForms10\.Window\.8.*' }
-      - window_process: { equals: "explorer" }
-        window_title: { equals: "ApplicationFrameWindow" }
+      - window_title: { equals: "ApplicationFrameWindow" }
+        window_process: { equals: "explorer" }
       - window_process: { equals: "BB_Launcher" }
       - window_process: { equals: "PowerToys" }
         window_class: { equals: "WinUIDesktopWin32WindowClass" }
@@ -301,10 +301,6 @@ window_rules:
     match:
       - window_process: { equals: "spotify" }
         window_class: { equals: "Chrome_WidgetWin_1" }
-
-  # - commands: ["move --workspace 2"]
-  #   match:
-  #     - window_process: { equals: "webstorm64" }
 
   - commands: ["move --workspace 10"]
     match:
@@ -589,7 +585,7 @@ keybindings:
         # "focus --recent-workspace",
         # "focus --recent-workspace",
       ]
-    bindings: ["f21+0", "f21+f1"]
+    bindings: ["f21+f1"]
   - commands: ["focus --workspace 11"]
     bindings: ["f21+-", "f21+f2"]
   - commands: ["focus --workspace 12"]
@@ -683,9 +679,6 @@ keybindings:
       ]
     bindings: ["f21+f22+o"]
 
-  # # - commands: [ 'shell-exec C:\Users\Hugo\AppData\Local\Programs\WebStorm 2\bin\webstorm64.exe', "focus --workspace 2" ]
-  # #   bindings: [ 'f21+f22+2' ]
-
   - commands: ["shell-exec wt", "focus --workspace 2"]
     bindings: ["f21+f22+2"]
 
@@ -707,7 +700,7 @@ keybindings:
         'shell-exec C:\Users\Hugo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Vivaldi Apps\Youtube TV.lnk',
       ]
       # ['shell-exec C:\Aplications/MSEdge/YouTube TV.lnk']
-    bindings: ["f21+f22+0", "f21+f22+f1"]
+    bindings: ["f21+f22+f1"]
 
   - commands: [
         # 'shell-exec --hide-window C:\Users\Hugo\.glzr\scripts\Restart SmoothScroll.bat',
@@ -768,7 +761,8 @@ keybindings:
   # - commands: ["shell-exec wt btop"]
   #   bindings: ["f21+escape"]
 
-  - commands: ["shell-exec wt btop"]
+  - commands:
+      ["shell-exec C:/Users/Hugo/AppData/Local/Microsoft/WinGet/Links/btop.exe"]
     bindings: ["f21+f22+escape"]
 
   - commands: ['shell-exec wt --profile "Neovim"']

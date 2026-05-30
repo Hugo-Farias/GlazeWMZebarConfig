@@ -49,7 +49,7 @@
       "shownInTaskbar": false,
       "focused": false,
       "resizable": false,
-      "transparent": false,
+      "transparent": true,
       "caching": {
         "defaultDuration": 604800,
         "rules": []
@@ -71,7 +71,7 @@
           "dockToEdge": {
             "enabled": true,
             "edge": null,
-            "windowMargin": "0px"
+            "windowMargin": "1px"
           }
         }
       ]
