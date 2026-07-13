@@ -210,7 +210,7 @@ window_rules:
       - window_class: { regex: ".*Dialog.*" }
       - window_title: { equals: "Window Spy for AHKv2" }
       - window_title: { equals: "Unsaved Changes" }
-      - window_title: { equals: "Qt5152QWindowIcon" }
+      - window_class: { equals: "Qt5152QWindowIcon" }
       - window_process: { equals: "deluge" }
         window_title: { regex: "^Add Torrents.*" }
       - window_process: { equals: "AMDAutoUpdate" }
@@ -326,7 +326,7 @@ window_rules:
     match:
       - window_process: { equals: "node" }
         window_class: { equals: "ConsoleWindowClass" }
-        window_title: { regex: "npm install @google/gemini-cli.*" }
+        window_title: { regex: "npm install @google/gemini-cli.*" } # moves the gemini start up window to workspace 0 temporarily
 
   - commands: ["move --workspace 4"]
     match:
@@ -519,7 +519,6 @@ keybindings:
     bindings: ["f21+f22+delete"]
 
   # Re-evaluate configuration file.
-  #  - commands: [ 'wm-reload-config', 'toggle-tiling-direction' ]
   - commands: ["wm-reload-config"]
     bindings: ["f22+r"]
 
@@ -550,10 +549,10 @@ keybindings:
     bindings: ["f21+f22+enter"]
 
   # Focus the next/previous active workspace defined in `workspaces` config.
-  - commands: ["focus --next-active-workspace"]
-    bindings: ["f21+d"]
-  - commands: ["focus --prev-active-workspace"]
-    bindings: ["f21+s"]
+  # - commands: ["focus --next-active-workspace"]
+  #   bindings: ["f21+d"]
+  # - commands: ["focus --prev-active-workspace"]
+  #   bindings: ["f21+s"]
 
   # Focus the workspace that last had focus.
   - commands: ["focus --recent-workspace"]
@@ -607,10 +606,10 @@ keybindings:
     bindings: ["f22+a"]
   - commands: ["move-workspace --direction right"]
     bindings: ["f22+f"]
-  - commands: ["move-workspace --direction up"]
-    bindings: ["f22+d"]
-  - commands: ["move-workspace --direction down"]
-    bindings: ["f22+s"]
+  # - commands: ["move-workspace --direction up"]
+  #   bindings: ["f22+d"]
+  # - commands: ["move-workspace --direction down"]
+  #   bindings: ["f22+s"]
 
   # Move focused window to a workspace defined in `workspaces` config.
   # - commands: ["move --workspace 0", "focus --workspace 0"]
@@ -713,7 +712,13 @@ keybindings:
       [
         shell-exec --hide-window powershell C:\Users\Hugo\.glzr\scripts\ReorganizeWorkspaces.ps1,
       ]
-    bindings: ["f21+f22+insert"]
+    bindings: ["f22+insert"]
+
+  - commands:
+      [
+        shell-exec --hide-window powershell C:\Users\Hugo\.glzr\scripts\ReorganizeWorkspaces.ps1,
+      ]
+    bindings: ["f21+insert"]
 
   # Open Messaging App
   - commands:
@@ -762,7 +767,9 @@ keybindings:
   #   bindings: ["f21+escape"]
 
   - commands:
-      ["shell-exec C:/Users/Hugo/AppData/Local/Microsoft/WinGet/Links/btop.exe"]
+      [
+        "shell-exec wt C:/Users/Hugo/AppData/Local/Microsoft/WinGet/Links/btop.exe",
+      ]
     bindings: ["f21+f22+escape"]
 
   - commands: ['shell-exec wt --profile "Neovim"']
@@ -787,16 +794,25 @@ keybindings:
     bindings: ["f21+f22+j"]
 
   # Resize and position windows shortcuts.
-  - commands: ["size --width 63% --height 58%", "position --centered"]
+  - commands: ["size --width 63% --height 58%"]
     bindings: ["f21+t"]
 
-  - commands: ["size --width 73% --height 70%", "position --centered"]
+  - commands: ["size --width 73% --height 70%"]
     bindings: ["f21+g"]
 
-  - commands: ["size --height 50%", "position --centered"]
+  - commands: ["size --width 28%"]
+    bindings: ["f21+d"]
+
+  - commands: ["size --height 50%"]
+    bindings: ["f21+s"]
+
+  - commands: ["size --width 28% --height 50%", "position --centered"]
+    bindings: ["f21+f22+d"]
+
+  - commands: ["size --width 50% --height 50%"]
     bindings: ["f21+f22+g"]
 
-  - commands: ["size --width 50% --height 50%", "position --centered"]
+  - commands: ["size --width 50% --height 50%"]
     bindings: ["f21+f22+t"]
 
   - commands:
