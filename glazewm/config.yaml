@@ -183,7 +183,6 @@ window_rules:
       - window_process: { equals: "SoulseekQt" }
       - window_process: { equals: "pwsh" }
       - window_process: { equals: "picard" }
-      - window_process: { equals: "wezterm-gui" }
       - window_process: { equals: "Editor" }
         window_title: { equals: "Equalizer APO 1.4.2 Configuration Editor" }
       - window_process: { equals: "qutebrowser" }
@@ -241,6 +240,7 @@ window_rules:
       - window_process: { equals: "BB_Launcher" }
       - window_process: { equals: "PowerToys" }
         window_class: { equals: "WinUIDesktopWin32WindowClass" }
+      - window_title: { equals: "Album Art Downloader" }
 
   - commands: ["set-tiling"]
     match:
@@ -345,7 +345,7 @@ window_rules:
   - commands: ["ignore"]
     match:
       - window_process: { equals: "zebar" }
-      - window_title: { equals: "Album Art Downloader" }
+      # - window_title: { equals: "Album Art Downloader" }
 
       # Ignores games.
       # - window_process: { equals: "Lion" }
@@ -644,6 +644,35 @@ keybindings:
     bindings: ["f22+f5"]
   - commands: ["move --workspace 15", "focus --workspace 15"]
     bindings: ["f22+f6"]
+
+  - commands: ["move --workspace 1"]
+    bindings: ["f21+shift+1"]
+  - commands: ["move --workspace 2"]
+    bindings: ["f21+shift+2"]
+  - commands: ["move --workspace 3"]
+    bindings: ["f21+shift+3"]
+  - commands: ["move --workspace 4"]
+    bindings: ["f21+shift+4"]
+  - commands: ["move --workspace 5"]
+    bindings: ["f21+shift+5"]
+  - commands: ["move --workspace 6"]
+    bindings: ["f21+shift+6"]
+  - commands: ["move --workspace 7"]
+    bindings: ["f21+shift+7"]
+  - commands: ["move --workspace 8"]
+    bindings: ["f21+shift+8"]
+  - commands: ["move --workspace 9"]
+    bindings: ["f21+shift+9"]
+  - commands: ["move --workspace 10"]
+    bindings: ["f21+shift+f1"]
+  - commands: ["move --workspace 11"]
+    bindings: ["f21+shift+f2"]
+  - commands: ["move --workspace 12"]
+    bindings: ["f21+shift+f3"]
+  - commands: ["move --workspace 13"]
+    bindings: ["f21+shift+f4"]
+  - commands: ["move --workspace 14"]
+    bindings: ["f21+shift+f5"]
 
   #  - commands: [ 'move --workspace 99', 'focus --workspace 99' ]
   #    bindings: [ 'f22+t' ]
