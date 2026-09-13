@@ -311,6 +311,8 @@ window_rules:
     match:
       - window_process: { equals: "Spotify" }
       - window_process: { equals: "AIMP" }
+      - window_process: { equals: "chrome" }
+        window_title: { regex: "YouTube Music" }
 
   - commands: ["move --workspace 12"]
     match:
@@ -357,6 +359,10 @@ window_rules:
       - window_process: { equals: "eldenring" }
       - window_process: { equals: "WindowsSandboxClient" }
       - window_process: { equals: "shadPS4" }
+      - window_process: { equals: "mgs4" }
+      - window_process: { equals: "8BitDo Ultimate Software V2" }
+      - window_process: { equals: "TekkenGame-Win64-Shipping" }
+      - window_process: { equals: "TEKKEN 7" }
 
       # Ignores picture-in-picture windows for browsers.
       # - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
@@ -789,7 +795,7 @@ keybindings:
   - commands: ["shell-exec explorer"]
     bindings: ["f21+r"]
 
-  - commands: ["shell-exec wt lazygit"]
+  - commands: ["shell-exec wt psmux"]
     bindings: ["f22+enter"]
 
   # - commands: ["shell-exec wt btop"]
@@ -804,8 +810,8 @@ keybindings:
   - commands: ['shell-exec wt --profile "Neovim"']
     bindings: ["f21+n"]
 
-  - commands: ["shell-exec wt nvim"]
-    bindings: ["f22+n"]
+  # - commands: ["shell-exec wt nvim"]
+  #   bindings: ["f22+n"]
 
   - commands: ['shell-exec C:\Program Files\AMD\CNext\CNext\RadeonSoftware.exe']
     bindings: ["f21+f22+a"]
@@ -850,3 +856,10 @@ keybindings:
 
   - commands: ["position --centered"]
     bindings: ["f22+c"]
+
+  - commands:
+      [
+        'shell-exec C:\Users\Hugo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Helium Apps\YouTube Music.lnk',
+      ]
+      # ['shell-exec C:\Aplications/MSEdge/YouTube TV.lnk']
+    bindings: ["f21+f22+y"]
