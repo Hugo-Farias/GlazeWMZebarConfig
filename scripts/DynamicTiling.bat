@@ -9,6 +9,8 @@ for /f "delims=" %%A in ('glazewm query focused ^| rg "\"x\"\:(\d+)\," -or "$1" 
 
 REM echo !W!
 
+timeout /t 1 /nobreak >nul
+
 if !W! GTR 10 (
   glazewm command set-tiling-direction vertical
 ) else (

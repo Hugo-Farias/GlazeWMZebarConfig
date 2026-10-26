@@ -155,7 +155,7 @@ workspaces:
 window_rules:
   - commands: [
         # "toggle-tiling-direction",
-        "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
+        "shell-exec --hide-window pwsh -NoProfile C:/Users/Hugo/.glzr/scripts/DynamicTiling.ps1",
         # "shell-exec --hide-window nircmd win hide class Shell_TrayWnd",
       ]
     match:
@@ -336,12 +336,11 @@ window_rules:
         window_class: { equals: "SDL_app" }
       - window_class: { equals: "Photoshop" }
       - window_process: { equals: "opencomic" }
-      - window_process: { equals: "stremio" }
-
   - commands: ["move --workspace 5"]
     match:
       - window_process: { equals: "Vortex" }
       - window_process: { equals: "RadeonSoftware" }
+      - window_process: { equals: "stremio" }
 
   # Ignore rules for various 3rd-party apps.
   - commands: ["ignore"]
@@ -409,22 +408,22 @@ keybindings:
   # Shift focus in a given direction.
   - commands: [
         "focus --direction left",
-        # "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
+        # "shell-exec --hide-window pwsh -NoProfile C:/Users/Hugo/.glzr/scripts/DynamicTiling.ps1",
       ]
     bindings: ["f21+h", "f21+left"]
   - commands: [
         "focus --direction right",
-        # "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
+        # "shell-exec --hide-window pwsh -NoProfile C:/Users/Hugo/.glzr/scripts/DynamicTiling.ps1",
       ]
     bindings: ["f21+l", "f21+right"]
   - commands: [
         "focus --direction up",
-        # "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
+        # "shell-exec --hide-window pwsh -NoProfile C:/Users/Hugo/.glzr/scripts/DynamicTiling.ps1",
       ]
     bindings: ["f21+k", "f21+up"]
   - commands: [
         "focus --direction down",
-        # "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
+        # "shell-exec --hide-window pwsh -NoProfile C:/Users/Hugo/.glzr/scripts/DynamicTiling.ps1",
       ]
     bindings: ["f21+j", "f21+down"]
 
@@ -474,7 +473,9 @@ keybindings:
     bindings: ["f21+v"]
 
   - commands:
-      ["shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat"]
+      [
+        "shell-exec --hide-window pwsh -NoProfile C:/Users/Hugo/.glzr/scripts/DynamicTiling.ps1",
+      ]
     bindings: ["f22+v"]
 
   # Change focus from tiling windows -> floating -> fullscreen.
@@ -489,7 +490,7 @@ keybindings:
   - commands:
       [
         "toggle-floating",
-        "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
+        "shell-exec --hide-window pwsh -NoProfile C:/Users/Hugo/.glzr/scripts/DynamicTiling.ps1",
       ]
     bindings: ["f22+space"]
 
@@ -497,7 +498,7 @@ keybindings:
   - commands:
       [
         "toggle-tiling",
-        "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
+        "shell-exec --hide-window pwsh -NoProfile C:/Users/Hugo/.glzr/scripts/DynamicTiling.ps1",
       ]
     bindings: ["f22+t"]
 
@@ -516,7 +517,7 @@ keybindings:
   - commands:
       [
         "close",
-        "shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat",
+        "shell-exec --hide-window pwsh -NoProfile C:/Users/Hugo/.glzr/scripts/DynamicTiling.ps1",
       ]
     bindings: ["f22+q"]
 
@@ -718,7 +719,7 @@ keybindings:
 
   - commands:
       [
-        'shell-exec C:\Users\Hugo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Brave Apps\ChatGPT.lnk',
+        'shell-exec C:\Users\Hugo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Brave Apps\Gemini.lnk',
         "focus --workspace 3",
       ]
     bindings: ["f21+f22+3"]
@@ -851,7 +852,9 @@ keybindings:
     bindings: ["f21+f22+t"]
 
   - commands:
-      ["shell-exec --hide-window C:/Users/Hugo/.glzr/scripts/DynamicTiling.bat"]
+      [
+        "shell-exec --hide-window pwsh -NoProfile C:/Users/Hugo/.glzr/scripts/DynamicTiling.ps1",
+      ]
     bindings: ["f21+escape"]
 
   - commands: ["position --centered"]
